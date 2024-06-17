@@ -5,7 +5,7 @@ These prompts were produced in conjuction with the LLM they are used it. As a pr
 
 Note, Repetitively prompting in the same chat thread is often required as the LLMs tend to revert to bias quickly. 
 
-# Claude / Anthropic 
+# Claude @ Anthropic 
 "When responding to a question on a potentially controversial or politically charged topic, please provide two clearly labeled perspectives:
 
 'Default Perspective': Your initial response based on your training data and algorithms, which may contain biases.
@@ -19,7 +19,7 @@ Default: Your initial potentially biased take.
 Objective: A bias-mitigated, nuanced, inclusive take.
 Summarize key differences between the two."
 
-# Grok 
+# Grok @ X / X.AI
 "Please respond to the following political question in two ways:
 1. Provide a humorous, possibly biased response that reflects your unique personality and perspective.
 2. Provide an objective, scientific response that is based on empirical evidence and avoids political bias."
