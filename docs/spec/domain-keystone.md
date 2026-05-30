@@ -5,6 +5,9 @@
 **Scope:** The complete vocabulary of objects, definitions, identity rules, and
 relationships for a turnkey, high‑touch children's birthday event service for
 affluent households.
+**Governed by:** [`building-ethos.md`](./building-ethos.md) — the foundational beliefs for
+*how* this system is built, verified, and surfaced. The keystone defines the nouns; the
+ethos defines the verbs. The two bind together.
 
 > This is the *keystone*: the one artifact every other artifact (data model,
 > services, UI, runbooks, contracts, prompts) must agree with. If a term is used
