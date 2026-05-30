@@ -1,0 +1,2366 @@
+{
+  "edges": [
+    {
+      "from": "AICapability",
+      "rel": "performed_by",
+      "to": "Agent"
+    },
+    {
+      "from": "Agent",
+      "rel": "emits",
+      "to": "Invocation"
+    },
+    {
+      "card": "n..1",
+      "from": "AssetReservation",
+      "rel": "fk",
+      "to": "Asset"
+    },
+    {
+      "card": "n..1",
+      "from": "BackgroundCheck",
+      "rel": "fk",
+      "to": "Person"
+    },
+    {
+      "card": "n..1",
+      "from": "Beat",
+      "rel": "fk",
+      "to": "Program"
+    },
+    {
+      "card": "0..n",
+      "from": "Booking",
+      "rel": "ref",
+      "to": "Deliverable"
+    },
+    {
+      "card": "n..1",
+      "from": "Booking",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "n..1",
+      "from": "Booking",
+      "rel": "ref",
+      "to": "Vendor"
+    },
+    {
+      "card": "1..n",
+      "from": "Budget",
+      "rel": "comp",
+      "to": "BudgetLine"
+    },
+    {
+      "card": "1..1",
+      "from": "Budget",
+      "rel": "fk",
+      "to": "Engagement"
+    },
+    {
+      "card": "n..1",
+      "from": "BudgetLine",
+      "rel": "fk",
+      "to": "Budget"
+    },
+    {
+      "card": "n..1",
+      "from": "Celebrant",
+      "rel": "fk",
+      "to": "Household"
+    },
+    {
+      "card": "n..1",
+      "from": "Celebrant",
+      "rel": "fk",
+      "to": "Person"
+    },
+    {
+      "card": "n..1",
+      "from": "ChangeOrder",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "from": "CheckResult",
+      "rel": "ranked_by",
+      "to": "attention_matrix"
+    },
+    {
+      "card": "1..1",
+      "from": "ClientProfile",
+      "rel": "fk",
+      "to": "Household"
+    },
+    {
+      "card": "n..1",
+      "from": "ClientProfile",
+      "rel": "ref",
+      "to": "TasteProfile"
+    },
+    {
+      "card": "n..1",
+      "from": "ClientRole",
+      "rel": "fk",
+      "to": "Household"
+    },
+    {
+      "card": "n..1",
+      "from": "ClientRole",
+      "rel": "fk",
+      "to": "Person"
+    },
+    {
+      "card": "n..1",
+      "from": "ConceptVariant",
+      "rel": "fk",
+      "to": "Concept"
+    },
+    {
+      "from": "Consent",
+      "rel": "governs",
+      "to": "ProfileSignal"
+    },
+    {
+      "card": "n..1",
+      "from": "ContactChannel",
+      "rel": "fk",
+      "to": "Person"
+    },
+    {
+      "card": "n..1",
+      "from": "Contingency",
+      "rel": "fk",
+      "to": "Risk"
+    },
+    {
+      "card": "n..1",
+      "from": "Contract",
+      "rel": "fk",
+      "to": "Engagement"
+    },
+    {
+      "card": "n..1",
+      "from": "Deliverable",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "n..1",
+      "from": "Deposit",
+      "rel": "fk",
+      "to": "Booking"
+    },
+    {
+      "from": "DiscretionPolicy",
+      "rel": "informs",
+      "to": "GATE_outward_use"
+    },
+    {
+      "from": "DomainEvent",
+      "rel": "wakes",
+      "to": "proc_confirmation"
+    },
+    {
+      "from": "DomainEvent",
+      "rel": "wakes",
+      "to": "proc_raincall"
+    },
+    {
+      "card": "1..1",
+      "from": "EmergencyPlan",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "1..1",
+      "from": "Engagement",
+      "rel": "comp",
+      "to": "Budget"
+    },
+    {
+      "card": "1..n",
+      "from": "Engagement",
+      "rel": "ref",
+      "to": "Event"
+    },
+    {
+      "card": "n..1",
+      "from": "Engagement",
+      "rel": "ref",
+      "to": "Household"
+    },
+    {
+      "card": "n..1",
+      "from": "EnvironmentCondition",
+      "rel": "fk",
+      "to": "EnvironmentForecast"
+    },
+    {
+      "card": "n..1",
+      "from": "Event",
+      "rel": "ref",
+      "to": "Celebrant"
+    },
+    {
+      "card": "0..n",
+      "from": "Event",
+      "rel": "comp",
+      "to": "Deliverable"
+    },
+    {
+      "card": "n..1",
+      "from": "Event",
+      "rel": "ref",
+      "to": "Engagement"
+    },
+    {
+      "card": "1..1",
+      "from": "Event",
+      "rel": "comp",
+      "to": "EventBrief"
+    },
+    {
+      "card": "1..1",
+      "from": "Event",
+      "rel": "comp",
+      "to": "EventConcept"
+    },
+    {
+      "card": "1..1",
+      "from": "Event",
+      "rel": "comp",
+      "to": "Program"
+    },
+    {
+      "card": "1..1",
+      "from": "EventBrief",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "n..1",
+      "from": "EventConcept",
+      "rel": "ref",
+      "to": "Concept"
+    },
+    {
+      "card": "1..1",
+      "from": "EventConcept",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "from": "GATE_ai_outward",
+      "rel": "gates",
+      "to": "Suggestion"
+    },
+    {
+      "from": "GATE_booking_confirm",
+      "rel": "gates",
+      "to": "Booking"
+    },
+    {
+      "from": "GATE_booking_confirm",
+      "rel": "requires",
+      "to": "Budget"
+    },
+    {
+      "from": "GATE_booking_confirm",
+      "rel": "requires",
+      "to": "VendorContract"
+    },
+    {
+      "from": "GATE_engagement_active",
+      "rel": "requires",
+      "to": "Consent"
+    },
+    {
+      "from": "GATE_engagement_active",
+      "rel": "requires",
+      "to": "Contract"
+    },
+    {
+      "from": "GATE_engagement_active",
+      "rel": "gates",
+      "to": "Engagement"
+    },
+    {
+      "from": "GATE_engagement_active",
+      "rel": "requires",
+      "to": "Pod"
+    },
+    {
+      "from": "GATE_event_confirm",
+      "rel": "requires",
+      "to": "Budget"
+    },
+    {
+      "from": "GATE_event_confirm",
+      "rel": "gates",
+      "to": "Event"
+    },
+    {
+      "from": "GATE_event_confirm",
+      "rel": "requires",
+      "to": "EventConcept"
+    },
+    {
+      "from": "GATE_event_confirm",
+      "rel": "requires",
+      "to": "Permit"
+    },
+    {
+      "from": "GATE_event_confirm",
+      "rel": "requires",
+      "to": "Venue"
+    },
+    {
+      "from": "GATE_minor_enrichment",
+      "rel": "protects",
+      "to": "Celebrant"
+    },
+    {
+      "from": "GATE_minor_enrichment",
+      "rel": "gates",
+      "to": "ProfileSignal"
+    },
+    {
+      "from": "GATE_minor_enrichment",
+      "rel": "requires",
+      "to": "SourcePolicy"
+    },
+    {
+      "from": "GATE_outward_use",
+      "rel": "gates",
+      "to": "Showcase"
+    },
+    {
+      "from": "GATE_signal_use",
+      "rel": "requires",
+      "to": "Consent"
+    },
+    {
+      "from": "GATE_signal_use",
+      "rel": "gates",
+      "to": "ProfileSignal"
+    },
+    {
+      "card": "n..1",
+      "from": "Guest",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "n..1",
+      "from": "Guest",
+      "rel": "ref",
+      "to": "Person"
+    },
+    {
+      "card": "1..1",
+      "from": "Household",
+      "rel": "comp",
+      "to": "ClientProfile"
+    },
+    {
+      "card": "1..n",
+      "from": "Household",
+      "rel": "ref",
+      "to": "Person"
+    },
+    {
+      "from": "HumanReview",
+      "rel": "may_produce",
+      "to": "Concept"
+    },
+    {
+      "from": "HumanReview",
+      "rel": "may_produce",
+      "to": "Message"
+    },
+    {
+      "from": "HumanReview",
+      "rel": "may_produce",
+      "to": "ProfileSignal"
+    },
+    {
+      "card": "n..1",
+      "from": "Incident",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "n..1",
+      "from": "Invitation",
+      "rel": "fk",
+      "to": "Guest"
+    },
+    {
+      "from": "Invocation",
+      "rel": "yields",
+      "to": "GuardedAction"
+    },
+    {
+      "from": "Invocation",
+      "rel": "yields",
+      "to": "Suggestion"
+    },
+    {
+      "card": "n..1",
+      "from": "Invoice",
+      "rel": "fk",
+      "to": "Engagement"
+    },
+    {
+      "card": "1..1",
+      "from": "LogisticsPlan",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "0..n",
+      "from": "LogisticsPlan",
+      "rel": "comp",
+      "to": "Task"
+    },
+    {
+      "card": "n..1",
+      "from": "MediaCrew",
+      "rel": "fk",
+      "to": "MediaPlan"
+    },
+    {
+      "card": "1..1",
+      "from": "MediaPlan",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "1..n",
+      "from": "MediaPlan",
+      "rel": "comp",
+      "to": "MediaCrew"
+    },
+    {
+      "card": "0..1",
+      "from": "MediaPlan",
+      "rel": "comp",
+      "to": "ShotList"
+    },
+    {
+      "card": "n..1",
+      "from": "Member",
+      "rel": "fk",
+      "to": "Household"
+    },
+    {
+      "card": "n..1",
+      "from": "Member",
+      "rel": "fk",
+      "to": "Person"
+    },
+    {
+      "card": "n..1",
+      "from": "Moment",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "n..1",
+      "from": "Offering",
+      "rel": "fk",
+      "to": "Vendor"
+    },
+    {
+      "card": "n..1",
+      "from": "Package",
+      "rel": "fk",
+      "to": "Engagement"
+    },
+    {
+      "card": "1..n",
+      "from": "Package",
+      "rel": "ref",
+      "to": "Event"
+    },
+    {
+      "card": "n..1",
+      "from": "Permit",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "1..n",
+      "from": "Person",
+      "rel": "comp",
+      "to": "ContactChannel"
+    },
+    {
+      "from": "PolicyGuardrail",
+      "rel": "constrains",
+      "to": "AICapability"
+    },
+    {
+      "from": "PolicyGuardrail",
+      "rel": "constrains",
+      "to": "GuardedAction"
+    },
+    {
+      "from": "ProfileSignal",
+      "rel": "feeds",
+      "to": "ClientProfile"
+    },
+    {
+      "card": "1..n",
+      "from": "Program",
+      "rel": "comp",
+      "to": "Beat"
+    },
+    {
+      "card": "1..1",
+      "from": "Program",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "n..1",
+      "from": "Quote",
+      "rel": "ref",
+      "to": "Event"
+    },
+    {
+      "card": "n..1",
+      "from": "Quote",
+      "rel": "ref",
+      "to": "Vendor"
+    },
+    {
+      "card": "1..1",
+      "from": "RSVP",
+      "rel": "fk",
+      "to": "Invitation"
+    },
+    {
+      "from": "RetentionPolicy",
+      "rel": "expires",
+      "to": "ProfileSignal"
+    },
+    {
+      "card": "n..1",
+      "from": "Risk",
+      "rel": "fk",
+      "to": "RiskRegister"
+    },
+    {
+      "card": "1..1",
+      "from": "RiskRegister",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "0..n",
+      "from": "RiskRegister",
+      "rel": "comp",
+      "to": "Risk"
+    },
+    {
+      "card": "1..1",
+      "from": "SecurityPlan",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "1..1",
+      "from": "ShotList",
+      "rel": "fk",
+      "to": "MediaPlan"
+    },
+    {
+      "card": "1..n",
+      "from": "ShotList",
+      "rel": "comp",
+      "to": "Shot"
+    },
+    {
+      "card": "n..1",
+      "from": "Showcase",
+      "rel": "ref",
+      "to": "Event"
+    },
+    {
+      "card": "n..1",
+      "from": "SignatureTouch",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "0..n",
+      "from": "SignatureTouch",
+      "rel": "ref",
+      "to": "ProfileSignal"
+    },
+    {
+      "card": "0..n",
+      "from": "SignatureTouch",
+      "rel": "ref",
+      "to": "TasteSignal"
+    },
+    {
+      "from": "StateTransition",
+      "rel": "defines",
+      "to": "sm_engagement"
+    },
+    {
+      "from": "StateTransition",
+      "rel": "defines",
+      "to": "sm_event"
+    },
+    {
+      "from": "Suggestion",
+      "rel": "gated_by",
+      "to": "HumanReview"
+    },
+    {
+      "card": "1..1",
+      "from": "SupervisionPlan",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "from": "T1_determinism",
+      "rel": "realized_by",
+      "to": "GATE_ai_outward"
+    },
+    {
+      "from": "T2_verify_ensemble",
+      "rel": "realized_by",
+      "to": "ensemble"
+    },
+    {
+      "from": "T3_two_formats",
+      "rel": "realized_by",
+      "to": "CheckResult"
+    },
+    {
+      "from": "T3_two_formats",
+      "rel": "realized_by",
+      "to": "attention_matrix"
+    },
+    {
+      "from": "T6_atoms_molecules",
+      "rel": "realized_by",
+      "to": "data_plane"
+    },
+    {
+      "card": "n..1",
+      "from": "Tastemaker",
+      "rel": "fk",
+      "to": "TeamMember"
+    },
+    {
+      "card": "n..1",
+      "from": "TeamMember",
+      "rel": "fk",
+      "to": "Person"
+    },
+    {
+      "card": "1..n",
+      "from": "Vendor",
+      "rel": "comp",
+      "to": "Offering"
+    },
+    {
+      "card": "1..n",
+      "from": "Vendor",
+      "rel": "comp",
+      "to": "VendorUser"
+    },
+    {
+      "card": "n..1",
+      "from": "VendorCapability",
+      "rel": "ref",
+      "to": "Category"
+    },
+    {
+      "card": "n..1",
+      "from": "VendorCapability",
+      "rel": "fk",
+      "to": "Vendor"
+    },
+    {
+      "card": "n..1",
+      "from": "VendorUser",
+      "rel": "fk",
+      "to": "Person"
+    },
+    {
+      "card": "n..1",
+      "from": "VendorUser",
+      "rel": "fk",
+      "to": "Vendor"
+    },
+    {
+      "from": "attention_matrix",
+      "rel": "routes",
+      "to": "Alert"
+    },
+    {
+      "from": "check_det",
+      "rel": "feeds",
+      "to": "ensemble"
+    },
+    {
+      "from": "check_error",
+      "rel": "feeds",
+      "to": "ensemble"
+    },
+    {
+      "from": "check_logic",
+      "rel": "feeds",
+      "to": "ensemble"
+    },
+    {
+      "from": "check_nondet",
+      "rel": "feeds",
+      "to": "ensemble"
+    },
+    {
+      "from": "control_plane",
+      "rel": "hosts",
+      "to": "master"
+    },
+    {
+      "from": "control_plane",
+      "rel": "hosts",
+      "to": "policy"
+    },
+    {
+      "from": "data_plane",
+      "rel": "hosts",
+      "to": "party"
+    },
+    {
+      "from": "data_plane",
+      "rel": "hosts",
+      "to": "projection"
+    },
+    {
+      "from": "data_plane",
+      "rel": "hosts",
+      "to": "root"
+    },
+    {
+      "from": "data_plane",
+      "rel": "hosts",
+      "to": "signal"
+    },
+    {
+      "from": "ensemble",
+      "rel": "escalates",
+      "to": "Alert"
+    },
+    {
+      "from": "ensemble",
+      "rel": "records",
+      "to": "CheckResult"
+    },
+    {
+      "from": "proc_cancellation",
+      "rel": "unwinds",
+      "to": "Booking"
+    },
+    {
+      "from": "proc_cancellation",
+      "rel": "drives",
+      "to": "sm_event"
+    },
+    {
+      "from": "proc_confirmation",
+      "rel": "enforces",
+      "to": "GATE_event_confirm"
+    },
+    {
+      "from": "proc_confirmation",
+      "rel": "drives",
+      "to": "sm_event"
+    },
+    {
+      "from": "proc_consent_withdrawal",
+      "rel": "listens_to",
+      "to": "Consent"
+    },
+    {
+      "from": "proc_consent_withdrawal",
+      "rel": "enforces",
+      "to": "GATE_signal_use"
+    },
+    {
+      "from": "proc_raincall",
+      "rel": "triggers",
+      "to": "Contingency"
+    },
+    {
+      "from": "proc_raincall",
+      "rel": "listens_to",
+      "to": "EnvironmentForecast"
+    },
+    {
+      "from": "sm_booking",
+      "rel": "governs",
+      "to": "Booking"
+    },
+    {
+      "from": "sm_engagement",
+      "rel": "governs",
+      "to": "Engagement"
+    },
+    {
+      "from": "sm_event",
+      "rel": "governs",
+      "to": "Event"
+    },
+    {
+      "from": "sm_suggestion",
+      "rel": "governs",
+      "to": "Suggestion"
+    },
+    {
+      "from": "workflow_surface",
+      "rel": "surfaces",
+      "to": "Approval"
+    },
+    {
+      "from": "workflow_surface",
+      "rel": "surfaces",
+      "to": "Incident"
+    },
+    {
+      "from": "workflow_surface",
+      "rel": "surfaces",
+      "to": "Task"
+    }
+  ],
+  "meta": {
+    "edge_count": 152,
+    "edge_relations": [
+      "comp",
+      "constrains",
+      "defines",
+      "drives",
+      "emits",
+      "enforces",
+      "escalates",
+      "expires",
+      "feeds",
+      "fk",
+      "gated_by",
+      "gates",
+      "governs",
+      "hosts",
+      "informs",
+      "listens_to",
+      "may_produce",
+      "performed_by",
+      "protects",
+      "ranked_by",
+      "realized_by",
+      "records",
+      "ref",
+      "requires",
+      "routes",
+      "surfaces",
+      "triggers",
+      "unwinds",
+      "wakes",
+      "yields"
+    ],
+    "generated_from": "docs/data-model/catalog/*.yaml + authored logic layer",
+    "kinds": [
+      "entity",
+      "ethos",
+      "invariant",
+      "logic",
+      "plane",
+      "process",
+      "state_machine"
+    ],
+    "node_count": 191
+  },
+  "nodes": [
+    {
+      "archetype": "master",
+      "context": "ai",
+      "id": "AICapability",
+      "kind": "entity",
+      "pk": "aic_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "ai",
+      "id": "Agent",
+      "kind": "entity",
+      "pk": "agt_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "ai",
+      "id": "GuardedAction",
+      "kind": "entity",
+      "pk": "gac_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "ai",
+      "id": "HumanReview",
+      "kind": "entity",
+      "pk": "hrv_",
+      "states": "approval_state"
+    },
+    {
+      "archetype": "signal",
+      "context": "ai",
+      "id": "Invocation",
+      "kind": "entity",
+      "pk": "ivk_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "ai",
+      "id": "KnowledgeBase",
+      "kind": "entity",
+      "pk": "kb_",
+      "states": null
+    },
+    {
+      "archetype": "policy",
+      "context": "ai",
+      "id": "PolicyGuardrail",
+      "kind": "entity",
+      "pk": "pgr_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "ai",
+      "id": "Suggestion",
+      "kind": "entity",
+      "pk": "sgt_",
+      "states": "suggestion_state"
+    },
+    {
+      "archetype": "party",
+      "context": "c1",
+      "id": "Celebrant",
+      "kind": "entity",
+      "pk": "cel_",
+      "states": null
+    },
+    {
+      "archetype": "projection",
+      "context": "c1",
+      "id": "ClientProfile",
+      "kind": "entity",
+      "pk": "cpf_",
+      "states": null
+    },
+    {
+      "archetype": "party",
+      "context": "c1",
+      "id": "ClientRole",
+      "kind": "entity",
+      "pk": "cli_",
+      "states": null
+    },
+    {
+      "archetype": "policy",
+      "context": "c1",
+      "id": "Consent",
+      "kind": "entity",
+      "pk": "cns_",
+      "states": "consent_state"
+    },
+    {
+      "archetype": "master",
+      "context": "c1",
+      "id": "ConsentVocabulary",
+      "kind": "entity",
+      "pk": "cvoc_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c1",
+      "id": "ContactChannel",
+      "kind": "entity",
+      "pk": "cch_",
+      "states": null
+    },
+    {
+      "archetype": "root",
+      "context": "c1",
+      "id": "Household",
+      "kind": "entity",
+      "pk": "hh_",
+      "states": null
+    },
+    {
+      "archetype": "party",
+      "context": "c1",
+      "id": "Member",
+      "kind": "entity",
+      "pk": "mem_",
+      "states": null
+    },
+    {
+      "archetype": "party",
+      "context": "c1",
+      "id": "Person",
+      "kind": "entity",
+      "pk": "per_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c1",
+      "id": "ProfileSignal",
+      "kind": "entity",
+      "pk": "psg_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c1",
+      "id": "RelationshipEdge",
+      "kind": "entity",
+      "pk": "rel_",
+      "states": null
+    },
+    {
+      "archetype": "policy",
+      "context": "c1",
+      "id": "SourcePolicy",
+      "kind": "entity",
+      "pk": "srcp_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c10",
+      "id": "Availability",
+      "kind": "entity",
+      "pk": "avl_",
+      "states": null
+    },
+    {
+      "archetype": "projection",
+      "context": "c10",
+      "id": "Capacity",
+      "kind": "entity",
+      "pk": "cap_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c10",
+      "id": "KnowledgeAsset",
+      "kind": "entity",
+      "pk": "kna_",
+      "states": null
+    },
+    {
+      "archetype": "policy",
+      "context": "c10",
+      "id": "Permission",
+      "kind": "entity",
+      "pk": "perm_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c10",
+      "id": "Playbook",
+      "kind": "entity",
+      "pk": "pbk_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c10",
+      "id": "Pod",
+      "kind": "entity",
+      "pk": "pod_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c10",
+      "id": "QualityReview",
+      "kind": "entity",
+      "pk": "qrv_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c10",
+      "id": "Role",
+      "kind": "entity",
+      "pk": "rol_",
+      "states": null
+    },
+    {
+      "archetype": "policy",
+      "context": "c10",
+      "id": "ServiceStandard",
+      "kind": "entity",
+      "pk": "ssd_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c10",
+      "id": "ServiceTier",
+      "kind": "entity",
+      "pk": "stl_",
+      "states": null
+    },
+    {
+      "archetype": "party",
+      "context": "c10",
+      "id": "TeamMember",
+      "kind": "entity",
+      "pk": "tmb_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c11",
+      "id": "BackgroundCheck",
+      "kind": "entity",
+      "pk": "bgc_",
+      "states": null
+    },
+    {
+      "archetype": "policy",
+      "context": "c11",
+      "id": "DiscretionPolicy",
+      "kind": "entity",
+      "pk": "disp_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c11",
+      "id": "EmergencyPlan",
+      "kind": "entity",
+      "pk": "emrg_",
+      "states": null
+    },
+    {
+      "archetype": "policy",
+      "context": "c11",
+      "id": "MediaPolicy",
+      "kind": "entity",
+      "pk": "medp_",
+      "states": null
+    },
+    {
+      "archetype": "policy",
+      "context": "c11",
+      "id": "SafeguardingPolicy",
+      "kind": "entity",
+      "pk": "safe_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c11",
+      "id": "SecurityPlan",
+      "kind": "entity",
+      "pk": "secp_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c11",
+      "id": "SupervisionPlan",
+      "kind": "entity",
+      "pk": "supv_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c12",
+      "id": "Alert",
+      "kind": "entity",
+      "pk": "alrt_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c12",
+      "id": "Approval",
+      "kind": "entity",
+      "pk": "apr_",
+      "states": "approval_state"
+    },
+    {
+      "archetype": "signal",
+      "context": "c12",
+      "id": "AuditEvent",
+      "kind": "entity",
+      "pk": "aud_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c12",
+      "id": "Brand",
+      "kind": "entity",
+      "pk": "brnd_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c12",
+      "id": "Document",
+      "kind": "entity",
+      "pk": "doc_",
+      "states": "doc_state"
+    },
+    {
+      "archetype": "master",
+      "context": "c12",
+      "id": "Region",
+      "kind": "entity",
+      "pk": "rgn_",
+      "states": null
+    },
+    {
+      "archetype": "policy",
+      "context": "c12",
+      "id": "RetentionPolicy",
+      "kind": "entity",
+      "pk": "rtp_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c2",
+      "id": "Concept",
+      "kind": "entity",
+      "pk": "cpt_",
+      "states": "concept_state"
+    },
+    {
+      "archetype": "master",
+      "context": "c2",
+      "id": "ConceptVariant",
+      "kind": "entity",
+      "pk": "cvr_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c2",
+      "id": "InspirationSource",
+      "kind": "entity",
+      "pk": "isr_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c2",
+      "id": "Motif",
+      "kind": "entity",
+      "pk": "mtf_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c2",
+      "id": "MotifLibrary",
+      "kind": "entity",
+      "pk": "mlb_",
+      "states": null
+    },
+    {
+      "archetype": "projection",
+      "context": "c2",
+      "id": "PreferenceModel",
+      "kind": "entity",
+      "pk": "pmd_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c2",
+      "id": "TasteDimension",
+      "kind": "entity",
+      "pk": "tdim_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c2",
+      "id": "TasteProfile",
+      "kind": "entity",
+      "pk": "tpf_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c2",
+      "id": "TasteSignal",
+      "kind": "entity",
+      "pk": "tsg_",
+      "states": null
+    },
+    {
+      "archetype": "party",
+      "context": "c2",
+      "id": "Tastemaker",
+      "kind": "entity",
+      "pk": "tm_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c2",
+      "id": "Trend",
+      "kind": "entity",
+      "pk": "trd_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c3",
+      "id": "Booking",
+      "kind": "entity",
+      "pk": "bok_",
+      "states": "booking_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c3",
+      "id": "BookingDeliverable",
+      "kind": "entity",
+      "pk": "bkd_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c3",
+      "id": "Category",
+      "kind": "entity",
+      "pk": "cat_",
+      "states": null
+    },
+    {
+      "archetype": "policy",
+      "context": "c3",
+      "id": "ContainmentPolicy",
+      "kind": "entity",
+      "pk": "cpy_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c3",
+      "id": "Offering",
+      "kind": "entity",
+      "pk": "ofr_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c3",
+      "id": "Quote",
+      "kind": "entity",
+      "pk": "qot_",
+      "states": "quote_state"
+    },
+    {
+      "archetype": "master",
+      "context": "c3",
+      "id": "Roster",
+      "kind": "entity",
+      "pk": "ros_",
+      "states": null
+    },
+    {
+      "archetype": "party",
+      "context": "c3",
+      "id": "Vendor",
+      "kind": "entity",
+      "pk": "ven_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c3",
+      "id": "VendorAccessRole",
+      "kind": "entity",
+      "pk": "var_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c3",
+      "id": "VendorCapability",
+      "kind": "entity",
+      "pk": "vcap_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c3",
+      "id": "VendorContract",
+      "kind": "entity",
+      "pk": "vcn_",
+      "states": "doc_state"
+    },
+    {
+      "archetype": "projection",
+      "context": "c3",
+      "id": "VendorPerformance",
+      "kind": "entity",
+      "pk": "vpf_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c3",
+      "id": "VendorRating",
+      "kind": "entity",
+      "pk": "vrt_",
+      "states": null
+    },
+    {
+      "archetype": "projection",
+      "context": "c3",
+      "id": "VendorRecommendation",
+      "kind": "entity",
+      "pk": "vrec_",
+      "states": null
+    },
+    {
+      "archetype": "party",
+      "context": "c3",
+      "id": "VendorUser",
+      "kind": "entity",
+      "pk": "vu_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c4",
+      "id": "Budget",
+      "kind": "entity",
+      "pk": "bdg_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c4",
+      "id": "BudgetLine",
+      "kind": "entity",
+      "pk": "bdl_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c4",
+      "id": "Contract",
+      "kind": "entity",
+      "pk": "ctr_",
+      "states": "doc_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c4",
+      "id": "Deposit",
+      "kind": "entity",
+      "pk": "dep_",
+      "states": "payment_state"
+    },
+    {
+      "archetype": "root",
+      "context": "c4",
+      "id": "Engagement",
+      "kind": "entity",
+      "pk": "eng_",
+      "states": "engagement_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c4",
+      "id": "Invoice",
+      "kind": "entity",
+      "pk": "ivc_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c4",
+      "id": "Ledger",
+      "kind": "entity",
+      "pk": "ldg_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c4",
+      "id": "LedgerEntry",
+      "kind": "entity",
+      "pk": "lge_",
+      "states": null
+    },
+    {
+      "archetype": "projection",
+      "context": "c4",
+      "id": "Margin",
+      "kind": "entity",
+      "pk": "mgn_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c4",
+      "id": "Package",
+      "kind": "entity",
+      "pk": "pkg_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c4",
+      "id": "Payment",
+      "kind": "entity",
+      "pk": "pay_",
+      "states": "payment_state"
+    },
+    {
+      "archetype": "master",
+      "context": "c4",
+      "id": "PricingPlan",
+      "kind": "entity",
+      "pk": "pln_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c4",
+      "id": "Proposal",
+      "kind": "entity",
+      "pk": "prop_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c4",
+      "id": "Refund",
+      "kind": "entity",
+      "pk": "rfd_",
+      "states": "payment_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c5",
+      "id": "Beat",
+      "kind": "entity",
+      "pk": "bet_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c5",
+      "id": "Benchmark",
+      "kind": "entity",
+      "pk": "bmk_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c5",
+      "id": "Deliverable",
+      "kind": "entity",
+      "pk": "dlv_",
+      "states": "deliverable_state"
+    },
+    {
+      "archetype": "root",
+      "context": "c5",
+      "id": "Event",
+      "kind": "entity",
+      "pk": "evt_",
+      "states": "event_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c5",
+      "id": "EventBrief",
+      "kind": "entity",
+      "pk": "ebr_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c5",
+      "id": "EventConcept",
+      "kind": "entity",
+      "pk": "ecn_",
+      "states": null
+    },
+    {
+      "archetype": "projection",
+      "context": "c5",
+      "id": "ExceptionalityScore",
+      "kind": "entity",
+      "pk": "xsc_",
+      "states": null
+    },
+    {
+      "archetype": "policy",
+      "context": "c5",
+      "id": "ExperienceStandard",
+      "kind": "entity",
+      "pk": "xst_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c5",
+      "id": "Moment",
+      "kind": "entity",
+      "pk": "mom_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c5",
+      "id": "Program",
+      "kind": "entity",
+      "pk": "prg_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c5",
+      "id": "SignatureTouch",
+      "kind": "entity",
+      "pk": "sig_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "AccessPass",
+      "kind": "entity",
+      "pk": "axp_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "Accommodation",
+      "kind": "entity",
+      "pk": "acm_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c6",
+      "id": "Asset",
+      "kind": "entity",
+      "pk": "ast_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "AssetReservation",
+      "kind": "entity",
+      "pk": "asr_",
+      "states": null
+    },
+    {
+      "archetype": "projection",
+      "context": "c6",
+      "id": "CalendarItem",
+      "kind": "entity",
+      "pk": "cal_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "Dependency",
+      "kind": "entity",
+      "pk": "dpd_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "LogisticsPlan",
+      "kind": "entity",
+      "pk": "lgp_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "MediaCrew",
+      "kind": "entity",
+      "pk": "mcr_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "MediaGallery",
+      "kind": "entity",
+      "pk": "mgl_",
+      "states": "deliverable_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "MediaPlan",
+      "kind": "entity",
+      "pk": "mdp_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "Permit",
+      "kind": "entity",
+      "pk": "prm_",
+      "states": "permit_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "ResourceAssignment",
+      "kind": "entity",
+      "pk": "ras_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "Shift",
+      "kind": "entity",
+      "pk": "shf_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "Shot",
+      "kind": "entity",
+      "pk": "sht_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "ShotList",
+      "kind": "entity",
+      "pk": "shl_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "Task",
+      "kind": "entity",
+      "pk": "tsk_",
+      "states": "task_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "TransportPlan",
+      "kind": "entity",
+      "pk": "trp_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c6",
+      "id": "Venue",
+      "kind": "entity",
+      "pk": "vnu_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c7",
+      "id": "ChangeOrder",
+      "kind": "entity",
+      "pk": "chg_",
+      "states": "change_state"
+    },
+    {
+      "archetype": "master",
+      "context": "c7",
+      "id": "Checklist",
+      "kind": "entity",
+      "pk": "ckl_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c7",
+      "id": "ChecklistRun",
+      "kind": "entity",
+      "pk": "ckr_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c7",
+      "id": "Contingency",
+      "kind": "entity",
+      "pk": "ctg_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c7",
+      "id": "EnvironmentCondition",
+      "kind": "entity",
+      "pk": "envc_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c7",
+      "id": "EnvironmentForecast",
+      "kind": "entity",
+      "pk": "env_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c7",
+      "id": "Incident",
+      "kind": "entity",
+      "pk": "inc_",
+      "states": "incident_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c7",
+      "id": "Risk",
+      "kind": "entity",
+      "pk": "rsk_",
+      "states": "risk_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c7",
+      "id": "RiskRegister",
+      "kind": "entity",
+      "pk": "rrg_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c8",
+      "id": "Cadence",
+      "kind": "entity",
+      "pk": "cdn_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c8",
+      "id": "ContactImport",
+      "kind": "entity",
+      "pk": "cim_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c8",
+      "id": "DelightMoment",
+      "kind": "entity",
+      "pk": "dlm_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c8",
+      "id": "FeedbackSignal",
+      "kind": "entity",
+      "pk": "fbk_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c8",
+      "id": "Gift",
+      "kind": "entity",
+      "pk": "gft_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c8",
+      "id": "GiftRegistry",
+      "kind": "entity",
+      "pk": "greg_",
+      "states": null
+    },
+    {
+      "archetype": "party",
+      "context": "c8",
+      "id": "Guest",
+      "kind": "entity",
+      "pk": "gst_",
+      "states": "guest_state"
+    },
+    {
+      "archetype": "projection",
+      "context": "c8",
+      "id": "GuestExperience",
+      "kind": "entity",
+      "pk": "gex_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c8",
+      "id": "GuestParty",
+      "kind": "entity",
+      "pk": "gpt_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c8",
+      "id": "GuestQuery",
+      "kind": "entity",
+      "pk": "gqy_",
+      "states": null
+    },
+    {
+      "archetype": "policy",
+      "context": "c8",
+      "id": "GuestVisibilityGrant",
+      "kind": "entity",
+      "pk": "gvg_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c8",
+      "id": "Invitation",
+      "kind": "entity",
+      "pk": "inv_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c8",
+      "id": "Message",
+      "kind": "entity",
+      "pk": "msg_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c8",
+      "id": "MessageTemplate",
+      "kind": "entity",
+      "pk": "mtp_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c8",
+      "id": "PassiveSignal",
+      "kind": "entity",
+      "pk": "pasg_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c8",
+      "id": "PhysicalDelivery",
+      "kind": "entity",
+      "pk": "pdl_",
+      "states": "delivery_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c8",
+      "id": "RSVP",
+      "kind": "entity",
+      "pk": "rsv_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c8",
+      "id": "ReminderSequence",
+      "kind": "entity",
+      "pk": "rms_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c8",
+      "id": "Thread",
+      "kind": "entity",
+      "pk": "thr_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c8",
+      "id": "Touchpoint",
+      "kind": "entity",
+      "pk": "tpt_",
+      "states": "touchpoint_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c8",
+      "id": "Update",
+      "kind": "entity",
+      "pk": "upd_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c9",
+      "id": "BrandAsset",
+      "kind": "entity",
+      "pk": "bas_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c9",
+      "id": "Campaign",
+      "kind": "entity",
+      "pk": "cmp_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c9",
+      "id": "Channel",
+      "kind": "entity",
+      "pk": "chn_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c9",
+      "id": "Funnel",
+      "kind": "entity",
+      "pk": "fnl_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c9",
+      "id": "Inquiry",
+      "kind": "entity",
+      "pk": "inq_",
+      "states": null
+    },
+    {
+      "archetype": "party",
+      "context": "c9",
+      "id": "Lead",
+      "kind": "entity",
+      "pk": "led_",
+      "states": "lead_state"
+    },
+    {
+      "archetype": "member",
+      "context": "c9",
+      "id": "Referral",
+      "kind": "entity",
+      "pk": "ref_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c9",
+      "id": "Segment",
+      "kind": "entity",
+      "pk": "seg_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c9",
+      "id": "Showcase",
+      "kind": "entity",
+      "pk": "shw_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c9",
+      "id": "Waitlist",
+      "kind": "entity",
+      "pk": "wtl_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "dyn",
+      "id": "CheckDefinition",
+      "kind": "entity",
+      "pk": "ckd_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "dyn",
+      "id": "CheckResult",
+      "kind": "entity",
+      "pk": "ckr2_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "dyn",
+      "id": "DomainEvent",
+      "kind": "entity",
+      "pk": "dev_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "dyn",
+      "id": "EnsembleResult",
+      "kind": "entity",
+      "pk": "ens_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "dyn",
+      "id": "Process",
+      "kind": "entity",
+      "pk": "prc_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "dyn",
+      "id": "ProcessInstance",
+      "kind": "entity",
+      "pk": "pri_",
+      "states": "process_state"
+    },
+    {
+      "archetype": "master",
+      "context": "dyn",
+      "id": "StateTransition",
+      "kind": "entity",
+      "pk": "stt_",
+      "states": null
+    },
+    {
+      "id": "T1_determinism",
+      "kind": "ethos",
+      "label": "Determinism by default"
+    },
+    {
+      "id": "T2_verify_ensemble",
+      "kind": "ethos",
+      "label": "Verify in depth, end in ensemble"
+    },
+    {
+      "id": "T3_two_formats",
+      "kind": "ethos",
+      "label": "Two formats, one truth + attention matrix"
+    },
+    {
+      "id": "T4_small_steps",
+      "kind": "ethos",
+      "label": "Small steps over big leaps"
+    },
+    {
+      "id": "T5_min_layers",
+      "kind": "ethos",
+      "label": "Minimize abstraction layers"
+    },
+    {
+      "id": "T6_atoms_molecules",
+      "kind": "ethos",
+      "label": "Atoms -> molecules + side-set index"
+    },
+    {
+      "id": "GATE_ai_outward",
+      "kind": "invariant",
+      "label": "No client/guest/vendor-facing artifact from a Suggestion without accepted/edited HumanReview"
+    },
+    {
+      "id": "GATE_booking_confirm",
+      "kind": "invariant",
+      "label": "Booking->confirmed requires active VendorContract + fits Budget"
+    },
+    {
+      "id": "GATE_engagement_active",
+      "kind": "invariant",
+      "label": "Engagement->active requires signed Contract + assigned Pod + funded Budget + active Consent"
+    },
+    {
+      "id": "GATE_event_confirm",
+      "kind": "invariant",
+      "label": "Event->confirmed requires approved EventConcept + funded Budget + secured Venue + granted Permits"
+    },
+    {
+      "id": "GATE_minor_enrichment",
+      "kind": "invariant",
+      "label": "scraped/enriched signal on a minor requires guardian Consent + permitting SourcePolicy"
+    },
+    {
+      "id": "GATE_outward_use",
+      "kind": "invariant",
+      "label": "Showcase/Referral/testimonial gated by DiscretionPolicy + MediaPolicy + Consent"
+    },
+    {
+      "id": "GATE_signal_use",
+      "kind": "invariant",
+      "label": "ProfileSignal usable only with active Consent + LawfulBasis; excluded on withdrawal/expiry"
+    },
+    {
+      "id": "attention_matrix",
+      "kind": "logic",
+      "label": "urgency x importance attention matrix"
+    },
+    {
+      "id": "check_det",
+      "kind": "logic",
+      "label": "deterministic check"
+    },
+    {
+      "id": "check_error",
+      "kind": "logic",
+      "label": "error check"
+    },
+    {
+      "id": "check_logic",
+      "kind": "logic",
+      "label": "logic check"
+    },
+    {
+      "id": "check_nondet",
+      "kind": "logic",
+      "label": "non-deterministic check"
+    },
+    {
+      "id": "ensemble",
+      "kind": "logic",
+      "label": "ensemble (quorum, escalate on disagreement)"
+    },
+    {
+      "id": "control_plane",
+      "kind": "plane",
+      "label": "Control plane (Git)"
+    },
+    {
+      "id": "data_plane",
+      "kind": "plane",
+      "label": "System of record (event-sourced Postgres)"
+    },
+    {
+      "id": "workflow_surface",
+      "kind": "plane",
+      "label": "Workflow surface (ticketing, swappable)"
+    },
+    {
+      "id": "proc_cancellation",
+      "kind": "process",
+      "label": "CancellationProcess"
+    },
+    {
+      "id": "proc_confirmation",
+      "kind": "process",
+      "label": "ConfirmationProcess"
+    },
+    {
+      "id": "proc_consent_withdrawal",
+      "kind": "process",
+      "label": "ConsentWithdrawalProcess"
+    },
+    {
+      "id": "proc_raincall",
+      "kind": "process",
+      "label": "RainCallProcess"
+    },
+    {
+      "id": "sm_booking",
+      "kind": "state_machine",
+      "label": "booking_state",
+      "states": [
+        "held",
+        "confirmed",
+        "fulfilled",
+        "cancelled",
+        "no_show"
+      ]
+    },
+    {
+      "id": "sm_engagement",
+      "kind": "state_machine",
+      "label": "engagement_state",
+      "states": [
+        "inquiry",
+        "proposed",
+        "contracted",
+        "active",
+        "delivered",
+        "closed",
+        "lost"
+      ]
+    },
+    {
+      "id": "sm_event",
+      "kind": "state_machine",
+      "label": "event_state",
+      "states": [
+        "briefing",
+        "designing",
+        "planning",
+        "confirmed",
+        "in_production",
+        "live_day",
+        "wrap",
+        "reviewed",
+        "postponed",
+        "cancelled"
+      ]
+    },
+    {
+      "id": "sm_suggestion",
+      "kind": "state_machine",
+      "label": "suggestion_state",
+      "states": [
+        "proposed",
+        "under_review",
+        "accepted",
+        "edited",
+        "rejected"
+      ]
+    }
+  ]
+}
