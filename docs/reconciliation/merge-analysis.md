@@ -1,5 +1,7 @@
 # Merge Analysis — Interfacing the Collective Old vs New Data Shapes
 
+**Part of the [Data Architecture](../README.md) (v2.1).**
+
 **Question:** how do we interface the **old** data shapes (the Unspun corpus —
 `../spec`, `../data-model`, `../graph`) with the **new** data shapes (the Fête model —
 [`fete-unifying-model.md`](./fete-unifying-model.md), `fete-graph.json`)?
