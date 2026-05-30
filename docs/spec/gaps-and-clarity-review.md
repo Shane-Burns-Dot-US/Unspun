@@ -110,3 +110,215 @@ If addressing a subset, do these — they unblock the most downstream clarity:
 3. **C‑5 + C‑6 + M‑4** — make consent, scraping governance, and inference provenance *enforceable*, since profiling minors is the sharpest legal/ethical edge.
 4. **V‑1 + V‑4** — give "top 10%" and "slightly unique" real definitions; otherwise the core promise is unmeasurable.
 5. **M‑1 (esp. one `DiscretionLevel`) + C‑1 (billing model)** — two small definitions that many objects silently depend on.
+
+---
+
+# Addendum A — Advisor Notes (Brian Chesky)
+
+*Written as a hired advisor. Asked to hold nothing back. The brief was: sprinkles if the
+ice cream is great, brownies if it's wrong. Here's the honest version of both.*
+
+## A.0 The honest take first
+
+The three documents in front of me are excellent **engineering**. The object model, the
+MECE cut, the gap analysis — this is the work of people who will actually ship something
+that doesn't fall over. Keep all of it. That's the ice cream, and it's good ice cream.
+
+But I have to tell you what I see, because you hired me to. **It's all designed
+inside‑out.** It starts from objects, contexts, and archetypes — from the filing cabinet —
+and works toward the customer. Great hospitality is designed the other way around. It
+starts with a face. A six‑year‑old's face the moment the doors open. Her mother's face
+when she sees the grandmother who flew in from Seoul standing in the family photo nobody
+asked her to arrange. The model should be anchored on **those moments**, and then the
+objects should be reverse‑engineered to *protect and produce* them.
+
+So this addendum isn't a correction — it's a re‑anchoring. The ice cream stays. But the
+dessert your customer actually ordered is an *experience*, and for that we may need to
+make some brownies. Here they are.
+
+> **The one‑line reframe:** *You are not building an event‑planning app. You are building a
+> hospitality operating system whose product is a memory and a feeling.* Every field you
+> capture has to earn its place by answering: *which moment of delight does this protect,
+> or which one does it create?* Data that answers neither is weight.
+
+## A.1 The 11‑star exercise (do this before you build anything)
+
+We did this at Airbnb and it changed the company. You imagine the experience at every star
+level, past the point of reason, and then you walk it back to what's buildable. Let me do
+it out loud for a kid's birthday, because it tells you exactly what to capture.
+
+- **★5 — Expected.** The party happens. Right date, right cake, vendors show up, photos
+  arrive in two weeks. Nothing breaks. *(This is where most of the industry lives. It is
+  not the business you described.)*
+- **★6 — Reliable+.** Nothing breaks *and you knew it wouldn't*, because every vendor
+  confirmed their pin‑drop, their arrival time, and their deposit before the week of.
+- **★7 — Thoughtful.** Every guest got a text in their preferred channel, in sequence, and
+  the favors had their names on them. The shy kid's mom got a quiet heads‑up about who
+  else was coming so her daughter would know a friendly face.
+- **★8 — Anticipatory.** The system scheduled the cake for 5:40pm because that's when the
+  light in the garden goes gold, and the second shooter was positioned for the candle
+  blow‑out from the angle that catches both the child and the parents.
+- **★9 — Memorable.** That night — *that night, not in two weeks* — every family got a
+  ten‑photo teaser gallery of their own child, curated, looking like a magazine.
+- **★10 — Story‑worthy.** The grandmother from Seoul gets a short film with her in it. The
+  host remembered the child is obsessed with a particular shade of teal and the entire
+  palette quietly answered to it. Parents are texting each other asking who did this.
+- **★11 — Absurd (and instructive).** The child mentions, once, three weeks before, that she
+  wishes her favorite author knew it was her birthday. A signed note arrives. We don't
+  build "signed author notes" — but we build the **capability to capture a wish and route
+  it to a human who can make magic**, because *that* is the ★11 generalized.
+
+Every feature you listed maps onto this ladder. The point of the exercise is that **the
+data model has to reach ★11**, even if the service usually delivers ★9, because the gap
+between 9 and 11 is your entire brand. The granularity you're describing isn't
+over‑engineering. It's the substrate of delight. Let me make it concrete.
+
+## A.2 Capture the *moment*, not just the *fact* — four layers you're under‑modeling
+
+The keystone tracks *that* a thing is happening. You're right that it needs to track *how
+well, in what conditions, confirmed by whom, and to what effect.* Here are the four layers
+where that granularity lives, with the fields to capture. **These extend, not replace, the
+existing objects.**
+
+### A.2.1 The Memory Layer — *the party lasts four hours; the photographs last forever*
+
+This is the most under‑modeled, highest‑leverage layer in the whole system, because **the
+photograph is the product that outlives the event.** A `Deliverable` called "photography"
+is not nearly enough. Make a first‑class **`MediaPlan`** and **`ShotList`**, and capture
+the crew to the person.
+
+| Capture | Field‑level detail |
+|---|---|
+| **Crew composition** | # photographers on site; senior/lead vs **second shooter(s)**; *confirmation* state per shooter (not "a photographer is booked" — *this named person confirmed*) |
+| **Per‑shooter readiness** | equipment per shooter (bodies, lenses, lighting, backup body); **map destination set?**; **destination confirmed by *that shooter*** (lead *and* each second shooter independently); arrival time committed; **parking location as a geo pin**, not a sentence |
+| **Output contract** | photos **taken** vs **delivered edited** (capture both — the ratio is a quality and trust signal); video deliverables; turnaround commitment; **delivery/transfer platform** (and whether it's outside the photographer's standard offering — capture the exception) |
+| **Light & timing** | golden‑hour window for the venue/date; sun azimuth/elevation at key beats; **schedule the cake/candles/family photo *to the light*** |
+| **Shot list** | structured, tied to `Beat`s **and to named people** ("celebrant + both parents", "grandmother who travelled"); must‑gets vs nice‑to‑haves; mark which are captured live on the day |
+| **Resilience** | backup shooter / equipment redundancy; what happens if a body fails |
+| **Rights** | usage/consent for *minors'* images, inheriting `DiscretionLevel`; who may ever see/post these |
+
+*Sprinkles:* the **same‑night teaser gallery** (★9) should be a tracked deliverable with
+its own SLA. And capture **photos delivered *per guest family*** — a parent doesn't want
+800 photos, they want the 12 of *their* child. That's a delight feature hiding in your
+data model.
+
+### A.2.2 The Environment Layer — *weather isn't a checkbox, it's a set of conditions that each threaten a specific delight*
+
+You're exactly right that this can't be binary. Don't store "weather: ok." Store the
+**conditions**, and — this is the part that matters — **map each condition to the element
+it affects and the threshold that triggers a contingency.**
+
+| Condition (forecast, by hour, at venue pin) | Threatens / enables |
+|---|---|
+| Wind speed + gusts | balloon installs, tents, florals, candles, drone, hair |
+| Sun intensity + cloud cover + **light quality window** | **photography**, guest comfort, cake melt, screen glare |
+| Sun azimuth/elevation | photo angles, shade planning, **golden‑hour scheduling** |
+| Temp + humidity + UV | guest comfort, melt, makeup/hair, sunscreen prompts |
+| Precip probability (hourly) | the rain‑call `Contingency`, ground conditions |
+| Pollen / AQI | allergy‑sensitive guests and the celebrant |
+
+Each row is a `Risk` with a numeric threshold that auto‑fires a `Contingency` (the dynamic
+layer in §2 of the main review is the engine that makes this real). "Probability of high
+sun with good light for photography" becomes a *scored, monitored, actionable* signal — not
+a note.
+
+### A.2.3 The Guest Layer — *this is two‑sided, and right now it's modeled as one‑sided*
+
+You're describing a **guest‑facing experience surface**, not just a guest *record*. Capture:
+
+- **Import any format.** The client hands you a contact list in whatever shape it's in
+  (screenshot, spreadsheet, group‑chat export). Ingest it, **filter and de‑dupe it before
+  a single message goes out**, and let the host curate.
+- **Capture from the guest, for the agent.** Confirm/enrich each guest's email and phone
+  *through the guest*, so the event agent owns clean contact data — seeded from the
+  client's messy list.
+- **Confirmation beyond yes/no/maybe.** "Maybe" is the enemy of catering. Capture **passive
+  signals** — opened, viewed, tapped the map, added to calendar — as a *soft* attendance
+  probability, plus the hard RSVP.
+- **Sequenced, multi‑phase reminders** across channels (text/email), at the right cadence —
+  and turn each touch into a **phase of delight**: a Q&A offering ("any allergies? a song
+  she'd love? want carpool help?"), not just a nag.
+- **Host‑controlled social transparency.** *"Is Jane going? Is she bringing Tim?"* — this is
+  a real and delightful feature, and a privacy minefield. Model it explicitly: the **host
+  grants visibility**, guest‑to‑guest, per their request, governed by per‑guest **privacy
+  disclosures and sharing preferences**. Carpool coordination falls out of this for free.
+- **Physical delight, confirmed.** Staged **physical delivery of cards and pre‑gifts with
+  confirmation of receipt** — a tracked `Deliverable` with a delivery state machine and a
+  proof‑of‑receipt, because an unconfirmed gift is a silent failure.
+- **Per‑guest personalization & the return trip.** The shy kid, the peanut allergy, the best
+  friend — surfaced to vendors automatically. And post‑event: the thank‑you that includes a
+  photo of *that guest's own child*. (★9 again, almost free once the Memory Layer exists.)
+
+### A.2.4 The Vendor Layer — *make vendors want to be on your platform; that's a moat, not a feature*
+
+This is the second thing the model under‑builds. You're describing a **two‑sided partner
+platform** — the Superhost dynamic. Vendors who get value *stay*, *improve*, and *prefer
+you*. Capture:
+
+- **Vendor logins + self‑service teams.** Vendors add their own team members with
+  **vendor‑customized access levels** — the lead photographer sees the brief; the second
+  shooter sees only the call time, pin, and shot list. The vendor manages this, not you.
+- **Calendar integration + authentication with the vendor.** Real two‑way sync and a real
+  auth handshake — so availability, holds, and double‑booking prevention are live, not
+  emailed.
+- **Deposit → deliverable → line‑item, as a confirmed chain.** Deposit delivery and
+  confirmation; **stipulations predicated on payment terms** (work unlocks when the deposit
+  clears); **deliverable definitions down to specific action items**; and **per‑line‑item
+  performance feedback** captured for next time ("delivered editing in 9 days, second
+  shooter confirmed late twice").
+- **Multi‑factor vendor rating → algorithmic recommendation.** Not one star rating —
+  on‑time, deposit‑terms compliance, deliverable completeness, **confirmation discipline**
+  (pins, second shooters), edit‑to‑delivery ratio, client sentiment, discretion. Roll it
+  into an **internal‑facing recommendation engine** that suggests the right vendor for the
+  next brief. This is your taste/quality flywheel pointed at supply.
+- **Vendor value‑creation loop.** Give vendors a reason to be great *on your platform
+  specifically*: visibility into their own scores, more bookings as they climb, a
+  "preferred" tier that unlocks autonomy. That's the Superhost mechanic.
+
+## A.3 The principle that decides what to build: *every datum closes a loop*
+
+Here's the discipline that keeps this from becoming a thousand fields nobody fills in.
+**Every captured detail must do one of three things, and you should be able to say which:**
+
+1. **Prevent a failure** (pin confirmed by the second shooter → nobody's lost at call time),
+2. **Create a delight** (golden‑hour cake timing → magazine photos),
+3. **Train the engine** (per‑line‑item vendor feedback → better recommendations next time).
+
+If a field does none of the three, cut it. If it does one, it's worth the friction. This is
+how you get granularity *without* bureaucracy — the **atomic unit of delight**: the
+smallest captured fact that protects or produces a moment.
+
+## A.4 The architectural brownie: re‑anchor on a *journey/moment spine*
+
+This is the one structural challenge to the existing docs. The MECE review optimized the
+object graph for *correctness*. But **delight lives in the edges MECE wants to sand off** —
+the grandmother, the teal, the shy kid. So in addition to the Context × Archetype matrix,
+add a second organizing spine the whole team designs against:
+
+- **Storyboard the journey, frame by frame — for all four protagonists.** The *client*, the
+  *celebrant*, the *guest*, and (don't forget) the *vendor* and the *internal host*. Disney
+  storyboards every frame; so should you. Each frame is a **`Moment`** with an owner, an
+  expected feeling, the data that protects it, and a peak/end flag (people remember the
+  **peaks and the ending** — engineer those hardest).
+- **Name a single human Host per event.** The platform's job is to make that one person feel
+  superhuman — anticipatory prompts ("grandmother travelled — confirm she's in the family
+  photo shot list"), never to replace them. This is also how you keep your promise to
+  "abstract the AI out": the guest feels a person; the person is amplified by the machine.
+
+## A.5 So — do I see where this is going? Yes.
+
+You're building a system where **granularity is the moat.** Anyone can book a clown.
+Almost no one captures the second shooter's confirmed parking pin, schedules the candles to
+the light, sends each family their own twelve photos that night, and turns every one of
+those details into a vendor score and a better recommendation next time. The detail
+*compounds*: into taste, into reliability, into a vendor network that competes to be on
+your platform, into households that never leave because you remembered the teal.
+
+That's not an events business with software. That's a **hospitality operating system with a
+taste engine and a two‑sided network**, and the data you're describing is exactly its fuel.
+
+Build the filing cabinet — you've designed a beautiful one. But hang it on the wall behind
+the host, and point the whole thing at the six‑year‑old's face.
+
+*— Brian*
+
