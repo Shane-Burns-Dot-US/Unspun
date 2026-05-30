@@ -1,0 +1,72 @@
+# Unspun data model — KERNEL
+# Value types, enums/scales, and field mixins. The smallest atoms; reused everywhere.
+# Ethos: define each scale once (clarity review M-1) and reference it; minimize layers.
+
+kernel_version: 1
+
+# --- Value types (archetype: value; embedded, no identity) -------------------
+value_types:
+  money:        {amount: "num(14,2)", currency: "txt(3)"}            # base currency per budget (clarity M-2)
+  datewindow:   {start: ts, end: "ts?", tz: txt}
+  geopoint:     {lat: num, lng: num, precision_m: "num?", label: "txt?"}  # the "pinpoint geo target"
+  provenance:                                                         # origin of any sourced datum
+    source: txt                # url | system | person | vendor | model
+    method: capture_method
+    collected_by: "txt?"       # actor id
+    captured_at: ts
+    confidence: confidence
+    source_ref: "txt?"         # url / external id
+    derived_from_invocation_id: "txt?"   # for method=inferred (clarity M-4)
+  score:        {dimension: txt, value: num, scale: txt, basis: "txt?"}
+  priority:     {urgency: urgency, importance: importance}           # the attention matrix (Ethos T3)
+
+# --- Enums & scales (archetype: value) ---------------------------------------
+enums:
+  # standardized scales (clarity M-1) — ordered low->high where applicable
+  confidence:        [very_low, low, medium, high, very_high]
+  likelihood:        [rare, unlikely, possible, likely, almost_certain]
+  impact:            [negligible, minor, moderate, major, severe]
+  sentiment:         [very_negative, negative, neutral, positive, very_positive]
+  sensitivity_class: [public, internal, confidential, restricted, minor_protected]
+  discretion_level:  [open, standard, discreet, private, sealed]    # ONE scale (clarity U-10)
+  urgency:           [none, low, medium, high, critical]
+  importance:        [trivial, low, medium, high, vital]
+  edge_strength:     [weak, moderate, strong, primary]
+  capture_method:    [declared, observed, inferred, enriched, scraped]
+  lawful_basis:      [consent, contract, legitimate_interest, legal_obligation, vital_interest]
+  check_kind:        [error, logic, deterministic, non_deterministic, ensemble]   # Ethos T2
+  check_verdict:     [pass, warn, fail, disagree, inconclusive]
+  archetype:         [root, member, party, master, policy, signal, projection, value]
+  context_code:      [c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,dyn,ai]
+
+  # status enums (keystone §17 + recut additions)
+  engagement_state:  [inquiry, proposed, contracted, active, delivered, closed, lost]
+  event_state:       [briefing, designing, planning, confirmed, in_production, live_day, wrap, reviewed, postponed, cancelled]
+  concept_state:     [draft, in_review, approved, selected, archived]
+  guest_state:       [invited, responded, confirmed, attended, no_show]
+  rsvp_response:     [yes, no, maybe, no_response]
+  quote_state:       [requested, received, accepted, rejected, expired]
+  booking_state:     [held, confirmed, fulfilled, cancelled, no_show]
+  permit_state:      [required, applied, granted, denied, expired]
+  task_state:        [todo, in_progress, blocked, done, cancelled]
+  risk_state:        [identified, mitigated, accepted, realized, closed]
+  incident_state:    [open, mitigating, resolved, post_mortem_done]
+  change_state:      [proposed, approved, rejected, applied]
+  touchpoint_state:  [planned, scheduled, sent, acknowledged, failed]
+  suggestion_state:  [proposed, under_review, accepted, edited, rejected]
+  consent_state:     [granted, active, withdrawn, expired]
+  lead_state:        [new, qualified, nurtured, won, lost, waitlisted]
+  deliverable_state: [specified, sourced, in_production, delivered, accepted, rejected]
+  delivery_state:    [pending, dispatched, in_transit, delivered, receipt_confirmed, failed]  # physical gifts/cards (Chesky)
+  payment_state:     [scheduled, authorized, captured, settled, refunded, failed]
+  payment_direction: [inbound, outbound]                              # AR vs AP (clarity C-3)
+  approval_state:    [pending, approved, rejected, escalated]
+  process_state:     [pending, running, waiting, completed, failed, compensating]
+  doc_state:         [draft, active, superseded, expired, void]
+
+# --- Field mixins (reusable column sets; expanded per README §3) --------------
+mixins:
+  "+audit":     "created_at ts, updated_at ts, created_by txt?, updated_by txt?"
+  "+soft":      "deleted_at ts?"
+  "+sourced":   "provenance provenance, consent_id txt?, expires_at ts?, sensitivity sensitivity_class"
+  "+versioned": "version int, effective_from ts, effective_to ts?, supersedes_id txt?"

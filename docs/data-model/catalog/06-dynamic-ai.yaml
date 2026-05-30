@@ -1,0 +1,85 @@
+# Layers: dyn (Dynamic — events/process/checks) and ai (AI Enablement)
+# These cut across all 12 contexts. They make the "asserted but unowned" rules real
+# (gaps review D-1..D-3) and encode the Building Ethos verification tenets (T1, T2).
+
+# ============================ Layer dyn — Dynamic =============================
+DomainEvent:   # immutable fact that something happened (append-only) — clarity D-1
+  {pk: dev_, arch: signal,
+   f: {event_type: txt, aggregate_id: txt, aggregate_type: txt, at: ts,
+       actor_id: "txt?", payload: jsonb, sequence: "int?", correlation_id: "txt?"}}
+   # e.g. EventConfirmed, BookingCancelled, RSVPReceived, EnvThresholdBreached, ConsentWithdrawn
+
+StateTransition:  # the legal moves of a state machine: from->to, trigger, guard, actor (clarity D-2)
+  {pk: stt_, arch: master, mix: [+audit,+versioned], nat: [machine, from_state, to_state, version],
+   f: {machine: txt, from_state: txt, to_state: txt, trigger: txt, guard: "jsonb?",
+       actor_role: "txt?", emits_event: "txt?"}}
+   # machine: event_state|engagement_state|booking_state|... (kernel enums)
+
+Process:       # definition of a cross-aggregate saga (clarity D-3)
+  {pk: prc_, arch: master, mix: [+audit,+versioned], nat: [slug, version],
+   f: {slug: txt, description: "txt?", steps: jsonb, listens_to: "[txt]?",
+       enforces: "jsonb?", compensation: "jsonb?"}}
+   # e.g. ConfirmationProcess (funded budget + secured venue + granted permits), RainCallProcess
+
+ProcessInstance:  # a running saga
+  {pk: pri_, arch: signal, st: process_state,
+   f: {process_id: txt, subject_id: txt, subject_type: txt, started_at: ts,
+       current_step: "txt?", context: "jsonb?", finished_at: "ts?"}}
+
+CheckDefinition:  # a named check (Ethos T2) — one of 5 kinds
+  {pk: ckd_, arch: master, mix: [+audit,+versioned], nat: [code, version],
+   f: {code: txt, kind: check_kind, target_type: txt, rule: jsonb, independent_of: "[txt]?",
+       min_quorum: "int?", scaled_by: "txt?"}}    # scaled_by: importance|urgency (attention matrix)
+
+CheckResult:   # first-class, append-only verification record (Ethos T2)
+  {pk: ckr2_, arch: signal,
+   f: {check_definition_id: txt, kind: check_kind, target_id: txt, target_type: txt,
+       verdict: check_verdict, detail: "jsonb?", machine_payload: jsonb,
+       human_summary: txt, priority: priority, ensemble_id: "txt?", at: ts}}
+   # machine_payload + human_summary = the two formats of one truth (Ethos T3)
+
+EnsembleResult:  # the Nth pass: combined independent checkers, quorum/disagreement
+  {pk: ens_, arch: signal,
+   f: {target_id: txt, target_type: txt, member_result_ids: "[txt]", verdict: check_verdict,
+       quorum: txt, disagreement: bool, escalated_alert_id: "txt?", priority: priority, at: ts}}
+
+# ============================ Layer ai — AI Enablement ========================
+# Abstracted out of the customer's experience: every AI output is a Suggestion gated by
+# HumanReview before it touches a client/guest/vendor/money/the physical world.
+AICapability:  # named governed AI-assisted function (disambiguated from vendor Capability)
+  {pk: aic_, arch: master, mix: [+audit,+versioned], nat: [name, version],
+   f: {name: txt, purpose: txt, inputs: jsonb, output_type: txt, autonomy: txt,
+       requires_human_review: bool, guardrail_ids: "[txt]?"}}
+
+Agent:         # configured AI worker
+  {pk: agt_, arch: master, mix: [+audit,+versioned], nat: [name, version],
+   f: {name: txt, config: jsonb, guardrail_ids: "[txt]?"}}
+
+Invocation:    # a single logged AI run (append-only; auditable atom)
+  {pk: ivk_, arch: signal,
+   f: {agent_id: "txt?", capability_id: txt, request_hash: txt, inputs_ref: jsonb,
+       outputs: "jsonb?", cost: "money?", latency_ms: "int?", policy_checks: "jsonb?", at: ts}}
+
+Suggestion:    # proposed AI output presented to a human; never auto-applied
+  {pk: sgt_, arch: signal, st: suggestion_state,
+   f: {invocation_id: txt, idx: int, content: jsonb, confidence: confidence,
+       rationale: "txt?", target_id: "txt?", target_type: "txt?"}}
+
+GuardedAction: # auto-action allowed ONLY within a bounded low-risk envelope
+  {pk: gac_, arch: signal,
+   f: {invocation_id: txt, action: txt, within_envelope: bool, guardrail_id: "txt?",
+       audit_event_id: "txt?", at: ts}}
+
+HumanReview:   # mandatory checkpoint (specializes Approval) — gates every Suggestion
+  {pk: hrv_, arch: signal, st: approval_state,
+   f: {suggestion_id: txt, reviewer_id: txt, decision: txt, edits: "jsonb?",
+       rationale: "txt?", at: ts}}
+
+PolicyGuardrail:  # rule constraining what AI may do/see/output (incl. consent/lawful basis)
+  {pk: pgr_, arch: policy, mix: [+audit,+versioned], nat: [code, version],
+   f: {code: txt, constrains: txt, data_scope: jsonb, autonomy_ceiling: txt,
+       prohibited_actions: "[txt]?", requires_lawful_basis: bool}}
+
+KnowledgeBase: # curated internal corpus the AI reasons over (no un-lawful data)
+  {pk: kb_, arch: master, mix: [+audit,+versioned], nat: [name, version],
+   f: {name: txt, sources: jsonb, embedding_store_ref: "txt?"}}

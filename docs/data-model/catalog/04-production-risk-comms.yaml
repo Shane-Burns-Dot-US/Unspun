@@ -1,0 +1,250 @@
+# Contexts 6 (Production & Logistics), 7 (Risk & Resilience), 8 (Communication & Relationship)
+
+# ============================ Context 6 — Production & Logistics ==============
+Venue:
+  {pk: vnu_, arch: master, mix: [+audit,+soft], nat: [name, address_hash],
+   f: {name: txt, address: "jsonb?", geo: geopoint, capacity: "int?", indoor_outdoor: txt,
+       access_rules: "jsonb?", restrictions: "jsonb?", weather_exposure: txt}}
+
+LogisticsPlan:
+  {pk: lgp_, arch: member, mix: [+audit], nat: [event_id],
+   f: {event_id: txt, venue_id: "txt?", load_in: "datewindow?", load_out: "datewindow?"},
+   rel: [{to: Event, k: fk, c: "1..1"}, {to: Task, k: comp, c: "0..n"}]}
+
+Task:
+  {pk: tsk_, arch: member, st: task_state, mix: [+audit,+soft],
+   f: {scope_id: txt, scope_type: txt, title: txt, owner_id: "txt?", due_at: "ts?",
+       blocking: bool, playbook_id: "txt?", priority: priority}}
+
+Dependency:    # directed constraint between objects
+  {pk: dpd_, arch: member, nat: [from_id, to_id, dep_type],
+   f: {from_id: txt, from_type: txt, to_id: txt, to_type: txt, dep_type: txt}}
+
+ResourceAssignment:  # allocate resource to task/beat for a window
+  {pk: ras_, arch: member, mix: [+audit], nat: [resource_id, target_id, window_start],
+   f: {resource_id: txt, resource_type: txt, target_id: txt, target_type: txt, window: datewindow}}
+
+Asset:         # owned equipment/prop (clarity C-6/CE-6)
+  {pk: ast_, arch: master, mix: [+audit,+soft], nat: [code],
+   f: {code: txt, name: txt, category_id: "txt?", condition: "txt?"}}
+
+AssetReservation:
+  {pk: asr_, arch: member, mix: [+audit], nat: [asset_id, window_start],
+   f: {asset_id: txt, event_id: "txt?", window: datewindow},
+   rel: [{to: Asset, k: fk, c: "n..1"}]}
+
+TransportPlan: # guest transport / valet / load-in routing (clarity CE-5)
+  {pk: trp_, arch: member, mix: [+audit], nat: [event_id, kind],
+   f: {event_id: txt, kind: txt, details: jsonb, parking_geo: "geopoint?"}}
+
+AccessPass:    # credential for staff/vendor/guest access
+  {pk: axp_, arch: member, mix: [+audit], nat: [event_id, holder_id],
+   f: {event_id: txt, holder_id: txt, holder_type: txt, zones: "[txt]?", valid: datewindow}}
+
+Accommodation: # destination/multi-day lodging (clarity CE-12; optional)
+  {pk: acm_, arch: member, mix: [+audit], nat: [event_id, label],
+   f: {event_id: txt, label: txt, details: jsonb, for_party_id: "txt?"}}
+
+Shift:         # staffed time block on event day
+  {pk: shf_, arch: member, mix: [+audit], nat: [event_id, role, window_start],
+   f: {event_id: txt, role: txt, window: datewindow, staffed_ids: "[txt]?"}}
+
+CalendarItem:  # projection: sync metadata only (clarity ME-8) — mirrors a source object
+  {pk: cal_, arch: projection, nat: [source_id, calendar],
+   f: {source_id: txt, source_type: txt, calendar: txt, external_id: "txt?",
+       sync_state: txt, last_synced_at: "ts?"}}
+
+Permit:        # regulatory/property authorization
+  {pk: prm_, arch: member, st: permit_state, mix: [+audit],
+   nat: [event_id, authority, permit_type],
+   f: {event_id: txt, authority: txt, permit_type: txt, requirements: "jsonb?",
+       validity: "datewindow?", conditions: "txt?", evidence_document_id: "txt?"},
+   rel: [{to: Event, k: fk, c: "n..1"}]}
+
+# --- The Memory Layer (Chesky A.2.1) -----------------------------------------
+MediaPlan:     # photography/video is the product that outlives the event
+  {pk: mdp_, arch: member, mix: [+audit], nat: [event_id],
+   f: {event_id: txt, vendor_id: "txt?", transfer_platform: "txt?", is_nonstandard_transfer: bool,
+       turnaround_commit_days: "int?", same_night_teaser: bool, teaser_count: "int?"},
+   rel: [{to: Event, k: fk, c: "1..1"}, {to: MediaCrew, k: comp, c: "1..n"},
+         {to: ShotList, k: comp, c: "0..1"}]}
+
+MediaCrew:     # crew to the person: lead vs second shooter, with INDEPENDENT confirmations
+  {pk: mcr_, arch: member, mix: [+audit], nat: [media_plan_id, person_id],
+   f: {media_plan_id: txt, person_id: "txt?", role: txt, is_second_shooter: bool,
+       confirmed: bool, equipment: jsonb, backup_body: bool,
+       arrival_time: "ts?", map_destination: "geopoint?", destination_confirmed: bool,
+       parking_geo: "geopoint?"},
+   rel: [{to: MediaPlan, k: fk, c: "n..1"}]}
+
+ShotList:
+  {pk: shl_, arch: member, mix: [+audit], nat: [media_plan_id],
+   f: {media_plan_id: txt},
+   rel: [{to: MediaPlan, k: fk, c: "1..1"}, {to: Shot, k: comp, c: "1..n"}]}
+
+Shot:          # tied to beats AND named people; must-get vs nice-to-have
+  {pk: sht_, arch: member, mix: [+audit], nat: [shot_list_id, sequence],
+   f: {shot_list_id: txt, sequence: int, description: txt, beat_id: "txt?",
+       subject_person_ids: "[txt]?", priority: priority, must_get: bool, captured: bool}}
+
+MediaGallery:  # output contract: taken vs delivered-edited, per-family delivery
+  {pk: mgl_, arch: member, st: deliverable_state, mix: [+audit], nat: [media_plan_id, kind],
+   f: {media_plan_id: txt, kind: txt, taken_count: "int?", delivered_edited_count: "int?",
+       video_deliverables: "jsonb?", per_family: bool, delivered_at: "ts?",
+       light_window: "datewindow?"}}    # golden-hour scheduling lives here + on Beat
+
+# ============================ Context 7 — Risk & Resilience ===================
+RiskRegister:
+  {pk: rrg_, arch: member, mix: [+audit], nat: [event_id],
+   f: {event_id: txt},
+   rel: [{to: Event, k: fk, c: "1..1"}, {to: Risk, k: comp, c: "0..n"}]}
+
+Risk:
+  {pk: rsk_, arch: member, st: risk_state, mix: [+audit], nat: [register_id, category, descriptor],
+   f: {register_id: txt, category: txt, descriptor: txt, likelihood: likelihood, impact: impact,
+       owner_id: "txt?", trigger_signals: "jsonb?", residual: "txt?"},
+   rel: [{to: RiskRegister, k: fk, c: "n..1"}]}
+
+Contingency:   # pre-planned response ready if a risk triggers
+  {pk: ctg_, arch: member, mix: [+audit], nat: [risk_id, label],
+   f: {risk_id: txt, label: txt, trigger_condition: jsonb, steps: jsonb,
+       owner_id: "txt?", fallback_booking_id: "txt?", cost_impact: "money?"},
+   rel: [{to: Risk, k: fk, c: "n..1"}]}
+
+EnvironmentForecast:  # weather is conditions, not a checkbox (Chesky A.2.2)
+  {pk: env_, arch: signal, nat: [event_id, geo_hash, for_time],
+   f: {event_id: txt, geo: geopoint, for_time: ts, source: txt, captured_at: ts,
+       confidence: confidence}}
+
+EnvironmentCondition: # each factor mapped to the delight it threatens, with thresholds
+  {pk: envc_, arch: member, nat: [forecast_id, factor],
+   f: {forecast_id: txt, factor: txt, value: num, unit: "txt?", threatens: "[txt]?",
+       threshold: "num?", breached: bool, risk_id: "txt?"},
+   rel: [{to: EnvironmentForecast, k: fk, c: "n..1"}]}
+   # factor: wind_speed|gust|sun_intensity|cloud_cover|light_quality|sun_azimuth|sun_elevation
+   #        |temp|humidity|uv|precip_prob|pollen|aqi
+
+Incident:      # realized problem + handling
+  {pk: inc_, arch: member, st: incident_state, mix: [+audit], nat: [event_id, sequence],
+   f: {event_id: txt, sequence: int, description: txt, severity: impact, timeline: "jsonb?",
+       owner_id: "txt?", resolution: "txt?", client_visible: bool, disclosure_required: bool,
+       root_cause: "txt?", vendor_id: "txt?"},
+   rel: [{to: Event, k: fk, c: "n..1"}]}      # disclosure_required driven by policy, not free (U-12)
+
+ChangeOrder:   # controlled change to a confirmed event
+  {pk: chg_, arch: member, st: change_state, mix: [+audit], nat: [event_id, sequence],
+   f: {event_id: txt, sequence: int, change: jsonb, reason: "txt?", budget_delta: "money?",
+       approver_id: "txt?", affected: "jsonb?", client_comm_required: bool},
+   rel: [{to: Event, k: fk, c: "n..1"}]}
+
+Checklist:     # reusable verification list from a playbook
+  {pk: ckl_, arch: master, mix: [+audit,+versioned], nat: [slug, version],
+   f: {slug: txt, items: jsonb, playbook_id: "txt?"}}
+
+ChecklistRun:  # instance; completion gates event transitions
+  {pk: ckr_, arch: member, mix: [+audit], nat: [checklist_id, event_id, phase],
+   f: {checklist_id: txt, event_id: txt, phase: txt, results: jsonb, complete: bool}}
+
+# ============================ Context 8 — Communication & Relationship ========
+Guest:         # person invited to an event (links Person <-> Event; multi-role ok)
+  {pk: gst_, arch: party, st: guest_state, mix: [+audit,+soft], nat: [event_id, person_id],
+   f: {event_id: txt, person_id: txt, is_child: bool, responsible_adult_person_id: "txt?",
+       relationship_to_celebrant: "txt?", guest_party_id: "txt?", plus_ones: "int?",
+       needs: "jsonb?"},                       # dual audience: child invitee + adult (clarity C-4)
+   rel: [{to: Event, k: fk, c: "n..1"}, {to: Person, k: ref, c: "n..1"}]}
+
+GuestParty:    # group responding as a unit
+  {pk: gpt_, arch: member, mix: [+audit], nat: [event_id, label],
+   f: {event_id: txt, label: txt}}
+
+GuestExperience:  # per-guest experience profile (Chesky A.2.3)
+  {pk: gex_, arch: projection, nat: [guest_id],
+   f: {guest_id: txt, dietary: "jsonb?", sensory: "jsonb?", accessibility: "jsonb?",
+       friendships: "[txt]?", personalization: "jsonb?", arrival_notes: "txt?"}}
+
+ContactImport: # ingest any-format client list, filter/de-dupe before sending (Chesky)
+  {pk: cim_, arch: signal,
+   f: {event_id: txt, source_format: txt, raw: jsonb, parsed_count: "int?",
+       deduped_count: "int?", filtered_count: "int?", imported_by: "txt?", at: ts}}
+
+Touchpoint:    # planned moment of contact (Invitation/Update are subtypes — clarity ME-10)
+  {pk: tpt_, arch: member, st: touchpoint_state, mix: [+audit],
+   nat: [scope_id, audience, purpose, planned_at],
+   f: {scope_id: txt, scope_type: txt, subtype: txt, audience: txt, purpose: txt,
+       planned_at: "ts?", channel: txt, owner_id: "txt?", template_id: "txt?",
+       priority: priority}}    # subtype: generic|invitation|update
+
+Message:       # concrete sent/received artifact
+  {pk: msg_, arch: signal,
+   f: {touchpoint_id: "txt?", thread_id: "txt?", direction: txt, channel: txt,
+       from_id: "txt?", to_id: "txt?", body: "txt?", template_id: "txt?",
+       provider_message_id: "txt?", sent_at: "ts?", receipt_state: "txt?"}}
+
+MessageTemplate:
+  {pk: mtp_, arch: master, mix: [+audit,+versioned], nat: [slug, version],
+   f: {slug: txt, channel: txt, body: txt, slots: "jsonb?", brand_id: "txt?"}}
+
+Cadence:       # template that instantiates touchpoints per engagement (clarity U-4)
+  {pk: cdn_, arch: master, mix: [+audit,+versioned], nat: [scope, version],
+   f: {scope: txt, service_tier_id: "txt?", schedule: jsonb}}
+
+Invitation:
+  {pk: inv_, arch: member, mix: [+audit], nat: [event_id, guest_id],
+   f: {event_id: txt, guest_id: txt, design_document_id: "txt?", channel: txt,
+       rsvp_link: "txt?", plus_one_allowed: bool, sent_at: "ts?"},
+   rel: [{to: Guest, k: fk, c: "n..1"}]}
+
+RSVP:
+  {pk: rsv_, arch: member, mix: [+audit], nat: [invitation_id],
+   f: {invitation_id: txt, response: rsvp_response, headcount: "int?", needs: "jsonb?", notes: "txt?"},
+   rel: [{to: Invitation, k: fk, c: "1..1"}]}
+
+ReminderSequence:  # sequenced multi-phase reminders (Chesky)
+  {pk: rms_, arch: member, mix: [+audit], nat: [event_id, label],
+   f: {event_id: txt, label: txt, phases: jsonb, channels: "[txt]?"}}
+
+PassiveSignal: # opened/viewed/tapped-map/added-to-calendar -> soft attendance prob (Chesky)
+  {pk: pasg_, arch: signal,
+   f: {guest_id: txt, kind: txt, at: ts, soft_attendance_prob: "num?"}}
+
+GuestQuery:    # Q&A offerings as phases of delight (allergies, song, carpool) (Chesky)
+  {pk: gqy_, arch: member, mix: [+audit], nat: [event_id, guest_id, question_key],
+   f: {event_id: txt, guest_id: txt, question_key: txt, prompt: txt, answer: "jsonb?",
+       channel: "txt?", answered_at: "ts?"}}
+
+GuestVisibilityGrant:  # host-controlled social transparency "is Jane bringing Tim" (Chesky)
+  {pk: gvg_, arch: policy, mix: [+audit], nat: [event_id, viewer_guest_id, subject_guest_id, field],
+   f: {event_id: txt, viewer_guest_id: txt, subject_guest_id: txt, field: txt,
+       granted_by: txt, granted_at: ts}}      # field: attending|plus_ones|contact
+
+Update:        # proactive announcement (Touchpoint subtype)
+  {pk: upd_, arch: member, mix: [+audit], nat: [event_id, sequence],
+   f: {event_id: txt, sequence: int, audience: txt, payload: jsonb, trigger_ref: "txt?"}}
+
+DelightMoment: # 1:1 relationship gesture (clarity ME-1: vs SignatureTouch)
+  {pk: dlm_, arch: member, mix: [+audit], nat: [scope_id, recipient_id, label],
+   f: {scope_id: txt, scope_type: txt, recipient_id: txt, basis_signal_id: "txt?",
+       gesture: txt, owner_id: "txt?", delivered_at: "ts?", reaction: "txt?"}}
+
+FeedbackSignal:  # captured reaction/sentiment (append-only; may promote to taste/profile signal)
+  {pk: fbk_, arch: signal, mix: [+sourced],
+   f: {source_person_id: "txt?", target_id: txt, target_type: txt, sentiment: sentiment,
+       verbatim: "txt?", use_consent_id: "txt?", at: ts}}
+
+Thread:
+  {pk: thr_, arch: member, mix: [+audit], nat: [scope_id, topic],
+   f: {scope_id: txt, scope_type: txt, topic: "txt?", participant_ids: "[txt]?"}}
+
+Gift:          # guest gifts + registry (clarity CE-10)
+  {pk: gft_, arch: member, mix: [+audit], nat: [event_id, label],
+   f: {event_id: txt, label: txt, from_guest_id: "txt?", registry_item_id: "txt?",
+       thank_you_sent: bool}}
+
+GiftRegistry:
+  {pk: greg_, arch: master, mix: [+audit], nat: [event_id],
+   f: {event_id: txt, items: jsonb}}
+
+PhysicalDelivery:  # staged delivery of cards/pre-gifts WITH receipt confirmation (Chesky)
+  {pk: pdl_, arch: member, st: delivery_state, mix: [+audit], nat: [event_id, item_label, recipient_id],
+   f: {event_id: txt, item_label: txt, recipient_id: txt, dispatched_at: "ts?",
+       delivered_at: "ts?", receipt_confirmed_at: "ts?", proof_document_id: "txt?", carrier_ref: "txt?"}}

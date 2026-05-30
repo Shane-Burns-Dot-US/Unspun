@@ -1,0 +1,94 @@
+# Contexts 9 (Acquisition & Distribution), 10 (Operations & Team)
+
+# ============================ Context 9 — Acquisition & Distribution ==========
+Lead:          # prospective household not under engagement
+  {pk: led_, arch: party, st: lead_state, mix: [+audit,+soft,+sourced],
+   f: {display_name: txt, person_id: "txt?", channel_id: "txt?", qualification: "txt?",
+       estimated_tier: "txt?", discretion: discretion_level}}
+
+Inquiry:
+  {pk: inq_, arch: member, mix: [+audit], nat: [lead_id, received_at],
+   f: {lead_id: "txt?", household_id: "txt?", received_at: ts, summary: "txt?"}}
+
+Channel:       # distribution surface
+  {pk: chn_, arch: master, mix: [+audit], nat: [name],
+   f: {name: txt, kind: txt, partner_id: "txt?"}}
+
+Campaign:
+  {pk: cmp_, arch: master, mix: [+audit], nat: [name, window_start],
+   f: {name: txt, window: datewindow, segment_id: "txt?", channel_ids: "[txt]?", goal: "txt?"}}
+
+Segment:       # audience grouping (also used for peer-collision checks, V-4)
+  {pk: seg_, arch: master, mix: [+audit], nat: [definition_hash],
+   f: {definition_hash: txt, name: txt, definition: jsonb}}
+
+Showcase:      # past event as marketing proof; gated by discretion (clarity V-3)
+  {pk: shw_, arch: member, mix: [+audit,+versioned], nat: [event_id, version],
+   f: {event_id: txt, narrative: "txt?", asset_document_ids: "[txt]?",
+       anonymization_level: discretion_level, consent_id: "txt?", discretion_policy_id: "txt?"},
+   rel: [{to: Event, k: ref, c: "n..1"}]}
+
+Referral:
+  {pk: ref_, arch: member, mix: [+audit], nat: [referrer_id, referee_id],
+   f: {referrer_id: txt, referee_id: "txt?", lead_id: "txt?", reward: "money?", at: ts}}
+
+Funnel:        # pipeline stages (definition)
+  {pk: fnl_, arch: master, mix: [+audit], nat: [name],
+   f: {name: txt, stages: jsonb}}
+
+Waitlist:      # ordered demand we can't currently serve
+  {pk: wtl_, arch: member, mix: [+audit], nat: [lead_id, desired_window_start],
+   f: {lead_id: txt, desired_window: datewindow, rank: "int?"}}
+
+BrandAsset:
+  {pk: bas_, arch: master, mix: [+audit,+versioned], nat: [slug, version],
+   f: {slug: txt, kind: txt, document_id: "txt?", brand_id: "txt?"}}
+
+# ============================ Context 10 — Operations & Team ==================
+TeamMember:    # our own staff (a Person in an internal role)
+  {pk: tmb_, arch: party, mix: [+audit,+soft], nat: [person_id],
+   f: {person_id: txt, corporate_email: txt, skills: "[txt]?", certifications: "jsonb?"},
+   rel: [{to: Person, k: fk, c: "n..1"}]}
+
+Role:          # named bundle of responsibilities/decision rights
+  {pk: rol_, arch: master, mix: [+audit], nat: [name],
+   f: {name: txt, description: "txt?"}}
+
+Permission:    # authorization map: role x action x object/state (clarity D-4)
+  {pk: perm_, arch: policy, mix: [+audit,+versioned], nat: [role_id, action, object_type, version],
+   f: {role_id: txt, action: txt, object_type: txt, state: "txt?", allowed: bool}}
+
+Pod:           # cross-functional team assigned to an engagement
+  {pk: pod_, arch: member, mix: [+audit], nat: [name],
+   f: {name: txt, engagement_id: "txt?", member_ids: "[txt]?"}}
+
+ServiceTier:   # level of high-touch service purchased
+  {pk: stl_, arch: master, mix: [+audit,+versioned], nat: [name, version],
+   f: {name: txt, inclusions: jsonb, cadence_id: "txt?", staffing_model: "jsonb?",
+       price_basis: "money?"}}
+
+ServiceStandard:  # measurable commitment about HOW service is delivered
+  {pk: ssd_, arch: policy, mix: [+audit,+versioned], nat: [code, version],
+   f: {code: txt, metric: txt, target: txt, service_tier_id: "txt?"}}
+
+Playbook:      # reusable SOP
+  {pk: pbk_, arch: master, mix: [+audit,+versioned], nat: [slug, version],
+   f: {slug: txt, steps: jsonb, owning_role_id: "txt?", checklist_ids: "[txt]?",
+       quality_bar: "txt?"}}
+
+Availability:  # per-resource bookable time (clarity CE-8)
+  {pk: avl_, arch: member, mix: [+audit], nat: [resource_id, window_start],
+   f: {resource_id: txt, resource_type: txt, window: datewindow, status: txt}}
+
+Capacity:      # company-level capacity for intake gating (clarity CE-8)
+  {pk: cap_, arch: projection, nat: [region_id, window_start],
+   f: {region_id: "txt?", window: datewindow, max_events: int, committed_events: int}}
+
+QualityReview: # post-event/incident assessment
+  {pk: qrv_, arch: member, mix: [+audit], nat: [subject_id, reviewer_id],
+   f: {subject_id: txt, subject_type: txt, reviewer_id: txt, scores: jsonb,
+       what_worked: "txt?", defects: "txt?", actions: "jsonb?"}}
+
+KnowledgeAsset:  # captured reusable institutional knowledge
+  {pk: kna_, arch: master, mix: [+audit,+versioned], nat: [slug, version],
+   f: {slug: txt, kind: txt, body: txt, derived_from: "jsonb?"}}
