@@ -596,16 +596,21 @@ CREATE TABLE checklist_runs (
 
 -- ============================ Context 8 — Communication & Relationship ======
 CREATE TABLE guests (
-  id text PRIMARY KEY, event_id text NOT NULL, person_id text NOT NULL, is_child boolean NOT NULL DEFAULT true,
-  responsible_adult_person_id text, relationship_to_celebrant text, guest_party_id text, plus_ones int, needs jsonb,
+  id text PRIMARY KEY, event_id text NOT NULL, person_id text NOT NULL, guest_family_id text,
+  is_child boolean NOT NULL DEFAULT true, age int, responsible_adult_person_id text,
+  relationship_to_celebrant text, contact_id text, plus_ones int, special_requests jsonb, needs jsonb,
   state guest_state NOT NULL DEFAULT 'invited',
   created_at timestamptz NOT NULL DEFAULT now(), updated_at timestamptz NOT NULL DEFAULT now(),
   created_by text, updated_by text, deleted_at timestamptz, UNIQUE (event_id, person_id));
 
-CREATE TABLE guest_parties (
-  id text PRIMARY KEY, event_id text NOT NULL, label text NOT NULL,
+CREATE TABLE guest_families (   -- the invited household unit; a guest is never singular
+  id text PRIMARY KEY, event_id text NOT NULL, family_name text NOT NULL, household_ref text,
+  parent_names text[], child_names_ages jsonb, mailing_address jsonb,
+  primary_contact_id text, contacts jsonb, rsvp_response rsvp_response, headcount int,
+  special_requests jsonb, satisfaction numeric, satisfaction_captured_at timestamptz, followup_status text,
+  state guest_state NOT NULL DEFAULT 'invited',
   created_at timestamptz NOT NULL DEFAULT now(), updated_at timestamptz NOT NULL DEFAULT now(),
-  created_by text, updated_by text, UNIQUE (event_id, label));
+  created_by text, updated_by text, deleted_at timestamptz, UNIQUE (event_id, family_name));
 
 CREATE TABLE guest_experiences (
   id text PRIMARY KEY, guest_id text NOT NULL UNIQUE, dietary jsonb, sensory jsonb, accessibility jsonb,

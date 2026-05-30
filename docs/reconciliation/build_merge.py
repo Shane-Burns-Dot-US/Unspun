@@ -172,3 +172,47 @@ print(f"governance_bound={sorted(GOV)}")
 print(f"unified: nodes={len(nodes)} edges={len(edges)} realizes={realizes} proposed={sorted(proposed)}")
 unresolved=[t for r in ledger for t in r['unspun_targets'] if t in proposed]
 print("proposed (new) targets:", sorted(set(unresolved)))
+
+# ---- Atomics KG: atoms + outcomes + where they map (focused subgraph) ------
+try: VER=json.load(open(os.path.join(BASE,'..','graph','kg.json')))['meta']['version']
+except Exception: VER='2.1'
+ARCS=[('A','Discovery & Trust'),('B','Vision & Commit'),('C','Build'),('D','Day-Of'),('E','Afterglow & Loop')]
+QCLASS={'AUTO':'auto','AUG-HITL':'aug','HUMAN-AI':'hai','HUMAN':'hum'}
+an, ae = [], []
+for r in ledger:
+    an.append({'id':r['atom'],'kind':'atom','arc':r['arc'],'quadrant':r['quadrant'],
+               'disposition':r['disposition'],'name':r['name']})
+    ae.append({'from':r['atom'],'to':f"Q:{r['quadrant']}",'rel':'in_quadrant'})
+    for s in r['serves']: ae.append({'from':r['atom'],'to':f'R{s}','rel':'serves'})
+    for i,t in enumerate(r['unspun_targets']):
+        ae.append({'from':r['atom'],'to':t,'rel':'realizes','role':'primary' if i==0 else 'supporting'})
+tset=sorted({t for r in ledger for t in r['unspun_targets']})
+oset=sorted({f'R{s}' for r in ledger for s in r['serves']}, key=lambda x:int(x[1:]))
+an+=[{'id':t,'kind':'unspun_target'} for t in tset]+[{'id':o,'kind':'outcome'} for o in oset]
+an+=[{'id':f'Q:{q}','kind':'quadrant'} for q in QCLASS]
+json.dump({'meta':{'tracks_model':VER,'atoms':len(ledger),'targets':len(tset),
+    'note':'Atoms -> where they map in the merged model (realizes) + served outcomes (serves).'},
+    'nodes':an,'edges':ae}, open(os.path.join(BASE,'atomics-kg.json'),'w'), indent=2, sort_keys=True)
+
+ML=[f'# Atomics KG · tracks v{VER} — the 78 atoms and where they map','',
+ '> Machine form: [`atomics-kg.json`](./atomics-kg.json). Full join with the noun-graph: '
+ '[`unified-graph.json`](./unified-graph.json). The 78-atom map: [`merge-ledger.yaml`](./merge-ledger.yaml).',
+ '> Each atom `--realizes-->` its **primary** Unspun target (diagram) and `--serves-->` its outcome(s).',
+ '> Colour = automation quadrant.','']
+for code,label in ARCS:
+    rows=[r for r in ledger if r['arc']==code]
+    ML+= [f'## Arc {code} — {label} ({len(rows)} atoms)','','```mermaid','flowchart LR']
+    for r in rows:
+        prim=r['unspun_targets'][0]
+        ML.append(f"  {r['atom']}[{r['atom']}]:::{QCLASS[r['quadrant']]} -->|realizes| {prim}([{prim}])")
+    for cls in ['auto','aug','hai','hum']:
+        col={'auto':'#dff0d8','aug':'#fcf8e3','hai':'#d9edf7','hum':'#f2dede'}[cls]
+        ML.append(f"  classDef {cls} fill:{col},stroke:#999")
+    ML+=['```','',
+     '| Atom | Name | Q | Disp | Realizes (Unspun) | Serves |','|---|---|---|---|---|---|']
+    for r in rows:
+        ML.append(f"| {r['atom']} | {r['name'][:34]} | {r['quadrant']} | {r['disposition']} | "
+            f"{', '.join(r['unspun_targets'])} | {', '.join('R'+str(s) for s in r['serves']) or '—'} |")
+    ML.append('')
+open(os.path.join(BASE,'atomics-kg.md'),'w').write('\n'.join(ML)+'\n')
+print(f"atomics-kg: nodes={len(an)} edges={len(ae)} targets={len(tset)} outcomes={len(oset)}")

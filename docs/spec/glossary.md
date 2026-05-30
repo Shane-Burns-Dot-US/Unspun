@@ -53,7 +53,7 @@ G Marketing & Distribution · H Operations & Team · I AI Enablement · X Cross�
 | Funnel | `fnl_` | G | The ordered pipeline stages a lead/engagement passes through. |
 | GeoLocation *(VO)* | — | X | A point on earth. |
 | Guest | `gst_` | A | A person invited to a specific event. |
-| GuestParty | `gpt_` | A | A group invited and responding as a unit. |
+| GuestFamily | `gfm_` | F | The invited household unit (parents, children+ages, contacts, mailing address, requests, satisfaction); a guest is never singular. |
 | Household | `hh_` | A | The affluent family unit; durable customer relationship (aggregate root). |
 | HumanReview | `hrv_` | I | The mandatory human checkpoint accepting/editing/rejecting a Suggestion. |
 | Incident | `inc_` | E | A realized problem during planning/execution and its handling. |

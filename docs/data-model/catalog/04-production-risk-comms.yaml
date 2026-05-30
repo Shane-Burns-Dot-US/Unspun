@@ -146,16 +146,25 @@ ChecklistRun:  # instance; completion gates event transitions
    f: {checklist_id: txt, event_id: txt, phase: txt, results: jsonb, complete: bool}}
 
 # ============================ Context 8 — Communication & Relationship ========
-Guest:         # person invited to an event (links Person <-> Event; multi-role ok)
+Guest:         # an individual invited person (child or adult) — belongs to a GuestFamily
   {pk: gst_, arch: party, st: guest_state, mix: [+audit,+soft], nat: [event_id, person_id],
-   f: {event_id: txt, person_id: txt, is_child: bool, responsible_adult_person_id: "txt?",
-       relationship_to_celebrant: "txt?", guest_party_id: "txt?", plus_ones: "int?",
-       needs: "jsonb?"},                       # dual audience: child invitee + adult (clarity C-4)
-   rel: [{to: Event, k: fk, c: "n..1"}, {to: Person, k: ref, c: "n..1"}]}
+   f: {event_id: txt, person_id: txt, guest_family_id: "txt?", is_child: bool, age: "int?",
+       responsible_adult_person_id: "txt?", relationship_to_celebrant: "txt?",
+       contact_id: "txt?", plus_ones: "int?", special_requests: "jsonb?", needs: "jsonb?"},
+   rel: [{to: Event, k: fk, c: "n..1"}, {to: Person, k: ref, c: "n..1"},
+         {to: GuestFamily, k: ref, c: "n..1"}]}
 
-GuestParty:    # group responding as a unit
-  {pk: gpt_, arch: member, mix: [+audit], nat: [event_id, label],
-   f: {event_id: txt, label: txt}}
+GuestFamily:   # the invited household unit — a guest is never singular (review note).
+               # parents + children(+ages), contacts, mailing address, requests, satisfaction.
+  {pk: gfm_, arch: party, st: guest_state, mix: [+audit,+soft], nat: [event_id, family_name],
+   f: {event_id: txt, family_name: txt, household_ref: "txt?",
+       parent_names: "[txt]", child_names_ages: "jsonb?",      # [{name, age}]
+       mailing_address: "jsonb?", primary_contact_id: "txt?", contacts: "jsonb?",
+       rsvp_response: "rsvp_response?", headcount: "int?", special_requests: "jsonb?",
+       satisfaction: "num?", satisfaction_captured_at: "ts?", followup_status: "txt?"},
+   rel: [{to: Event, k: fk, c: "n..1"}, {to: Guest, k: comp, c: "1..n"},
+         {to: Household, k: ref, c: "n..1"},                   # peer family, if known to us
+         {to: FeedbackSignal, k: ref, c: "0..n"}]}             # satisfaction follow-ups
 
 GuestExperience:  # per-guest experience profile (Chesky A.2.3)
   {pk: gex_, arch: projection, nat: [guest_id],

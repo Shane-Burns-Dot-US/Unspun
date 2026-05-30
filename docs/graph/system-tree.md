@@ -1,12 +1,14 @@
-# Unspun — System Tree · v2.0
+# Unspun — System Tree · v2.1
 
 A single hierarchical view of the whole system: belief → domain → logic → architecture →
 **merge** → corpus. The leaf‑level entity enumeration is generated separately in
 [`entities-by-context.md`](./entities-by-context.md); the relational logic is in
-[`knowledge-graph.md`](./knowledge-graph.md).
+[`knowledge-graph.md`](./knowledge-graph.md); every name is indexed in
+[`lexicon.md`](./lexicon.md).
 
 **Version history:** `v1.0` — belief/domain/logic/architecture/corpus.
-`v2.0` — + §6 Merge (Fête ↔ Unspun bridge): atoms, outcomes, realizations, two new objects.
+`v2.0` — + §5 Merge (Fête ↔ Unspun bridge): atoms, outcomes, realizations, two new objects.
+`v2.1` — `GuestFamily` (a guest is never singular) + master lexicon + atomics KG.
 
 ## Mindmap
 
@@ -126,9 +128,10 @@ Unspun
     ├─ data-model/ ... README, catalog/*.yaml (00-07), sql/*.sql (00-03, incl. merge bridge)
     ├─ decisions/ .... ADR-0001 substrate
     ├─ reconciliation/ fete-unifying-model, crosswalk, merge-analysis (+ partner addendum),
-    │                   merge-procedure, merge-ledger, merge-map, build_*.py, *-graph.json
-    └─ graph/ ........ build_kg.py, kg.json (v2.0), knowledge-graph.md, system-tree.md,
-                        entities-by-context.md
+    │                   merge-procedure, merge-ledger, merge-map, atomics-kg(.md/.json),
+    │                   unified-graph.json, build_*.py, fete-graph.json
+    └─ graph/ ........ build_kg.py, kg.json (v2.1), knowledge-graph.md, system-tree.md,
+                        entities-by-context.md, build_lexicon.py, lexicon.md (every name)
 ```
 
 > The tree groups the system; the [knowledge graph](./knowledge-graph.md) wires it. The

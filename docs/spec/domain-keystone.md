@@ -201,16 +201,20 @@ Full aggregate composition is in §13. The catalog follows.
 - **Identity:** `gst_`. Natural key: `eventId` + `Contact`.
 - **Key attributes:** child/adult, relationship to `Celebrant`, RSVP status, plus‑ones,
   dietary/sensory needs, accessibility needs, gifting notes.
-- **Relationships:** belongs to one `Event`; references a `Contact`; may belong to a
-  `GuestParty`; produces `RSVP` and `FeedbackSignal`; receives `Invitation`,
+- **Relationships:** belongs to one `Event`; references a `Contact`; belongs to a
+  `GuestFamily`; produces `RSVP` and `FeedbackSignal`; receives `Invitation`,
   `Update`, `DelightMoment`.
 - **Lifecycle:** `Invited → Responded(Yes|No|Maybe) → Confirmed → Attended | NoShow`.
 
-### GuestParty
-- **Definition:** A group (often another household) that is invited and responds as a
-  unit.
-- **Identity:** `gpt_`. Natural key: `eventId` + group label.
-- **Relationships:** belongs to one `Event`; groups many `Guest` (1..n).
+### GuestFamily
+- **Definition:** The invited household unit — **a guest is never singular.** Holds the
+  parents (names), the children (names + ages), contact information, mailing address,
+  special requests, and the post‑event satisfaction score and follow‑ups for that family.
+- **Identity:** `gfm_`. Natural key: `eventId` + family name.
+- **Key attributes:** family name, parent names, child names/ages, mailing `Address`,
+  primary `Contact`, special requests, RSVP, headcount, satisfaction + follow‑up status.
+- **Relationships:** belongs to one `Event`; groups many `Guest` (1..n, parents + children);
+  may reference a peer `Household`; satisfaction captured as `FeedbackSignal`.
 
 ### RelationshipEdge
 - **Definition:** A directed link in the social graph between two people or households
@@ -1091,7 +1095,7 @@ Household ──< Engagement ──< Event
    │             │             │
    │             │             ├── Touchpoint ──< Message (Thread)  ── MessageTemplate
    │             │             │        │
-   │             │             │     Invitation ── RSVP ── Guest ──< GuestParty
+   │             │             │     Invitation ── RSVP ── Guest ──< GuestFamily
    │             │             │
    │             │             └── ExceptionalityScore ── ExperienceStandard ── FeedbackSignal
    │             │
@@ -1116,7 +1120,7 @@ Audit/Governance (cross‑cuts all): AuditEvent · RetentionPolicy · MinorProte
 |---|---|---|
 | `Household` | `Client`, `Member`, `Celebrant`, `ClientProfile`, `ProfileSignal`, `Consent`, `RelationshipEdge` | `Engagement`, `Lead` history |
 | `Engagement` | `Budget`/`BudgetLine`, `Pod` assignment, `Cadence` instance, engagement‑level `Task`/`Touchpoint` | `Household`, `ServiceTier`, `Event`, `Invoice` |
-| `Event` | `EventBrief`, `EventConcept`, `Program`/`Beat`, `Deliverable`, `SignatureTouch`, `Guest`/`GuestParty`/`Invitation`/`RSVP`, `LogisticsPlan`/`Task`, `RiskRegister`/`Risk`/`Contingency`, `Incident`, `ChangeOrder`, `ExceptionalityScore`, event `Touchpoint` | `Concept`/`Motif`, `Vendor`/`Booking`/`Quote`, `Venue`/`Permit`, `CalendarItem`, `Budget` |
+| `Event` | `EventBrief`, `EventConcept`, `Program`/`Beat`, `Deliverable`, `SignatureTouch`, `GuestFamily`/`Guest`/`Invitation`/`RSVP`, `LogisticsPlan`/`Task`, `RiskRegister`/`Risk`/`Contingency`, `Incident`, `ChangeOrder`, `ExceptionalityScore`, event `Touchpoint` | `Concept`/`Motif`, `Vendor`/`Booking`/`Quote`, `Venue`/`Permit`, `CalendarItem`, `Budget` |
 
 Library/registry objects with their own lifecycles, shared across events:
 `MotifLibrary`/`Motif`, `Concept`, `TasteProfile`, `PreferenceModel`, `Trend`,

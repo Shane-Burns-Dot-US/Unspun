@@ -6,6 +6,16 @@
       "to": "Agent"
     },
     {
+      "from": "AICapability",
+      "rel": "quadrant_binds",
+      "to": "GATE_ai_outward"
+    },
+    {
+      "from": "AICapability",
+      "rel": "templated_by",
+      "to": "Atom"
+    },
+    {
       "from": "Agent",
       "rel": "emits",
       "to": "Invocation"
@@ -15,6 +25,24 @@
       "from": "AssetReservation",
       "rel": "fk",
       "to": "Asset"
+    },
+    {
+      "card": "n..m",
+      "from": "Atom",
+      "rel": "ref",
+      "to": "Outcome"
+    },
+    {
+      "card": "n..1",
+      "from": "AtomRealization",
+      "rel": "ref",
+      "to": "Atom"
+    },
+    {
+      "card": "n..1",
+      "from": "AtomRealization",
+      "rel": "ref",
+      "to": "Event"
     },
     {
       "card": "n..1",
@@ -83,9 +111,20 @@
       "to": "Event"
     },
     {
+      "from": "CheckDefinition",
+      "rel": "derived_from",
+      "to": "Atom"
+    },
+    {
       "from": "CheckResult",
       "rel": "ranked_by",
       "to": "attention_matrix"
+    },
+    {
+      "card": "n..1",
+      "from": "ChildFlowStation",
+      "rel": "ref",
+      "to": "Event"
     },
     {
       "card": "1..1",
@@ -257,6 +296,16 @@
       "to": "Suggestion"
     },
     {
+      "from": "GATE_atom_consent",
+      "rel": "gates",
+      "to": "AtomRealization"
+    },
+    {
+      "from": "GATE_atom_consent",
+      "rel": "requires",
+      "to": "Consent"
+    },
+    {
       "from": "GATE_booking_confirm",
       "rel": "gates",
       "to": "Booking"
@@ -356,7 +405,37 @@
       "card": "n..1",
       "from": "Guest",
       "rel": "ref",
+      "to": "GuestFamily"
+    },
+    {
+      "card": "n..1",
+      "from": "Guest",
+      "rel": "ref",
       "to": "Person"
+    },
+    {
+      "card": "1..n",
+      "from": "GuestFamily",
+      "rel": "comp",
+      "to": "Guest"
+    },
+    {
+      "card": "n..1",
+      "from": "GuestFamily",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "0..n",
+      "from": "GuestFamily",
+      "rel": "ref",
+      "to": "FeedbackSignal"
+    },
+    {
+      "card": "n..1",
+      "from": "GuestFamily",
+      "rel": "ref",
+      "to": "Household"
     },
     {
       "card": "1..1",
@@ -468,6 +547,11 @@
       "to": "Event"
     },
     {
+      "from": "Moment",
+      "rel": "serves",
+      "to": "Outcome"
+    },
+    {
       "card": "n..1",
       "from": "Offering",
       "rel": "fk",
@@ -570,6 +654,12 @@
       "from": "SecurityPlan",
       "rel": "fk",
       "to": "Event"
+    },
+    {
+      "card": "n..1",
+      "from": "SensoryCue",
+      "rel": "comp",
+      "to": "Beat"
     },
     {
       "card": "1..n",
@@ -2252,6 +2342,11 @@
       "to": "BrandAsset"
     },
     {
+      "from": "Task",
+      "rel": "templated_by",
+      "to": "Atom"
+    },
+    {
       "card": "n..1",
       "from": "Tastemaker",
       "rel": "fk",
@@ -2442,13 +2537,10 @@
   ],
   "meta": {
     "atoms_kept": 78,
-    "edge_count": 432,
-    "node_count": 286,
+    "edge_count": 449,
+    "node_count": 290,
     "note": "Unified projection: Unspun KG + all 78 F\u00eate atoms + outcomes, joined on atom_code.",
-    "proposed_entities": [
-      "ChildFlowStation",
-      "SensoryCue"
-    ],
+    "proposed_entities": [],
     "realizes_edges": 198
   },
   "nodes": [
@@ -4423,6 +4515,22 @@
       "states": null
     },
     {
+      "archetype": "master",
+      "context": "c10",
+      "id": "Atom",
+      "kind": "entity",
+      "pk": "atom_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c10",
+      "id": "AtomRealization",
+      "kind": "entity",
+      "pk": "arz_",
+      "states": null
+    },
+    {
       "archetype": "member",
       "context": "c10",
       "id": "Availability",
@@ -5015,6 +5123,14 @@
       "states": null
     },
     {
+      "archetype": "master",
+      "context": "c5",
+      "id": "Outcome",
+      "kind": "entity",
+      "pk": "out_",
+      "states": null
+    },
+    {
       "archetype": "member",
       "context": "c5",
       "id": "Program",
@@ -5073,6 +5189,14 @@
     {
       "archetype": "member",
       "context": "c6",
+      "id": "ChildFlowStation",
+      "kind": "entity",
+      "pk": "cfs_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
       "id": "Dependency",
       "kind": "entity",
       "pk": "dpd_",
@@ -5124,6 +5248,14 @@
       "id": "ResourceAssignment",
       "kind": "entity",
       "pk": "ras_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "SensoryCue",
+      "kind": "entity",
+      "pk": "scue_",
       "states": null
     },
     {
@@ -5311,12 +5443,12 @@
       "states": null
     },
     {
-      "archetype": "member",
+      "archetype": "party",
       "context": "c8",
-      "id": "GuestParty",
+      "id": "GuestFamily",
       "kind": "entity",
-      "pk": "gpt_",
-      "states": null
+      "pk": "gfm_",
+      "states": "guest_state"
     },
     {
       "archetype": "member",
@@ -5586,6 +5718,11 @@
       "label": "No client/guest/vendor-facing artifact from a Suggestion without accepted/edited HumanReview"
     },
     {
+      "id": "GATE_atom_consent",
+      "kind": "invariant",
+      "label": "AtomRealization of a governance_bound atom requires consent_id + lawful_basis (B6)"
+    },
+    {
       "id": "GATE_booking_confirm",
       "kind": "invariant",
       "label": "Booking->confirmed requires active VendorContract + fits Budget"
@@ -5754,14 +5891,6 @@
       "id": "proc_raincall",
       "kind": "process",
       "label": "RainCallProcess"
-    },
-    {
-      "id": "ChildFlowStation",
-      "kind": "proposed_entity"
-    },
-    {
-      "id": "SensoryCue",
-      "kind": "proposed_entity"
     },
     {
       "id": "sm_booking",

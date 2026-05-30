@@ -405,7 +405,37 @@
       "card": "n..1",
       "from": "Guest",
       "rel": "ref",
+      "to": "GuestFamily"
+    },
+    {
+      "card": "n..1",
+      "from": "Guest",
+      "rel": "ref",
       "to": "Person"
+    },
+    {
+      "card": "n..1",
+      "from": "GuestFamily",
+      "rel": "fk",
+      "to": "Event"
+    },
+    {
+      "card": "0..n",
+      "from": "GuestFamily",
+      "rel": "ref",
+      "to": "FeedbackSignal"
+    },
+    {
+      "card": "1..n",
+      "from": "GuestFamily",
+      "rel": "comp",
+      "to": "Guest"
+    },
+    {
+      "card": "n..1",
+      "from": "GuestFamily",
+      "rel": "ref",
+      "to": "Household"
     },
     {
       "card": "1..1",
@@ -908,7 +938,7 @@
     }
   ],
   "meta": {
-    "edge_count": 164,
+    "edge_count": 169,
     "edge_relations": [
       "comp",
       "constrains",
@@ -956,7 +986,7 @@
       "state_machine"
     ],
     "node_count": 197,
-    "version": "2.0"
+    "version": "2.1"
   },
   "nodes": [
     {
@@ -2048,12 +2078,12 @@
       "states": null
     },
     {
-      "archetype": "member",
+      "archetype": "party",
       "context": "c8",
-      "id": "GuestParty",
+      "id": "GuestFamily",
       "kind": "entity",
-      "pk": "gpt_",
-      "states": null
+      "pk": "gfm_",
+      "states": "guest_state"
     },
     {
       "archetype": "member",

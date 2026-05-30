@@ -53,8 +53,10 @@ flowchart LR
   PR -.realizes (atom_code).-> AT
   AIC -.realizes (atom_code).-> AT
   EXC[ExceptionalityScore / Moment] -.measured against.-> OUT
-  classDef d fill:#efe,stroke:#8a8; classDef m fill:#eef,stroke:#88a;
-  class PR,AIC,EVT,EXC d; class AT,OUT m;
+  classDef d fill:#efe,stroke:#8a8
+  classDef m fill:#eef,stroke:#88a
+  class PR,AIC,EVT,EXC d
+  class AT,OUT m
 ```
 
 This also closes the ADR-0001 loop: the Fête atom catalog *is* control-plane master data;

@@ -1,0 +1,3060 @@
+{
+  "edges": [
+    {
+      "from": "T01",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T01",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T01",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Lead"
+    },
+    {
+      "from": "T01",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Inquiry"
+    },
+    {
+      "from": "T01",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "ContactChannel"
+    },
+    {
+      "from": "T01",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AuditEvent"
+    },
+    {
+      "from": "T02",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T02",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T02",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "AICapability"
+    },
+    {
+      "from": "T02",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Lead"
+    },
+    {
+      "from": "T03",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T03",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T03",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "AICapability"
+    },
+    {
+      "from": "T03",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "ProfileSignal"
+    },
+    {
+      "from": "T03",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "ClientProfile"
+    },
+    {
+      "from": "T04",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T04",
+      "rel": "serves",
+      "to": "R3"
+    },
+    {
+      "from": "T04",
+      "rel": "serves",
+      "to": "R4"
+    },
+    {
+      "from": "T04",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "AICapability"
+    },
+    {
+      "from": "T04",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "TasteProfile"
+    },
+    {
+      "from": "T04",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "ProfileSignal"
+    },
+    {
+      "from": "T05",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T05",
+      "rel": "serves",
+      "to": "R6"
+    },
+    {
+      "from": "T05",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "AICapability"
+    },
+    {
+      "from": "T05",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Consent"
+    },
+    {
+      "from": "T05",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "DiscretionPolicy"
+    },
+    {
+      "from": "T05",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "SourcePolicy"
+    },
+    {
+      "from": "T06",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T06",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T06",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Touchpoint"
+    },
+    {
+      "from": "T06",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Thread"
+    },
+    {
+      "from": "T07",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T07",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T07",
+      "rel": "serves",
+      "to": "R4"
+    },
+    {
+      "from": "T07",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "EventBrief"
+    },
+    {
+      "from": "T07",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AICapability"
+    },
+    {
+      "from": "T08",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T08",
+      "rel": "serves",
+      "to": "R4"
+    },
+    {
+      "from": "T08",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Tastemaker"
+    },
+    {
+      "from": "T08",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "EventConcept"
+    },
+    {
+      "from": "T09",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T09",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T09",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Touchpoint"
+    },
+    {
+      "from": "T09",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Message"
+    },
+    {
+      "from": "T09",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "MessageTemplate"
+    },
+    {
+      "from": "T10",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T10",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Thread"
+    },
+    {
+      "from": "T10",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Touchpoint"
+    },
+    {
+      "from": "T11",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T11",
+      "rel": "serves",
+      "to": "R3"
+    },
+    {
+      "from": "T11",
+      "rel": "serves",
+      "to": "R4"
+    },
+    {
+      "from": "T11",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "TasteProfile"
+    },
+    {
+      "from": "T11",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "PreferenceModel"
+    },
+    {
+      "from": "T11",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AICapability"
+    },
+    {
+      "from": "T12",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T12",
+      "rel": "serves",
+      "to": "R4"
+    },
+    {
+      "from": "T12",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "PreferenceModel"
+    },
+    {
+      "from": "T12",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "TasteProfile"
+    },
+    {
+      "from": "T12",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AICapability"
+    },
+    {
+      "from": "T13",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T13",
+      "rel": "serves",
+      "to": "R3"
+    },
+    {
+      "from": "T13",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T13",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Concept"
+    },
+    {
+      "from": "T13",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "InspirationSource"
+    },
+    {
+      "from": "T13",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AICapability"
+    },
+    {
+      "from": "T14",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T14",
+      "rel": "serves",
+      "to": "R3"
+    },
+    {
+      "from": "T14",
+      "rel": "serves",
+      "to": "R5"
+    },
+    {
+      "from": "T14",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Tastemaker"
+    },
+    {
+      "from": "T14",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Concept"
+    },
+    {
+      "from": "T14",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "HumanReview"
+    },
+    {
+      "from": "T15",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T15",
+      "rel": "serves",
+      "to": "R3"
+    },
+    {
+      "from": "T15",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Concept"
+    },
+    {
+      "from": "T15",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "MessageTemplate"
+    },
+    {
+      "from": "T15",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AICapability"
+    },
+    {
+      "from": "T16",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T16",
+      "rel": "serves",
+      "to": "R5"
+    },
+    {
+      "from": "T16",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "VendorRecommendation"
+    },
+    {
+      "from": "T16",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Vendor"
+    },
+    {
+      "from": "T16",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Offering"
+    },
+    {
+      "from": "T16",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Roster"
+    },
+    {
+      "from": "T17",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T17",
+      "rel": "serves",
+      "to": "R5"
+    },
+    {
+      "from": "T17",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Vendor"
+    },
+    {
+      "from": "T17",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "RelationshipEdge"
+    },
+    {
+      "from": "T17",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Segment"
+    },
+    {
+      "from": "T17",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "ContainmentPolicy"
+    },
+    {
+      "from": "T18",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T18",
+      "rel": "serves",
+      "to": "R5"
+    },
+    {
+      "from": "T18",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "VendorRecommendation"
+    },
+    {
+      "from": "T19",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T19",
+      "rel": "serves",
+      "to": "R5"
+    },
+    {
+      "from": "T19",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T19",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Tastemaker"
+    },
+    {
+      "from": "T19",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Booking"
+    },
+    {
+      "from": "T20",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T20",
+      "rel": "serves",
+      "to": "R6"
+    },
+    {
+      "from": "T20",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Budget"
+    },
+    {
+      "from": "T20",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "DiscretionPolicy"
+    },
+    {
+      "from": "T20",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Consent"
+    },
+    {
+      "from": "T21",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T21",
+      "rel": "serves",
+      "to": "R6"
+    },
+    {
+      "from": "T21",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Quote"
+    },
+    {
+      "from": "T21",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Booking"
+    },
+    {
+      "from": "T21",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AICapability"
+    },
+    {
+      "from": "T22",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T22",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Proposal"
+    },
+    {
+      "from": "T22",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "PricingPlan"
+    },
+    {
+      "from": "T23",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T23",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T23",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Proposal"
+    },
+    {
+      "from": "T23",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Document"
+    },
+    {
+      "from": "T23",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "MessageTemplate"
+    },
+    {
+      "from": "T24",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T24",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Contract"
+    },
+    {
+      "from": "T24",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Payment"
+    },
+    {
+      "from": "T24",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "CalendarItem"
+    },
+    {
+      "from": "T24",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Engagement"
+    },
+    {
+      "from": "T25",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T25",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Process"
+    },
+    {
+      "from": "T25",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Engagement"
+    },
+    {
+      "from": "T25",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Pod"
+    },
+    {
+      "from": "T26",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T26",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T26",
+      "rel": "serves",
+      "to": "R10"
+    },
+    {
+      "from": "T26",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Pod"
+    },
+    {
+      "from": "T26",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "TeamMember"
+    },
+    {
+      "from": "T26",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Touchpoint"
+    },
+    {
+      "from": "T27",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T27",
+      "rel": "serves",
+      "to": "R3"
+    },
+    {
+      "from": "T27",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Concept"
+    },
+    {
+      "from": "T27",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "BrandAsset"
+    },
+    {
+      "from": "T27",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AICapability"
+    },
+    {
+      "from": "T28",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T28",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Invitation"
+    },
+    {
+      "from": "T28",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "MessageTemplate"
+    },
+    {
+      "from": "T28",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "BrandAsset"
+    },
+    {
+      "from": "T29",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T29",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "AICapability"
+    },
+    {
+      "from": "T29",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Booking"
+    },
+    {
+      "from": "T30",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T30",
+      "rel": "serves",
+      "to": "R6"
+    },
+    {
+      "from": "T30",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Quote"
+    },
+    {
+      "from": "T30",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Booking"
+    },
+    {
+      "from": "T30",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AICapability"
+    },
+    {
+      "from": "T31",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T31",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "VendorContract"
+    },
+    {
+      "from": "T31",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Document"
+    },
+    {
+      "from": "T32",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T32",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Deposit"
+    },
+    {
+      "from": "T32",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Payment"
+    },
+    {
+      "from": "T32",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Ledger"
+    },
+    {
+      "from": "T32",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Invoice"
+    },
+    {
+      "from": "T33",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T33",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Permit"
+    },
+    {
+      "from": "T33",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Document"
+    },
+    {
+      "from": "T34",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T34",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T34",
+      "rel": "serves",
+      "to": "R10"
+    },
+    {
+      "from": "T34",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "VendorUser"
+    },
+    {
+      "from": "T34",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "VendorAccessRole"
+    },
+    {
+      "from": "T35",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T35",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T35",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T35",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Program"
+    },
+    {
+      "from": "T35",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Beat"
+    },
+    {
+      "from": "T35",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "LogisticsPlan"
+    },
+    {
+      "from": "T35",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Process"
+    },
+    {
+      "from": "T35",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Playbook"
+    },
+    {
+      "from": "T36",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T36",
+      "rel": "serves",
+      "to": "R9"
+    },
+    {
+      "from": "T36",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "ChildFlowStation"
+    },
+    {
+      "from": "T36",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Beat"
+    },
+    {
+      "from": "T37",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T37",
+      "rel": "serves",
+      "to": "R10"
+    },
+    {
+      "from": "T37",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Program"
+    },
+    {
+      "from": "T37",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Beat"
+    },
+    {
+      "from": "T38",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T38",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T38",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "SensoryCue"
+    },
+    {
+      "from": "T38",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Beat"
+    },
+    {
+      "from": "T39",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T39",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "GuestExperience"
+    },
+    {
+      "from": "T39",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "RSVP"
+    },
+    {
+      "from": "T39",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "SupervisionPlan"
+    },
+    {
+      "from": "T39",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "EmergencyPlan"
+    },
+    {
+      "from": "T40",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T40",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T40",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T40",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Permission"
+    },
+    {
+      "from": "T40",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Approval"
+    },
+    {
+      "from": "T41",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T41",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T41",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T41",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Process"
+    },
+    {
+      "from": "T41",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Permission"
+    },
+    {
+      "from": "T41",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Approval"
+    },
+    {
+      "from": "T42",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T42",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T42",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Task"
+    },
+    {
+      "from": "T42",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Venue"
+    },
+    {
+      "from": "T42",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Checklist"
+    },
+    {
+      "from": "T43",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T43",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T43",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Task"
+    },
+    {
+      "from": "T43",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Checklist"
+    },
+    {
+      "from": "T43",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "ChecklistRun"
+    },
+    {
+      "from": "T44",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T44",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T44",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T44",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Touchpoint"
+    },
+    {
+      "from": "T44",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "MessageTemplate"
+    },
+    {
+      "from": "T44",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Document"
+    },
+    {
+      "from": "T45",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T45",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T45",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Touchpoint"
+    },
+    {
+      "from": "T46",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T46",
+      "rel": "serves",
+      "to": "R11"
+    },
+    {
+      "from": "T46",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T46",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "MediaPlan"
+    },
+    {
+      "from": "T46",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "ShotList"
+    },
+    {
+      "from": "T46",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "RelationshipEdge"
+    },
+    {
+      "from": "T46",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "MediaPolicy"
+    },
+    {
+      "from": "T47",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T47",
+      "rel": "serves",
+      "to": "R12"
+    },
+    {
+      "from": "T47",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "MediaGallery"
+    },
+    {
+      "from": "T48",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T48",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T48",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T48",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Risk"
+    },
+    {
+      "from": "T48",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Contingency"
+    },
+    {
+      "from": "T48",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Process"
+    },
+    {
+      "from": "T49",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T49",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T49",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Shift"
+    },
+    {
+      "from": "T49",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "ResourceAssignment"
+    },
+    {
+      "from": "T49",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "LogisticsPlan"
+    },
+    {
+      "from": "T50",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T50",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T50",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T50",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Shift"
+    },
+    {
+      "from": "T50",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "ResourceAssignment"
+    },
+    {
+      "from": "T51",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T51",
+      "rel": "serves",
+      "to": "R11"
+    },
+    {
+      "from": "T51",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T51",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Tastemaker"
+    },
+    {
+      "from": "T51",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "CheckResult"
+    },
+    {
+      "from": "T52",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T52",
+      "rel": "serves",
+      "to": "R11"
+    },
+    {
+      "from": "T52",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Guest"
+    },
+    {
+      "from": "T52",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AccessPass"
+    },
+    {
+      "from": "T53",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T53",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T53",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Program"
+    },
+    {
+      "from": "T53",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Beat"
+    },
+    {
+      "from": "T53",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Process"
+    },
+    {
+      "from": "T54",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T54",
+      "rel": "serves",
+      "to": "R9"
+    },
+    {
+      "from": "T54",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "ChildFlowStation"
+    },
+    {
+      "from": "T54",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "SupervisionPlan"
+    },
+    {
+      "from": "T55",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T55",
+      "rel": "serves",
+      "to": "R10"
+    },
+    {
+      "from": "T55",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Program"
+    },
+    {
+      "from": "T55",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Beat"
+    },
+    {
+      "from": "T56",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T56",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T56",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T56",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Role"
+    },
+    {
+      "from": "T56",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Pod"
+    },
+    {
+      "from": "T57",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T57",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T57",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T57",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Incident"
+    },
+    {
+      "from": "T57",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Contingency"
+    },
+    {
+      "from": "T57",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Process"
+    },
+    {
+      "from": "T58",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T58",
+      "rel": "serves",
+      "to": "R11"
+    },
+    {
+      "from": "T58",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T58",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "MediaCrew"
+    },
+    {
+      "from": "T58",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Shot"
+    },
+    {
+      "from": "T59",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T59",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T59",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "MediaCrew"
+    },
+    {
+      "from": "T59",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "MediaGallery"
+    },
+    {
+      "from": "T59",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "BrandAsset"
+    },
+    {
+      "from": "T60",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T60",
+      "rel": "serves",
+      "to": "R11"
+    },
+    {
+      "from": "T60",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T60",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Tastemaker"
+    },
+    {
+      "from": "T60",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "CheckResult"
+    },
+    {
+      "from": "T61",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T61",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Shift"
+    },
+    {
+      "from": "T61",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "LogisticsPlan"
+    },
+    {
+      "from": "T62",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T62",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T62",
+      "rel": "serves",
+      "to": "R14"
+    },
+    {
+      "from": "T62",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Touchpoint"
+    },
+    {
+      "from": "T63",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T63",
+      "rel": "serves",
+      "to": "R12"
+    },
+    {
+      "from": "T63",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "MediaGallery"
+    },
+    {
+      "from": "T63",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AICapability"
+    },
+    {
+      "from": "T64",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T64",
+      "rel": "serves",
+      "to": "R12"
+    },
+    {
+      "from": "T64",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T64",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "MediaGallery"
+    },
+    {
+      "from": "T64",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Tastemaker"
+    },
+    {
+      "from": "T65",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T65",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T65",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "MediaGallery"
+    },
+    {
+      "from": "T65",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AICapability"
+    },
+    {
+      "from": "T66",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T66",
+      "rel": "serves",
+      "to": "R12"
+    },
+    {
+      "from": "T66",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "MediaGallery"
+    },
+    {
+      "from": "T66",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Document"
+    },
+    {
+      "from": "T67",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T67",
+      "rel": "serves",
+      "to": "R12"
+    },
+    {
+      "from": "T67",
+      "rel": "serves",
+      "to": "R14"
+    },
+    {
+      "from": "T67",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Touchpoint"
+    },
+    {
+      "from": "T67",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Message"
+    },
+    {
+      "from": "T68",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T68",
+      "rel": "serves",
+      "to": "R14"
+    },
+    {
+      "from": "T68",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Touchpoint"
+    },
+    {
+      "from": "T68",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "FeedbackSignal"
+    },
+    {
+      "from": "T69",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T69",
+      "rel": "serves",
+      "to": "R14"
+    },
+    {
+      "from": "T69",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Referral"
+    },
+    {
+      "from": "T69",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "AICapability"
+    },
+    {
+      "from": "T69",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "HumanReview"
+    },
+    {
+      "from": "T70",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T70",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "BrandAsset"
+    },
+    {
+      "from": "T70",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Showcase"
+    },
+    {
+      "from": "T71",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T71",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "VendorPerformance"
+    },
+    {
+      "from": "T71",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "VendorRating"
+    },
+    {
+      "from": "T72",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T72",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Vendor"
+    },
+    {
+      "from": "T72",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Roster"
+    },
+    {
+      "from": "T73",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T73",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "ClientProfile"
+    },
+    {
+      "from": "T73",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "ProfileSignal"
+    },
+    {
+      "from": "T74",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T74",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Cadence"
+    },
+    {
+      "from": "T74",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Touchpoint"
+    },
+    {
+      "from": "T75",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T75",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Referral"
+    },
+    {
+      "from": "T75",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "LedgerEntry"
+    },
+    {
+      "from": "T76",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T76",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "QualityReview"
+    },
+    {
+      "from": "T76",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "Playbook"
+    },
+    {
+      "from": "T76",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "KnowledgeAsset"
+    },
+    {
+      "from": "T77",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T77",
+      "rel": "serves",
+      "to": "R14"
+    },
+    {
+      "from": "T77",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "Document"
+    },
+    {
+      "from": "T77",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "BrandAsset"
+    },
+    {
+      "from": "T77",
+      "rel": "realizes",
+      "role": "supporting",
+      "to": "MediaGallery"
+    },
+    {
+      "from": "T78",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T78",
+      "rel": "realizes",
+      "role": "primary",
+      "to": "BrandAsset"
+    }
+  ],
+  "meta": {
+    "atoms": 78,
+    "note": "Atoms -> where they map in the merged model (realizes) + served outcomes (serves).",
+    "targets": 91,
+    "tracks_model": "2.1"
+  },
+  "nodes": [
+    {
+      "arc": "A",
+      "disposition": "EXISTING",
+      "id": "T01",
+      "kind": "atom",
+      "name": "Capture inbound to single qualified-lead record",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "A",
+      "disposition": "EXISTING",
+      "id": "T02",
+      "kind": "atom",
+      "name": "Qualify against ICP filter",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "A",
+      "disposition": "EXISTING",
+      "id": "T03",
+      "kind": "atom",
+      "name": "Enrich identity",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "A",
+      "disposition": "EXISTING",
+      "id": "T04",
+      "kind": "atom",
+      "name": "Infer aesthetic posture from public signal",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "A",
+      "disposition": "EXISTING",
+      "id": "T05",
+      "kind": "atom",
+      "name": "Detect status / discretion sensitivities",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "A",
+      "disposition": "NEW-MASTER",
+      "id": "T06",
+      "kind": "atom",
+      "name": "Discovery call \u00b7 conversational, not interview",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "A",
+      "disposition": "DECOMPOSE",
+      "id": "T07",
+      "kind": "atom",
+      "name": "Capture stated and unstated brief",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "A",
+      "disposition": "EXISTING",
+      "id": "T08",
+      "kind": "atom",
+      "name": "CD taste arbitration of brief",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "A",
+      "disposition": "EXISTING",
+      "id": "T09",
+      "kind": "atom",
+      "name": "Same-day recap note",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "A",
+      "disposition": "NEW-MASTER",
+      "id": "T10",
+      "kind": "atom",
+      "name": "Open private channel with named human",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T11",
+      "kind": "atom",
+      "name": "Synthesize taste vector from intake + enrichment",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "B",
+      "disposition": "DECOMPOSE",
+      "id": "T12",
+      "kind": "atom",
+      "name": "Identify three axes to push and three to suppress",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T13",
+      "kind": "atom",
+      "name": "Compose moodboard at editorial quality",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T14",
+      "kind": "atom",
+      "name": "CD final pass on moodboard",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T15",
+      "kind": "atom",
+      "name": "Write moodboard caption deck",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T16",
+      "kind": "atom",
+      "name": "Vendor longlist conditioned on taste vector",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "B",
+      "disposition": "DECOMPOSE",
+      "id": "T17",
+      "kind": "atom",
+      "name": "Availability + social-overlap check",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T18",
+      "kind": "atom",
+      "name": "Shortlist with rationale",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T19",
+      "kind": "atom",
+      "name": "Ensemble taste pairing",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "B",
+      "disposition": "NEW-MASTER",
+      "id": "T20",
+      "kind": "atom",
+      "name": "Surface the dual-budget question",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T21",
+      "kind": "atom",
+      "name": "Pre-negotiate vendor ranges before quoting hostess",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T22",
+      "kind": "atom",
+      "name": "Tiered scope proposal",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T23",
+      "kind": "atom",
+      "name": "Draft proposal as a story document",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "B",
+      "disposition": "DECOMPOSE",
+      "id": "T24",
+      "kind": "atom",
+      "name": "Capture commit",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T25",
+      "kind": "atom",
+      "name": "Project instantiation",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "B",
+      "disposition": "NEW-MASTER",
+      "id": "T26",
+      "kind": "atom",
+      "name": "Planner-on-ground introduced by name",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T27",
+      "kind": "atom",
+      "name": "Render the key image",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "B",
+      "disposition": "EXISTING",
+      "id": "T28",
+      "kind": "atom",
+      "name": "Invite copy + visual aligned to moodboard",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "C",
+      "disposition": "EXISTING",
+      "id": "T29",
+      "kind": "atom",
+      "name": "Vendor outreach",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "C",
+      "disposition": "EXISTING",
+      "id": "T30",
+      "kind": "atom",
+      "name": "Counter-quote handling",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "C",
+      "disposition": "EXISTING",
+      "id": "T31",
+      "kind": "atom",
+      "name": "Generate vendor contracts",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "C",
+      "disposition": "DECOMPOSE",
+      "id": "T32",
+      "kind": "atom",
+      "name": "Deposits, payment scheduling, invoicing ledger",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "C",
+      "disposition": "EXISTING",
+      "id": "T33",
+      "kind": "atom",
+      "name": "Insurance, permits, COIs",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "C",
+      "disposition": "EXISTING",
+      "id": "T34",
+      "kind": "atom",
+      "name": "Vendor portal with cue sheet slice",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "C",
+      "disposition": "DECOMPOSE",
+      "id": "T35",
+      "kind": "atom",
+      "name": "Author run-of-show",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "C",
+      "disposition": "NEW-MASTER",
+      "id": "T36",
+      "kind": "atom",
+      "name": "Child-flow choreography",
+      "quadrant": "HUMAN-AI"
+    },
+    {
+      "arc": "C",
+      "disposition": "DECOMPOSE",
+      "id": "T37",
+      "kind": "atom",
+      "name": "Parallel-track design",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "C",
+      "disposition": "NEW-MASTER",
+      "id": "T38",
+      "kind": "atom",
+      "name": "Sensory cue sheet",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "C",
+      "disposition": "DECOMPOSE",
+      "id": "T39",
+      "kind": "atom",
+      "name": "Allergy + child preference matrix",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "C",
+      "disposition": "DECOMPOSE",
+      "id": "T40",
+      "kind": "atom",
+      "name": "Decision-rights pre-assignment",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "C",
+      "disposition": "NEW-MASTER",
+      "id": "T41",
+      "kind": "atom",
+      "name": "Escalation protocol with \"don't tell hostess\" tier",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "C",
+      "disposition": "EXISTING",
+      "id": "T42",
+      "kind": "atom",
+      "name": "Pre-day site walk",
+      "quadrant": "HUMAN-AI"
+    },
+    {
+      "arc": "C",
+      "disposition": "EXISTING",
+      "id": "T43",
+      "kind": "atom",
+      "name": "Dry-run cue sheet",
+      "quadrant": "HUMAN-AI"
+    },
+    {
+      "arc": "C",
+      "disposition": "EXISTING",
+      "id": "T44",
+      "kind": "atom",
+      "name": "Hostess one-page day-of brief",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "C",
+      "disposition": "NEW-MASTER",
+      "id": "T45",
+      "kind": "atom",
+      "name": "CD/CEO evening-before check-in",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "C",
+      "disposition": "DECOMPOSE",
+      "id": "T46",
+      "kind": "atom",
+      "name": "Photo brief with relational geometry",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "C",
+      "disposition": "EXISTING",
+      "id": "T47",
+      "kind": "atom",
+      "name": "Album delivery pipeline pre-staging",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "C",
+      "disposition": "DECOMPOSE",
+      "id": "T48",
+      "kind": "atom",
+      "name": "Contingency triggers",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "D",
+      "disposition": "DECOMPOSE",
+      "id": "T49",
+      "kind": "atom",
+      "name": "Vendor arrival staging",
+      "quadrant": "HUMAN-AI"
+    },
+    {
+      "arc": "D",
+      "disposition": "DECOMPOSE",
+      "id": "T50",
+      "kind": "atom",
+      "name": "Staff brief and assignment confirmation",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "D",
+      "disposition": "EXISTING",
+      "id": "T51",
+      "kind": "atom",
+      "name": "Final aesthetic walk-through",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "D",
+      "disposition": "DECOMPOSE",
+      "id": "T52",
+      "kind": "atom",
+      "name": "Guest arrival management",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "D",
+      "disposition": "DECOMPOSE",
+      "id": "T53",
+      "kind": "atom",
+      "name": "Cue execution against ROS",
+      "quadrant": "HUMAN-AI"
+    },
+    {
+      "arc": "D",
+      "disposition": "DECOMPOSE",
+      "id": "T54",
+      "kind": "atom",
+      "name": "Child-flow live management",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "D",
+      "disposition": "DECOMPOSE",
+      "id": "T55",
+      "kind": "atom",
+      "name": "Adult-track pacing",
+      "quadrant": "HUMAN-AI"
+    },
+    {
+      "arc": "D",
+      "disposition": "NEW-MASTER",
+      "id": "T56",
+      "kind": "atom",
+      "name": "Hostess shadow",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "D",
+      "disposition": "DECOMPOSE",
+      "id": "T57",
+      "kind": "atom",
+      "name": "In-flight contingency handling",
+      "quadrant": "HUMAN-AI"
+    },
+    {
+      "arc": "D",
+      "disposition": "EXISTING",
+      "id": "T58",
+      "kind": "atom",
+      "name": "Live host / family / in-law coverage",
+      "quadrant": "HUMAN-AI"
+    },
+    {
+      "arc": "D",
+      "disposition": "EXISTING",
+      "id": "T59",
+      "kind": "atom",
+      "name": "Editorial coverage",
+      "quadrant": "HUMAN-AI"
+    },
+    {
+      "arc": "D",
+      "disposition": "EXISTING",
+      "id": "T60",
+      "kind": "atom",
+      "name": "Real-time taste corrections",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "D",
+      "disposition": "DECOMPOSE",
+      "id": "T61",
+      "kind": "atom",
+      "name": "End-of-event de-stage",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "D",
+      "disposition": "NEW-MASTER",
+      "id": "T62",
+      "kind": "atom",
+      "name": "Hostess send-off",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "E",
+      "disposition": "EXISTING",
+      "id": "T63",
+      "kind": "atom",
+      "name": "Same-night photo cull",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "E",
+      "disposition": "EXISTING",
+      "id": "T64",
+      "kind": "atom",
+      "name": "Editorial selection",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "E",
+      "disposition": "EXISTING",
+      "id": "T65",
+      "kind": "atom",
+      "name": "Color, retouch on hero frames",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "E",
+      "disposition": "EXISTING",
+      "id": "T66",
+      "kind": "atom",
+      "name": "Album rendered, shared, mobile + download",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "E",
+      "disposition": "EXISTING",
+      "id": "T67",
+      "kind": "atom",
+      "name": "Album delivery message",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "E",
+      "disposition": "NEW-MASTER",
+      "id": "T68",
+      "kind": "atom",
+      "name": "Personal follow-up",
+      "quadrant": "HUMAN"
+    },
+    {
+      "arc": "E",
+      "disposition": "EXISTING",
+      "id": "T69",
+      "kind": "atom",
+      "name": "Referral activation",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "E",
+      "disposition": "EXISTING",
+      "id": "T70",
+      "kind": "atom",
+      "name": "Press / portfolio pipeline",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "E",
+      "disposition": "EXISTING",
+      "id": "T71",
+      "kind": "atom",
+      "name": "Vendor scoring",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "E",
+      "disposition": "DECOMPOSE",
+      "id": "T72",
+      "kind": "atom",
+      "name": "Vendor network growth",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "E",
+      "disposition": "EXISTING",
+      "id": "T73",
+      "kind": "atom",
+      "name": "Customer dossier update",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "E",
+      "disposition": "DECOMPOSE",
+      "id": "T74",
+      "kind": "atom",
+      "name": "Loop hold",
+      "quadrant": "HUMAN-AI"
+    },
+    {
+      "arc": "E",
+      "disposition": "DECOMPOSE",
+      "id": "T75",
+      "kind": "atom",
+      "name": "Referral attribution",
+      "quadrant": "AUTO"
+    },
+    {
+      "arc": "E",
+      "disposition": "DECOMPOSE",
+      "id": "T76",
+      "kind": "atom",
+      "name": "Post-mortem with planner + CD",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "E",
+      "disposition": "DECOMPOSE",
+      "id": "T77",
+      "kind": "atom",
+      "name": "Hostess-grade recap doc",
+      "quadrant": "AUG-HITL"
+    },
+    {
+      "arc": "E",
+      "disposition": "NEW-MASTER",
+      "id": "T78",
+      "kind": "atom",
+      "name": "CD handwritten note on recap doc",
+      "quadrant": "HUMAN"
+    },
+    {
+      "id": "AICapability",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "AccessPass",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Approval",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "AuditEvent",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Beat",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Booking",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "BrandAsset",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Budget",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Cadence",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "CalendarItem",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "CheckResult",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Checklist",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "ChecklistRun",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "ChildFlowStation",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "ClientProfile",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Concept",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Consent",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "ContactChannel",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "ContainmentPolicy",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Contingency",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Contract",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Deposit",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "DiscretionPolicy",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Document",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "EmergencyPlan",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Engagement",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "EventBrief",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "EventConcept",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "FeedbackSignal",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Guest",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "GuestExperience",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "HumanReview",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Incident",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Inquiry",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "InspirationSource",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Invitation",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Invoice",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "KnowledgeAsset",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Lead",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Ledger",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "LedgerEntry",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "LogisticsPlan",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "MediaCrew",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "MediaGallery",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "MediaPlan",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "MediaPolicy",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Message",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "MessageTemplate",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Offering",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Payment",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Permission",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Permit",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Playbook",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Pod",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "PreferenceModel",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "PricingPlan",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Process",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "ProfileSignal",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Program",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Proposal",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "QualityReview",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Quote",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "RSVP",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Referral",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "RelationshipEdge",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "ResourceAssignment",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Risk",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Role",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Roster",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Segment",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "SensoryCue",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Shift",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Shot",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "ShotList",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Showcase",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "SourcePolicy",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "SupervisionPlan",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Task",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "TasteProfile",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Tastemaker",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "TeamMember",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Thread",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Touchpoint",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Vendor",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "VendorAccessRole",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "VendorContract",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "VendorPerformance",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "VendorRating",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "VendorRecommendation",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "VendorUser",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "Venue",
+      "kind": "unspun_target"
+    },
+    {
+      "id": "R1",
+      "kind": "outcome"
+    },
+    {
+      "id": "R2",
+      "kind": "outcome"
+    },
+    {
+      "id": "R3",
+      "kind": "outcome"
+    },
+    {
+      "id": "R4",
+      "kind": "outcome"
+    },
+    {
+      "id": "R5",
+      "kind": "outcome"
+    },
+    {
+      "id": "R6",
+      "kind": "outcome"
+    },
+    {
+      "id": "R7",
+      "kind": "outcome"
+    },
+    {
+      "id": "R8",
+      "kind": "outcome"
+    },
+    {
+      "id": "R9",
+      "kind": "outcome"
+    },
+    {
+      "id": "R10",
+      "kind": "outcome"
+    },
+    {
+      "id": "R11",
+      "kind": "outcome"
+    },
+    {
+      "id": "R12",
+      "kind": "outcome"
+    },
+    {
+      "id": "R13",
+      "kind": "outcome"
+    },
+    {
+      "id": "R14",
+      "kind": "outcome"
+    },
+    {
+      "id": "Q:AUTO",
+      "kind": "quadrant"
+    },
+    {
+      "id": "Q:AUG-HITL",
+      "kind": "quadrant"
+    },
+    {
+      "id": "Q:HUMAN-AI",
+      "kind": "quadrant"
+    },
+    {
+      "id": "Q:HUMAN",
+      "kind": "quadrant"
+    }
+  ]
+}
