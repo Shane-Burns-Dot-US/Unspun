@@ -1993,7 +1993,7 @@
     "atoms": 78,
     "note": "Atoms -> where they map in the merged model (realizes) + served outcomes (serves).",
     "targets": 91,
-    "tracks_model": "2.1"
+    "version": "2.1"
   },
   "nodes": [
     {

@@ -1,5 +1,7 @@
 # Merge Procedure — Bringing Old (Unspun) and New (Fête) Together
 
+**Version:** v2.1 · part of the [Data Architecture](../README.md).
+
 **Reads on:** [`merge-analysis.md`](./merge-analysis.md) (incl. Addendum B partner
 amendments), [`crosswalk.yaml`](./crosswalk.yaml), [`fete-unifying-model.md`](./fete-unifying-model.md),
 [`ADR-0001`](../decisions/ADR-0001-system-data-substrate.md).

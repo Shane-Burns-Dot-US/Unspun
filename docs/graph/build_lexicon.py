@@ -10,7 +10,7 @@ BASE=os.path.dirname(os.path.abspath(__file__))
 KG=json.load(open(os.path.join(BASE,'kg.json')))
 FET=json.load(open(os.path.join(BASE,'..','reconciliation','fete-graph.json')))
 KERN=yaml.safe_load(open(os.path.join(BASE,'..','data-model','catalog','00-kernel.yaml')))
-VER=KG['meta']['version']
+VER=open(os.path.join(BASE,'..','VERSION')).read().strip()  # single source: docs/VERSION
 
 # glosses from the spec glossary (Unspun) ----------------------------------
 GLOSS={}

@@ -13,7 +13,7 @@ import yaml, re, json, glob, os
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 CAT  = os.path.join(BASE, '..', 'data-model', 'catalog')
-MODEL_VERSION = '2.1'   # v1.0 initial; v2.0 + Fête merge bridge; v2.1 + GuestFamily model
+MODEL_VERSION = open(os.path.join(BASE,'..','VERSION')).read().strip()  # single source: docs/VERSION
 
 CTX_ORDER = ['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','c11','c12','dyn','ai']
 CTX_LABEL = {

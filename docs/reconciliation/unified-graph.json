@@ -2541,7 +2541,8 @@
     "node_count": 290,
     "note": "Unified projection: Unspun KG + all 78 F\u00eate atoms + outcomes, joined on atom_code.",
     "proposed_entities": [],
-    "realizes_edges": 198
+    "realizes_edges": 198,
+    "version": "2.1"
   },
   "nodes": [
     {

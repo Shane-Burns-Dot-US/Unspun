@@ -1,8 +1,8 @@
 # Unspun — Data Architecture · v2.1
 
 The front door to the data architecture: what exists, how it fits, where to look, and how
-to regenerate it. **Versioned**; the version tracks the model (`kg.json` meta is the source
-of truth for the number).
+to regenerate it. **Versioned**; [`VERSION`](./VERSION) is the single source of truth for the
+number, which every generator reads and stamps into its output.
 
 > **One sentence:** a human‑fronted, AI‑backed event‑service platform modeled as a
 > **noun‑graph** (objects/data) and a **verb‑graph** (Fête process atoms), composed across

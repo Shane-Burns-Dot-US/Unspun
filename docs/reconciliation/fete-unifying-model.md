@@ -1,5 +1,7 @@
 # Fête — Unifying Model (FUM v1)
 
+**Corpus version:** v2.1 · part of the [Data Architecture](../README.md).
+
 **Purpose:** unify the three Fête artifacts into one coherent model, built so it can be
 **reconciled with the Unspun corpus** (`../spec`, `../data-model`, `../graph`) next.
 This document does the *unification*; the Unspun reconciliation is staged (§8) but not yet

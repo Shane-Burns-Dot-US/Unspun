@@ -4,7 +4,8 @@
 # status: mapped | partial | gap_in_unspun | gap_in_fete | conflict
 # To be executed/confirmed in the reconciliation step; nothing here is final.
 
-version: 1
+version: 1               # crosswalk schema version
+corpus_version: "2.1"    # tracks docs/VERSION
 thesis: "Fête atoms are verbs (process/task); Unspun entities are nouns (object). Map, don't merge."
 
 # --- Meta-type level (the structural join) ---------------------------------

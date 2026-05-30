@@ -3141,7 +3141,8 @@
       "AUTO": 26,
       "HUMAN": 15,
       "HUMAN-AI": 10
-    }
+    },
+    "version": "2.1"
   },
   "nodes": [
     {

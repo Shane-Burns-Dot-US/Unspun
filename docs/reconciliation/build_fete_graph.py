@@ -11,6 +11,7 @@ Usage:  python3 docs/reconciliation/build_fete_graph.py
 import re, json, os
 BASE = os.path.dirname(os.path.abspath(__file__))
 SRC  = os.path.join(BASE, 'sources', 'fete-atom-decomposition.md')
+VER  = open(os.path.join(BASE, '..', 'VERSION')).read().strip()  # single source: docs/VERSION
 
 # Backbone constants (from the Process Atlas spine) -------------------------
 ARC_OF_PHASE = {**{f'P0{i}':'A' for i in (1,2,3)},
@@ -94,7 +95,7 @@ nodes.sort(key=lambda n:(n['kind'],n['id']))
 edges.sort(key=lambda e:(e['from'],e['rel'],e['to']))
 from collections import Counter
 qc=Counter(n['quadrant'] for n in nodes if n['kind']=='atom')
-kg={'meta':{'generated_from':'sources/fete-atom-decomposition.md',
+kg={'meta':{'version':VER,'generated_from':'sources/fete-atom-decomposition.md',
             'atoms':atoms,'node_count':len(nodes),'edge_count':len(edges),
             'quadrant_counts':dict(qc)},
     'nodes':nodes,'edges':edges}
