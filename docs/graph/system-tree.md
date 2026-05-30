@@ -1,9 +1,12 @@
-# Unspun — System Tree
+# Unspun — System Tree · v2.0
 
 A single hierarchical view of the whole system: belief → domain → logic → architecture →
-corpus. The leaf‑level entity enumeration is generated separately in
+**merge** → corpus. The leaf‑level entity enumeration is generated separately in
 [`entities-by-context.md`](./entities-by-context.md); the relational logic is in
 [`knowledge-graph.md`](./knowledge-graph.md).
+
+**Version history:** `v1.0` — belief/domain/logic/architecture/corpus.
+`v2.0` — + §6 Merge (Fête ↔ Unspun bridge): atoms, outcomes, realizations, two new objects.
 
 ## Mindmap
 
@@ -32,11 +35,17 @@ mindmap
       Control plane - Git
       System of record - Postgres event-sourced
       Workflow surface - ticketing
+    Merge — Fête bridge v2.0
+      Atom T01-T78 templates
+      Outcome R1-R15
+      AtomRealization - consent-gated
+      SensoryCue + ChildFlowStation
     Corpus
       spec/
       data-model/
       decisions/
       graph/
+      reconciliation/
 ```
 
 ## Outline
@@ -101,12 +110,24 @@ Unspun
 │   ├─ System of record ...... event-sourced Postgres (root/party/projection/signal, PII)
 │   └─ Workflow surface ...... ticketing (Task/Approval/Incident), swappable, event-driven
 │
-└─ 5. Corpus  (the document map)
+├─ 5. Merge — Fête ↔ Unspun bridge  v2.0  (reconciliation/ + data-model 07/03)
+│   ├─ Verb-graph (Fête) ..... 78 atoms T01-T78, outcomes R1-R15, 9 workstreams, quadrants
+│   ├─ Map .................. merge-ledger.yaml — all 78 kept: 42 EXISTING · 24 DECOMPOSE · 12 NEW
+│   ├─ Masters .............. Atom (template), Outcome  (control plane)
+│   ├─ Runtime bridge ....... AtomRealization (atom_code, version-pinned, consent-gated B6)
+│   ├─ New objects .......... SensoryCue (T38), ChildFlowStation (T36/T54)
+│   ├─ Bridge columns ....... Task/AICapability.atom_code, AICapability.quadrant,
+│   │                          CheckDefinition.atom_code, Moment.serves_outcome_code/stage_boh
+│   └─ Unified graph ........ unified-graph.json (KG nouns + atoms via 'realizes')
+│
+└─ 6. Corpus  (the document map)
     ├─ spec/ ......... domain-keystone, glossary, building-ethos, mece-review,
     │                   gaps-and-clarity-review (+ Chesky addendum)
-    ├─ data-model/ ... README, catalog/*.yaml (atoms), sql/*.sql (relational molecule)
+    ├─ data-model/ ... README, catalog/*.yaml (00-07), sql/*.sql (00-03, incl. merge bridge)
     ├─ decisions/ .... ADR-0001 substrate
-    └─ graph/ ........ build_kg.py, kg.json, knowledge-graph.md, system-tree.md,
+    ├─ reconciliation/ fete-unifying-model, crosswalk, merge-analysis (+ partner addendum),
+    │                   merge-procedure, merge-ledger, merge-map, build_*.py, *-graph.json
+    └─ graph/ ........ build_kg.py, kg.json (v2.0), knowledge-graph.md, system-tree.md,
                         entities-by-context.md
 ```
 

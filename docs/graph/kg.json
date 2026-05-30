@@ -6,6 +6,16 @@
       "to": "Agent"
     },
     {
+      "from": "AICapability",
+      "rel": "templated_by",
+      "to": "Atom"
+    },
+    {
+      "from": "AICapability",
+      "rel": "quadrant_binds",
+      "to": "GATE_ai_outward"
+    },
+    {
       "from": "Agent",
       "rel": "emits",
       "to": "Invocation"
@@ -15,6 +25,24 @@
       "from": "AssetReservation",
       "rel": "fk",
       "to": "Asset"
+    },
+    {
+      "card": "n..m",
+      "from": "Atom",
+      "rel": "ref",
+      "to": "Outcome"
+    },
+    {
+      "card": "n..1",
+      "from": "AtomRealization",
+      "rel": "ref",
+      "to": "Atom"
+    },
+    {
+      "card": "n..1",
+      "from": "AtomRealization",
+      "rel": "ref",
+      "to": "Event"
     },
     {
       "card": "n..1",
@@ -83,9 +111,20 @@
       "to": "Event"
     },
     {
+      "from": "CheckDefinition",
+      "rel": "derived_from",
+      "to": "Atom"
+    },
+    {
       "from": "CheckResult",
       "rel": "ranked_by",
       "to": "attention_matrix"
+    },
+    {
+      "card": "n..1",
+      "from": "ChildFlowStation",
+      "rel": "ref",
+      "to": "Event"
     },
     {
       "card": "1..1",
@@ -255,6 +294,16 @@
       "from": "GATE_ai_outward",
       "rel": "gates",
       "to": "Suggestion"
+    },
+    {
+      "from": "GATE_atom_consent",
+      "rel": "gates",
+      "to": "AtomRealization"
+    },
+    {
+      "from": "GATE_atom_consent",
+      "rel": "requires",
+      "to": "Consent"
     },
     {
       "from": "GATE_booking_confirm",
@@ -468,6 +517,11 @@
       "to": "Event"
     },
     {
+      "from": "Moment",
+      "rel": "serves",
+      "to": "Outcome"
+    },
+    {
       "card": "n..1",
       "from": "Offering",
       "rel": "fk",
@@ -572,6 +626,12 @@
       "to": "Event"
     },
     {
+      "card": "n..1",
+      "from": "SensoryCue",
+      "rel": "comp",
+      "to": "Beat"
+    },
+    {
       "card": "1..1",
       "from": "ShotList",
       "rel": "fk",
@@ -652,6 +712,11 @@
       "from": "T6_atoms_molecules",
       "rel": "realized_by",
       "to": "data_plane"
+    },
+    {
+      "from": "Task",
+      "rel": "templated_by",
+      "to": "Atom"
     },
     {
       "card": "n..1",
@@ -843,11 +908,12 @@
     }
   ],
   "meta": {
-    "edge_count": 152,
+    "edge_count": 164,
     "edge_relations": [
       "comp",
       "constrains",
       "defines",
+      "derived_from",
       "drives",
       "emits",
       "enforces",
@@ -864,19 +930,22 @@
       "may_produce",
       "performed_by",
       "protects",
+      "quadrant_binds",
       "ranked_by",
       "realized_by",
       "records",
       "ref",
       "requires",
       "routes",
+      "serves",
       "surfaces",
+      "templated_by",
       "triggers",
       "unwinds",
       "wakes",
       "yields"
     ],
-    "generated_from": "docs/data-model/catalog/*.yaml + authored logic layer",
+    "generated_from": "docs/data-model/catalog/*.yaml + authored logic + merge bridge",
     "kinds": [
       "entity",
       "ethos",
@@ -886,7 +955,8 @@
       "process",
       "state_machine"
     ],
-    "node_count": 191
+    "node_count": 197,
+    "version": "2.0"
   },
   "nodes": [
     {
@@ -1047,6 +1117,22 @@
       "id": "SourcePolicy",
       "kind": "entity",
       "pk": "srcp_",
+      "states": null
+    },
+    {
+      "archetype": "master",
+      "context": "c10",
+      "id": "Atom",
+      "kind": "entity",
+      "pk": "atom_",
+      "states": null
+    },
+    {
+      "archetype": "signal",
+      "context": "c10",
+      "id": "AtomRealization",
+      "kind": "entity",
+      "pk": "arz_",
       "states": null
     },
     {
@@ -1642,6 +1728,14 @@
       "states": null
     },
     {
+      "archetype": "master",
+      "context": "c5",
+      "id": "Outcome",
+      "kind": "entity",
+      "pk": "out_",
+      "states": null
+    },
+    {
       "archetype": "member",
       "context": "c5",
       "id": "Program",
@@ -1700,6 +1794,14 @@
     {
       "archetype": "member",
       "context": "c6",
+      "id": "ChildFlowStation",
+      "kind": "entity",
+      "pk": "cfs_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
       "id": "Dependency",
       "kind": "entity",
       "pk": "dpd_",
@@ -1751,6 +1853,14 @@
       "id": "ResourceAssignment",
       "kind": "entity",
       "pk": "ras_",
+      "states": null
+    },
+    {
+      "archetype": "member",
+      "context": "c6",
+      "id": "SensoryCue",
+      "kind": "entity",
+      "pk": "scue_",
       "states": null
     },
     {
@@ -2211,6 +2321,11 @@
       "id": "GATE_ai_outward",
       "kind": "invariant",
       "label": "No client/guest/vendor-facing artifact from a Suggestion without accepted/edited HumanReview"
+    },
+    {
+      "id": "GATE_atom_consent",
+      "kind": "invariant",
+      "label": "AtomRealization of a governance_bound atom requires consent_id + lawful_basis (B6)"
     },
     {
       "id": "GATE_booking_confirm",
