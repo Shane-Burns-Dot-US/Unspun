@@ -1,0 +1,106 @@
+# Fête (verb-graph) <-> Unspun (noun-graph) crosswalk — PROVISIONAL.
+# The reconciliation substrate referenced by fete-unifying-model.md §7-8.
+# Join fete-graph.json against ../graph/kg.json using these mappings.
+# status: mapped | partial | gap_in_unspun | gap_in_fete | conflict
+# To be executed/confirmed in the reconciliation step; nothing here is final.
+
+version: 1
+thesis: "Fête atoms are verbs (process/task); Unspun entities are nouns (object). Map, don't merge."
+
+# --- Meta-type level (the structural join) ---------------------------------
+meta_types:
+  - fete: PROMISE (Layer 0)
+    unspun: [ExperienceStandard, "BuildingEthos:principle-2 (exceptional=top-decile)"]
+    status: mapped
+  - fete: Persona/ICP (Caroline; register)
+    unspun: [Household, ClientProfile, "Person+ClientRole", TasteProfile, DiscretionLevel]
+    status: mapped
+    note: "Fête 'register' = ClientProfile.taste_summary + TasteProfile dimensions."
+  - fete: Outcome R1-R15
+    unspun: [ExperienceStandard.dimensions, ExceptionalityScore, "Moment.expected_feeling", FeedbackSignal]
+    status: partial
+    note: "R-lines are the felt benchmark; Unspun scores at event level, not per-atom."
+  - fete: Arc A-E
+    unspun: ["engagement_state", "event_state", Cadence, "Moment(protagonist journey)"]
+    status: partial
+  - fete: Phase P01-P15
+    unspun: [Process, "state_transition", "Playbook.steps"]
+    status: partial
+  - fete: Workstream WS1-6 (agent surfaces)
+    unspun: [AICapability, Agent]
+    status: mapped
+  - fete: Workstream WS7-9 (human-led)
+    unspun: [Tastemaker, Role, Pod, "Thread/Touchpoint (relationship custody)"]
+    status: partial
+    note: "WS9 relationship-custody richer in Fête; see gap_in_unspun."
+  - fete: Atom T01-T78
+    unspun: [Process, Task, AICapability, "Playbook.steps", Checklist]
+    status: partial
+    note: "Primary grain join. Each atom = a process/task on Unspun entities."
+  - fete: SubComponent (Tnn.k)
+    unspun: ["Task substeps", "Checklist items", "AICapability.inputs"]
+    status: partial
+  - fete: SkillClass (TST/LOG/NEG/CRF/CAR/ANL/COM/OPS)
+    unspun: ["Role", "AICapability category", "Tastemaker (TST)"]
+    status: partial
+  - fete: Quadrant (AUTO/AUG-HITL/HUMAN-AI/HUMAN)
+    unspun: ["AICapability.autonomy", "Suggestion->HumanReview", GuardedAction, "GATE_ai_outward", PolicyGuardrail]
+    status: mapped
+    note: "Strong join. AUTO=GuardedAction/autonomous; AUG-HITL=Suggestion+HumanReview; HUMAN-AI=Agent-scaffold+human; HUMAN=no AI in customer loop."
+  - fete: Benchmark ("5-star looks like")
+    unspun: [ExperienceStandard, "Deliverable.acceptance_criteria", CheckDefinition]
+    status: partial
+  - fete: FailureMode
+    unspun: [Risk, Incident, "CheckResult(fail)"]
+    status: partial
+  - fete: Membrane (G1 stage/BoH)
+    unspun: ["BuildingEthos:T1 human-fronted", "control_plane/data_plane", "Moment.is_peak"]
+    status: partial
+    note: "Implicit in Unspun; Fête makes it a first-class lens."
+
+# --- Lens level (G1-G7 -> Unspun axes) -------------------------------------
+lenses:
+  G1_stage_vs_boh:        {unspun: ["planes", "human-fronted principle", "Moment"], status: partial}
+  G2_taste_vs_logistics:  {unspun: ["archetype", "SkillClass"], status: mapped}
+  G3_reversible_vs_brand_destroying: {unspun: ["Risk.impact", DiscretionLevel, "CheckDefinition(brand-risk)"], status: partial}
+  G4_information_artifact: {unspun: [Document, Deliverable, "MediaGallery"], status: mapped}
+  G5_asset_compounding:   {unspun: [VendorPerformance, Roster, ClientProfile, Referral, Playbook], status: mapped}
+  G6_sensory_channel:     {unspun: ["Beat", "Touchpoint.channel"], status: partial, note: "No SensoryCue object in Unspun."}
+  G7_cost_driver:         {unspun: [Budget, Margin, "automation value"], status: partial}
+
+# --- Atom-cluster level (the working joins for reconciliation) -------------
+atom_clusters:
+  intake_enrich:     {fete: [T01,T02,T03,T04,T05], unspun: [Lead, Inquiry, ProfileSignal, ClientProfile, Consent, SourcePolicy], status: mapped}
+  discovery_trust:   {fete: [T06,T07,T08,T09,T10], unspun: [Touchpoint, Thread, "Tastemaker(T08)", "AICapability:BriefCapture"], status: partial}
+  taste_moodboard:   {fete: [T11,T12,T13,T14,T15,T19,T27], unspun: [TasteProfile, PreferenceModel, Concept, ConceptVariant, Motif, InspirationSource], status: mapped}
+  vendor_match_book: {fete: [T16,T17,T18,T29,T30,T31,T32,T33,T34], unspun: [Vendor, VendorCapability, Offering, Quote, Booking, VendorContract, VendorUser, ContainmentPolicy], status: mapped}
+  budget_discretion: {fete: [T20,T21,T22,T23,T24], unspun: [Budget, PricingPlan, Proposal, Contract, "Consent/DiscretionPolicy(T20)"], status: mapped}
+  run_of_show:       {fete: [T35,T36,T37,T38,T40,T41,T48,T53], unspun: [Program, Beat, LogisticsPlan, Task, Dependency, "Permission/Approval(decision-rights)", Contingency, Process], status: partial, note: "SensoryCue(T38) + child-flow(T36) have no dedicated Unspun object."}
+  day_of_exec:       {fete: [T49,T50,T51,T52,T54,T55,T56,T57,T60,T61,T62], unspun: [Shift, ResourceAssignment, AccessPass, SupervisionPlan, "Role/Pod", Incident], status: partial}
+  media_album:       {fete: [T46,T47,T58,T59,T63,T64,T65,T66,T67], unspun: [MediaPlan, MediaCrew, ShotList, Shot, MediaGallery], status: mapped}
+  loop_compounding:  {fete: [T68,T69,T70,T71,T72,T73,T74,T75,T76,T77,T78], unspun: [Referral, Showcase, VendorPerformance, Roster, ClientProfile, Playbook, KnowledgeAsset, BrandAsset], status: mapped}
+
+# --- Open items to resolve in reconciliation -------------------------------
+open_items:
+  - id: C1
+    status: conflict
+    where: within_fete
+    detail: "Quadrant roll-up (Atlas: AUTO22/AUG28/HAI13/HUM15) != per-atom tags (decomp: 26/27/10/15). Adopt per-atom; refresh Atlas."
+  - id: G1
+    status: gap_in_unspun
+    detail: "Per-atom Benchmark + Failure-mode. Proposal: attach to Task/Playbook step + CheckDefinition."
+  - id: G2
+    status: gap_in_unspun
+    detail: "Named-human / register / relationship-custody depth (WS9: T10,T26,T45,T56,T62,T68,T74). Proposal: 'named owner' + voice/register calibration on Touchpoint/Cadence."
+  - id: G3
+    status: gap_in_unspun
+    detail: "SensoryCue (T38) and child-flow station (T36/T54) objects. Proposal: add to c6 Production."
+  - id: G4
+    status: gap_in_unspun
+    detail: "Explicit Membrane (stage/BoH) flag. Proposal: stage_boh enum on Moment/Task/Deliverable."
+  - id: G5
+    status: gap_in_fete
+    detail: "Data/consent/minor-protection/retention/dynamic-layer/substrate depth. Unspun covers; Fête assumes."
+  - id: N1
+    status: note
+    detail: "Grain mismatch (78 atoms vs 161 entities) is expected: verb-plane vs noun-plane. Map, don't merge."
