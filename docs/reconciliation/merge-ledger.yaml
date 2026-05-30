@@ -1,0 +1,1391 @@
+meta:
+  atoms: 78
+  dispositions:
+    EXISTING: 42
+    NEW-MASTER: 12
+    DECOMPOSE: 24
+  governance_bound:
+  - T03
+  - T04
+  - T05
+  - T20
+  - T46
+  - T73
+  new_objects_introduced:
+  - ChildFlowStation
+  - SensoryCue
+  join_key: atom_code
+  note: All 78 atoms retained; merge maps each to Unspun, none dropped.
+ledger:
+- atom: T01
+  name: Capture inbound to single qualified-lead record
+  arc: A
+  phase: P01
+  ws: 1
+  skill: OPS
+  quadrant: AUTO
+  serves:
+  - 2
+  disposition: EXISTING
+  unspun_targets:
+  - Lead
+  - Inquiry
+  - ContactChannel
+  - AuditEvent
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T02
+  name: Qualify against ICP filter
+  arc: A
+  phase: P01
+  ws: 1
+  skill: ANL
+  quadrant: AUTO
+  serves:
+  - 2
+  disposition: EXISTING
+  unspun_targets:
+  - AICapability
+  - Lead
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T03
+  name: Enrich identity
+  arc: A
+  phase: P02
+  ws: 1
+  skill: ANL
+  quadrant: AUTO
+  serves:
+  - 2
+  disposition: EXISTING
+  unspun_targets:
+  - AICapability
+  - ProfileSignal
+  - ClientProfile
+  governance_bound: true
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T04
+  name: Infer aesthetic posture from public signal
+  arc: A
+  phase: P02
+  ws: 1
+  skill: ANL
+  quadrant: AUG-HITL
+  serves:
+  - 3
+  - 4
+  disposition: EXISTING
+  unspun_targets:
+  - AICapability
+  - TasteProfile
+  - ProfileSignal
+  governance_bound: true
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T05
+  name: Detect status / discretion sensitivities
+  arc: A
+  phase: P02
+  ws: 1
+  skill: ANL
+  quadrant: AUG-HITL
+  serves:
+  - 6
+  disposition: EXISTING
+  unspun_targets:
+  - AICapability
+  - Consent
+  - DiscretionPolicy
+  - SourcePolicy
+  governance_bound: true
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T06
+  name: "Discovery call \xB7 conversational, not interview"
+  arc: A
+  phase: P03
+  ws: 1
+  skill: CAR
+  quadrant: HUMAN
+  serves:
+  - 2
+  disposition: NEW-MASTER
+  unspun_targets:
+  - Touchpoint
+  - Thread
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: planner
+- atom: T07
+  name: Capture stated and unstated brief
+  arc: A
+  phase: P03
+  ws: 1
+  skill: COM
+  quadrant: AUG-HITL
+  serves:
+  - 2
+  - 4
+  disposition: DECOMPOSE
+  unspun_targets:
+  - EventBrief
+  - AICapability
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T08
+  name: CD taste arbitration of brief
+  arc: A
+  phase: P03
+  ws: 7
+  skill: TST
+  quadrant: HUMAN
+  serves:
+  - 4
+  disposition: EXISTING
+  unspun_targets:
+  - Tastemaker
+  - EventConcept
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: CD
+- atom: T09
+  name: Same-day recap note
+  arc: A
+  phase: P03
+  ws: 1
+  skill: COM
+  quadrant: AUTO
+  serves:
+  - 2
+  disposition: EXISTING
+  unspun_targets:
+  - Touchpoint
+  - Message
+  - MessageTemplate
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T10
+  name: Open private channel with named human
+  arc: A
+  phase: P03
+  ws: 9
+  skill: CAR
+  quadrant: HUMAN
+  serves: []
+  disposition: NEW-MASTER
+  unspun_targets:
+  - Thread
+  - Touchpoint
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: planner
+- atom: T11
+  name: Synthesize taste vector from intake + enrichment
+  arc: B
+  phase: P04
+  ws: 2
+  skill: ANL
+  quadrant: AUG-HITL
+  serves:
+  - 3
+  - 4
+  disposition: EXISTING
+  unspun_targets:
+  - TasteProfile
+  - PreferenceModel
+  - AICapability
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T12
+  name: Identify three axes to push and three to suppress
+  arc: B
+  phase: P04
+  ws: 2
+  skill: ANL
+  quadrant: AUG-HITL
+  serves:
+  - 4
+  disposition: DECOMPOSE
+  unspun_targets:
+  - PreferenceModel
+  - TasteProfile
+  - AICapability
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T13
+  name: Compose moodboard at editorial quality
+  arc: B
+  phase: P05
+  ws: 2
+  skill: CRF
+  quadrant: AUG-HITL
+  serves:
+  - 3
+  - 13
+  disposition: EXISTING
+  unspun_targets:
+  - Concept
+  - InspirationSource
+  - AICapability
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T14
+  name: CD final pass on moodboard
+  arc: B
+  phase: P05
+  ws: 7
+  skill: TST
+  quadrant: HUMAN
+  serves:
+  - 3
+  - 5
+  disposition: EXISTING
+  unspun_targets:
+  - Tastemaker
+  - Concept
+  - HumanReview
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: CD
+- atom: T15
+  name: Write moodboard caption deck
+  arc: B
+  phase: P05
+  ws: 2
+  skill: COM
+  quadrant: AUTO
+  serves:
+  - 3
+  disposition: EXISTING
+  unspun_targets:
+  - Concept
+  - MessageTemplate
+  - AICapability
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T16
+  name: Vendor longlist conditioned on taste vector
+  arc: B
+  phase: P06
+  ws: 3
+  skill: ANL
+  quadrant: AUTO
+  serves:
+  - 5
+  disposition: EXISTING
+  unspun_targets:
+  - VendorRecommendation
+  - Vendor
+  - Offering
+  - Roster
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T17
+  name: Availability + social-overlap check
+  arc: B
+  phase: P06
+  ws: 3
+  skill: ANL
+  quadrant: AUG-HITL
+  serves:
+  - 5
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Vendor
+  - RelationshipEdge
+  - Segment
+  - ContainmentPolicy
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T18
+  name: Shortlist with rationale
+  arc: B
+  phase: P06
+  ws: 3
+  skill: ANL
+  quadrant: AUG-HITL
+  serves:
+  - 5
+  disposition: EXISTING
+  unspun_targets:
+  - VendorRecommendation
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T19
+  name: Ensemble taste pairing
+  arc: B
+  phase: P06
+  ws: 7
+  skill: TST
+  quadrant: HUMAN
+  serves:
+  - 5
+  - 13
+  disposition: EXISTING
+  unspun_targets:
+  - Tastemaker
+  - Booking
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: CD
+- atom: T20
+  name: Surface the dual-budget question
+  arc: B
+  phase: P07
+  ws: 1
+  skill: CAR
+  quadrant: HUMAN
+  serves:
+  - 6
+  disposition: NEW-MASTER
+  unspun_targets:
+  - Budget
+  - DiscretionPolicy
+  - Consent
+  governance_bound: true
+  check_required: true
+  cd_sign_required: true
+  owner: planner
+- atom: T21
+  name: Pre-negotiate vendor ranges before quoting hostess
+  arc: B
+  phase: P07
+  ws: 4
+  skill: NEG
+  quadrant: AUG-HITL
+  serves:
+  - 6
+  disposition: EXISTING
+  unspun_targets:
+  - Quote
+  - Booking
+  - AICapability
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T22
+  name: Tiered scope proposal
+  arc: B
+  phase: P07
+  ws: 1
+  skill: COM
+  quadrant: AUG-HITL
+  serves: []
+  disposition: EXISTING
+  unspun_targets:
+  - Proposal
+  - PricingPlan
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T23
+  name: Draft proposal as a story document
+  arc: B
+  phase: P08
+  ws: 1
+  skill: COM
+  quadrant: AUG-HITL
+  serves:
+  - 2
+  disposition: EXISTING
+  unspun_targets:
+  - Proposal
+  - Document
+  - MessageTemplate
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T24
+  name: Capture commit
+  arc: B
+  phase: P08
+  ws: 1
+  skill: OPS
+  quadrant: AUTO
+  serves: []
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Contract
+  - Payment
+  - CalendarItem
+  - Engagement
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T25
+  name: Project instantiation
+  arc: B
+  phase: P08
+  ws: 6
+  skill: OPS
+  quadrant: AUTO
+  serves: []
+  disposition: EXISTING
+  unspun_targets:
+  - Process
+  - Engagement
+  - Pod
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T26
+  name: Planner-on-ground introduced by name
+  arc: B
+  phase: P08
+  ws: 9
+  skill: CAR
+  quadrant: HUMAN
+  serves:
+  - 7
+  - 10
+  disposition: NEW-MASTER
+  unspun_targets:
+  - Pod
+  - TeamMember
+  - Touchpoint
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: planner
+- atom: T27
+  name: Render the key image
+  arc: B
+  phase: P05
+  ws: 2
+  skill: CRF
+  quadrant: AUG-HITL
+  serves:
+  - 3
+  disposition: EXISTING
+  unspun_targets:
+  - Concept
+  - BrandAsset
+  - AICapability
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T28
+  name: Invite copy + visual aligned to moodboard
+  arc: B
+  phase: P05
+  ws: 2
+  skill: COM/CRF
+  quadrant: AUTO
+  serves: []
+  disposition: EXISTING
+  unspun_targets:
+  - Invitation
+  - MessageTemplate
+  - BrandAsset
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T29
+  name: Vendor outreach
+  arc: C
+  phase: P09
+  ws: 4
+  skill: NEG
+  quadrant: AUTO
+  serves: []
+  disposition: EXISTING
+  unspun_targets:
+  - AICapability
+  - Booking
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T30
+  name: Counter-quote handling
+  arc: C
+  phase: P09
+  ws: 4
+  skill: NEG
+  quadrant: AUG-HITL
+  serves:
+  - 6
+  disposition: EXISTING
+  unspun_targets:
+  - Quote
+  - Booking
+  - AICapability
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T31
+  name: Generate vendor contracts
+  arc: C
+  phase: P09
+  ws: 4
+  skill: OPS
+  quadrant: AUTO
+  serves: []
+  disposition: EXISTING
+  unspun_targets:
+  - VendorContract
+  - Document
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T32
+  name: Deposits, payment scheduling, invoicing ledger
+  arc: C
+  phase: P09
+  ws: 4
+  skill: OPS
+  quadrant: AUTO
+  serves: []
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Deposit
+  - Payment
+  - Ledger
+  - Invoice
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T33
+  name: Insurance, permits, COIs
+  arc: C
+  phase: P09
+  ws: 4
+  skill: OPS
+  quadrant: AUTO
+  serves: []
+  disposition: EXISTING
+  unspun_targets:
+  - Permit
+  - Document
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T34
+  name: Vendor portal with cue sheet slice
+  arc: C
+  phase: P09
+  ws: 3
+  skill: OPS
+  quadrant: AUTO
+  serves:
+  - 8
+  - 10
+  disposition: EXISTING
+  unspun_targets:
+  - VendorUser
+  - VendorAccessRole
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T35
+  name: Author run-of-show
+  arc: C
+  phase: P10
+  ws: 5
+  skill: LOG
+  quadrant: AUG-HITL
+  serves:
+  - 7
+  - 8
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Program
+  - Beat
+  - LogisticsPlan
+  - Process
+  - Playbook
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T36
+  name: Child-flow choreography
+  arc: C
+  phase: P10
+  ws: 5
+  skill: LOG
+  quadrant: HUMAN-AI
+  serves:
+  - 9
+  disposition: NEW-MASTER
+  unspun_targets:
+  - ChildFlowStation
+  - Beat
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: planner
+- atom: T37
+  name: Parallel-track design
+  arc: C
+  phase: P10
+  ws: 5
+  skill: LOG
+  quadrant: AUG-HITL
+  serves:
+  - 10
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Program
+  - Beat
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T38
+  name: Sensory cue sheet
+  arc: C
+  phase: P10
+  ws: 5
+  skill: LOG
+  quadrant: AUG-HITL
+  serves:
+  - 8
+  disposition: NEW-MASTER
+  unspun_targets:
+  - SensoryCue
+  - Beat
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T39
+  name: Allergy + child preference matrix
+  arc: C
+  phase: P10
+  ws: 5
+  skill: LOG
+  quadrant: AUTO
+  serves: []
+  disposition: DECOMPOSE
+  unspun_targets:
+  - GuestExperience
+  - RSVP
+  - SupervisionPlan
+  - EmergencyPlan
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T40
+  name: Decision-rights pre-assignment
+  arc: C
+  phase: P10
+  ws: 5
+  skill: LOG
+  quadrant: AUG-HITL
+  serves:
+  - 1
+  - 7
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Permission
+  - Approval
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T41
+  name: Escalation protocol with "don't tell hostess" tier
+  arc: C
+  phase: P10
+  ws: 5
+  skill: LOG
+  quadrant: AUG-HITL
+  serves:
+  - 1
+  - 7
+  disposition: NEW-MASTER
+  unspun_targets:
+  - Process
+  - Permission
+  - Approval
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T42
+  name: Pre-day site walk
+  arc: C
+  phase: P11
+  ws: 8
+  skill: OPS
+  quadrant: HUMAN-AI
+  serves:
+  - 8
+  disposition: EXISTING
+  unspun_targets:
+  - Task
+  - Venue
+  - Checklist
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: planner
+- atom: T43
+  name: Dry-run cue sheet
+  arc: C
+  phase: P11
+  ws: 8
+  skill: OPS
+  quadrant: HUMAN-AI
+  serves:
+  - 8
+  disposition: EXISTING
+  unspun_targets:
+  - Task
+  - Checklist
+  - ChecklistRun
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: planner
+- atom: T44
+  name: Hostess one-page day-of brief
+  arc: C
+  phase: P11
+  ws: 5
+  skill: COM
+  quadrant: AUTO
+  serves:
+  - 1
+  - 7
+  disposition: EXISTING
+  unspun_targets:
+  - Touchpoint
+  - MessageTemplate
+  - Document
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T45
+  name: CD/CEO evening-before check-in
+  arc: C
+  phase: P11
+  ws: 9
+  skill: CAR
+  quadrant: HUMAN
+  serves:
+  - 1
+  disposition: NEW-MASTER
+  unspun_targets:
+  - Touchpoint
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: planner
+- atom: T46
+  name: Photo brief with relational geometry
+  arc: C
+  phase: P10
+  ws: 6
+  skill: OPS
+  quadrant: AUG-HITL
+  serves:
+  - 11
+  - 13
+  disposition: DECOMPOSE
+  unspun_targets:
+  - MediaPlan
+  - ShotList
+  - RelationshipEdge
+  - MediaPolicy
+  governance_bound: true
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T47
+  name: Album delivery pipeline pre-staging
+  arc: C
+  phase: P10
+  ws: 6
+  skill: OPS
+  quadrant: AUTO
+  serves:
+  - 12
+  disposition: EXISTING
+  unspun_targets:
+  - MediaGallery
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T48
+  name: Contingency triggers
+  arc: C
+  phase: P11
+  ws: 5
+  skill: OPS
+  quadrant: AUG-HITL
+  serves:
+  - 1
+  - 7
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Risk
+  - Contingency
+  - Process
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T49
+  name: Vendor arrival staging
+  arc: D
+  phase: P12
+  ws: 8
+  skill: OPS
+  quadrant: HUMAN-AI
+  serves:
+  - 7
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Shift
+  - ResourceAssignment
+  - LogisticsPlan
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: planner
+- atom: T50
+  name: Staff brief and assignment confirmation
+  arc: D
+  phase: P12
+  ws: 8
+  skill: OPS
+  quadrant: AUG-HITL
+  serves:
+  - 7
+  - 8
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Shift
+  - ResourceAssignment
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T51
+  name: Final aesthetic walk-through
+  arc: D
+  phase: P12
+  ws: 7
+  skill: TST
+  quadrant: HUMAN
+  serves:
+  - 11
+  - 13
+  disposition: EXISTING
+  unspun_targets:
+  - Tastemaker
+  - CheckResult
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: CD
+- atom: T52
+  name: Guest arrival management
+  arc: D
+  phase: P12
+  ws: 8
+  skill: OPS
+  quadrant: AUTO
+  serves:
+  - 11
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Guest
+  - AccessPass
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T53
+  name: Cue execution against ROS
+  arc: D
+  phase: P12
+  ws: 5
+  skill: LOG
+  quadrant: HUMAN-AI
+  serves:
+  - 8
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Program
+  - Beat
+  - Process
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: planner
+- atom: T54
+  name: Child-flow live management
+  arc: D
+  phase: P12
+  ws: 5
+  skill: LOG
+  quadrant: HUMAN
+  serves:
+  - 9
+  disposition: DECOMPOSE
+  unspun_targets:
+  - ChildFlowStation
+  - SupervisionPlan
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: planner
+- atom: T55
+  name: Adult-track pacing
+  arc: D
+  phase: P12
+  ws: 5
+  skill: LOG
+  quadrant: HUMAN-AI
+  serves:
+  - 10
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Program
+  - Beat
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: planner
+- atom: T56
+  name: Hostess shadow
+  arc: D
+  phase: P12
+  ws: 9
+  skill: CAR
+  quadrant: HUMAN
+  serves:
+  - 1
+  - 7
+  disposition: NEW-MASTER
+  unspun_targets:
+  - Role
+  - Pod
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: planner
+- atom: T57
+  name: In-flight contingency handling
+  arc: D
+  phase: P12
+  ws: 8
+  skill: OPS
+  quadrant: HUMAN-AI
+  serves:
+  - 1
+  - 7
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Incident
+  - Contingency
+  - Process
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: planner
+- atom: T58
+  name: Live host / family / in-law coverage
+  arc: D
+  phase: P13
+  ws: 6
+  skill: CRF
+  quadrant: HUMAN-AI
+  serves:
+  - 11
+  - 13
+  disposition: EXISTING
+  unspun_targets:
+  - MediaCrew
+  - Shot
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: planner
+- atom: T59
+  name: Editorial coverage
+  arc: D
+  phase: P13
+  ws: 6
+  skill: CRF
+  quadrant: HUMAN-AI
+  serves:
+  - 13
+  disposition: EXISTING
+  unspun_targets:
+  - MediaCrew
+  - MediaGallery
+  - BrandAsset
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: planner
+- atom: T60
+  name: Real-time taste corrections
+  arc: D
+  phase: P12
+  ws: 7
+  skill: TST
+  quadrant: HUMAN
+  serves:
+  - 11
+  - 13
+  disposition: EXISTING
+  unspun_targets:
+  - Tastemaker
+  - CheckResult
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: CD
+- atom: T61
+  name: End-of-event de-stage
+  arc: D
+  phase: P12
+  ws: 8
+  skill: OPS
+  quadrant: AUG-HITL
+  serves: []
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Shift
+  - LogisticsPlan
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T62
+  name: Hostess send-off
+  arc: D
+  phase: P12
+  ws: 9
+  skill: CAR
+  quadrant: HUMAN
+  serves:
+  - 1
+  - 14
+  disposition: NEW-MASTER
+  unspun_targets:
+  - Touchpoint
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: planner
+- atom: T63
+  name: Same-night photo cull
+  arc: E
+  phase: P14
+  ws: 6
+  skill: CRF
+  quadrant: AUTO
+  serves:
+  - 12
+  disposition: EXISTING
+  unspun_targets:
+  - MediaGallery
+  - AICapability
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T64
+  name: Editorial selection
+  arc: E
+  phase: P14
+  ws: 6
+  skill: CRF
+  quadrant: AUG-HITL
+  serves:
+  - 12
+  - 13
+  disposition: EXISTING
+  unspun_targets:
+  - MediaGallery
+  - Tastemaker
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T65
+  name: Color, retouch on hero frames
+  arc: E
+  phase: P14
+  ws: 6
+  skill: CRF
+  quadrant: AUTO
+  serves:
+  - 13
+  disposition: EXISTING
+  unspun_targets:
+  - MediaGallery
+  - AICapability
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T66
+  name: Album rendered, shared, mobile + download
+  arc: E
+  phase: P14
+  ws: 6
+  skill: OPS
+  quadrant: AUTO
+  serves:
+  - 12
+  disposition: EXISTING
+  unspun_targets:
+  - MediaGallery
+  - Document
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T67
+  name: Album delivery message
+  arc: E
+  phase: P14
+  ws: 6
+  skill: COM
+  quadrant: AUTO
+  serves:
+  - 12
+  - 14
+  disposition: EXISTING
+  unspun_targets:
+  - Touchpoint
+  - Message
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T68
+  name: Personal follow-up
+  arc: E
+  phase: P15
+  ws: 9
+  skill: CAR
+  quadrant: HUMAN
+  serves:
+  - 14
+  disposition: NEW-MASTER
+  unspun_targets:
+  - Touchpoint
+  - FeedbackSignal
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: planner
+- atom: T69
+  name: Referral activation
+  arc: E
+  phase: P15
+  ws: 1
+  skill: COM
+  quadrant: AUG-HITL
+  serves:
+  - 14
+  disposition: EXISTING
+  unspun_targets:
+  - Referral
+  - AICapability
+  - HumanReview
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T70
+  name: Press / portfolio pipeline
+  arc: E
+  phase: P15
+  ws: 6
+  skill: OPS
+  quadrant: AUTO
+  serves: []
+  disposition: EXISTING
+  unspun_targets:
+  - BrandAsset
+  - Showcase
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T71
+  name: Vendor scoring
+  arc: E
+  phase: P15
+  ws: 3
+  skill: ANL
+  quadrant: AUTO
+  serves: []
+  disposition: EXISTING
+  unspun_targets:
+  - VendorPerformance
+  - VendorRating
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T72
+  name: Vendor network growth
+  arc: E
+  phase: P15
+  ws: 3
+  skill: OPS
+  quadrant: AUG-HITL
+  serves: []
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Vendor
+  - Roster
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T73
+  name: Customer dossier update
+  arc: E
+  phase: P15
+  ws: 1
+  skill: ANL
+  quadrant: AUTO
+  serves: []
+  disposition: EXISTING
+  unspun_targets:
+  - ClientProfile
+  - ProfileSignal
+  governance_bound: true
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T74
+  name: Loop hold
+  arc: E
+  phase: P15
+  ws: 9
+  skill: CAR
+  quadrant: HUMAN-AI
+  serves: []
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Cadence
+  - Touchpoint
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: planner
+- atom: T75
+  name: Referral attribution
+  arc: E
+  phase: P15
+  ws: 1
+  skill: OPS
+  quadrant: AUTO
+  serves: []
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Referral
+  - LedgerEntry
+  governance_bound: false
+  check_required: false
+  cd_sign_required: false
+  owner: dev
+- atom: T76
+  name: Post-mortem with planner + CD
+  arc: E
+  phase: P15
+  ws: 1
+  skill: OPS
+  quadrant: AUG-HITL
+  serves: []
+  disposition: DECOMPOSE
+  unspun_targets:
+  - QualityReview
+  - Playbook
+  - KnowledgeAsset
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T77
+  name: Hostess-grade recap doc
+  arc: E
+  phase: P15
+  ws: 6
+  skill: COM
+  quadrant: AUG-HITL
+  serves:
+  - 14
+  disposition: DECOMPOSE
+  unspun_targets:
+  - Document
+  - BrandAsset
+  - MediaGallery
+  governance_bound: false
+  check_required: true
+  cd_sign_required: false
+  owner: dev
+- atom: T78
+  name: CD handwritten note on recap doc
+  arc: E
+  phase: P15
+  ws: 7
+  skill: TST
+  quadrant: HUMAN
+  serves: []
+  disposition: NEW-MASTER
+  unspun_targets:
+  - BrandAsset
+  governance_bound: false
+  check_required: true
+  cd_sign_required: true
+  owner: CD
