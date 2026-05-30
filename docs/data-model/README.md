@@ -97,8 +97,14 @@ catalog/
   04-production-risk-comms.yaml ctx 6, 7, 8
   05-acquisition-ops.yaml       ctx 9, 10
   06-dynamic-ai.yaml            dyn, ai layers
+  07-merge-bridge.yaml          Fête<->Unspun bridge (atoms, outcomes, realizations + 2 new objects)
 sql/
   00-extensions-enums.sql       extensions + every enum
   01-kernel-types.sql           composite value types + helper domains
   02-tables.sql                 all tables, grouped by context
+  03-merge-bridge.sql           additive bridge: masters + atom_realizations + bridge columns
 ```
+
+The merge bridge (07 / 03) interfaces the Fête atom catalog with this model — see
+[`../reconciliation/merge-procedure.md`](../reconciliation/merge-procedure.md) and the
+78-atom map [`../reconciliation/merge-ledger.yaml`](../reconciliation/merge-ledger.yaml).

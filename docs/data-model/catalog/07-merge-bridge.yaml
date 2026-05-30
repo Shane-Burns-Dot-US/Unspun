@@ -1,0 +1,45 @@
+# Merge bridge — interfaces the Fête atom catalog (verbs) with the Unspun model (nouns).
+# Additive only; companion to sql/03-merge-bridge.sql. Reversible: drop these objects to undo.
+# Reconciliation source of truth: ../../reconciliation/merge-ledger.yaml (the 78-atom map).
+# New enum: automation_quadrant [auto, aug_hitl, human_ai, human]  (see kernel note below).
+
+# ---- New control-plane masters (imported from the Fête catalog) -------------
+Outcome:        # R1..R15 — a received-experience line composing the brand promise
+  {pk: out_, arch: master, ctx: c5, mix: [+audit], nat: [code],
+   f: {code: txt, label: txt, promise_ref: txt}}
+
+Atom:           # T01..T78 — a Fête atom as a control-plane PROCESS TEMPLATE
+  {pk: atom_, arch: master, ctx: c10, mix: [+audit,+versioned], nat: [code],   # code UNIQUE (current row); version is a field for FK-ability
+   f: {code: txt, name: txt, arc: txt, phase_code: txt, workstream: int, skill: txt,
+       quadrant: automation_quadrant, serves_outcome_codes: "[txt]", asset_tags: "[txt]",
+       goals: "[txt]", benchmark: txt, failure_mode: txt, subcomponents: jsonb,
+       stage_boh: txt, governance_bound: bool, disposition: txt, unspun_targets: "[txt]"},
+   rel: [{to: Outcome, k: ref, c: "n..m"}]}        # serves_outcome_codes
+
+# ---- Runtime bridge (data plane) -------------------------------------------
+AtomRealization:   # which runtime objects realized which atom for an event (Addendum B2)
+  {pk: arz_, arch: signal, ctx: c10, nat: [atom_code, event_id, entity_id],
+   f: {atom_code: txt, atom_version: int, event_id: txt, entity_id: txt, entity_type: txt,
+       role: txt, status: txt, consent_id: "txt?", lawful_basis: "lawful_basis?"},
+   rel: [{to: Atom, k: ref, c: "n..1"}, {to: Event, k: ref, c: "n..1"}]}
+   # B6 gate: if Atom.governance_bound, a row REQUIRES consent_id + lawful_basis (importer/trigger-enforced).
+
+# ---- New objects the merge introduced (the only two genuinely-new data shapes) ----
+SensoryCue:     # T38 — a sensory transition (music/light/scent/motion) paired to a beat
+  {pk: scue_, arch: member, ctx: c6, mix: [+audit], nat: [beat_id, sequence],
+   f: {beat_id: txt, sequence: int, channel: txt, cue: txt, time_offset: "txt?"},
+   rel: [{to: Beat, k: comp, c: "n..1"}]}
+
+ChildFlowStation:  # T36/T54 — a designed-pull station that moves children without instruction
+  {pk: cfs_, arch: member, ctx: c6, mix: [+audit], nat: [event_id, name],
+   f: {event_id: txt, name: txt, pull_design: txt, capacity: "int?", transition_cue: "txt?",
+       keeper_role: "txt?"},
+   rel: [{to: Event, k: ref, c: "n..1"}]}
+
+# ---- Bridge columns added to existing entities (ALTERs in SQL; not new tables) ----
+bridge_columns:
+  Task:            {atom_code: "txt? -> Atom.code"}                       # primary realization
+  Process:         {phase_code: "txt?", atom_codes: "[txt]?"}            # a process realizes a phase/cluster
+  AICapability:    {atom_code: "txt? -> Atom.code", quadrant: "automation_quadrant?"}  # B5 binding
+  CheckDefinition: {atom_code: "txt? -> Atom.code"}                       # benchmark/failure-mode origin (B4)
+  Moment:          {serves_outcome_code: "txt? -> Outcome.code", stage_boh: "txt?"}    # membrane flag (G1)
