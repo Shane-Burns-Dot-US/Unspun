@@ -174,3 +174,172 @@ unified graph.
 source of truth; (c) whether benchmark/failure-mode should also generate runtime
 `CheckDefinition`s now or later. On your word, I'll apply the bridge to the catalog + SQL
 and emit the unified graph.
+
+---
+
+# Addendum B — Partner Review & Amendments
+
+*Reviewed as the engagement partner. Verdict first, then the corrections that are
+load-bearing before anyone builds this. The associate work is directionally right; it is
+not yet safe to implement as written. Four of the amendments are blocking.*
+
+## B.0 Verdict
+
+**Endorsed, with amendments.** The spine of this analysis is correct and I would defend it
+to the client: *compose, don't merge*; Option **B** as the target; **per-atom quadrant** as
+source of truth; the two-graph join. Keep all of that. But the document makes one **framing
+error** that propagates, one **schema decision that is under-modeled and will lose data**,
+and it **defers two questions that are not deferrable** because they are the whole value and
+the whole risk. Amendments B1–B4 are blocking; B5–B7 are required before scale; B8 is the
+sequencing correction. I also add the strategic "so what," which the analysis omits entirely
+— a partner does not ship a data-architecture memo with no line to value.
+
+## B1 — Framing error: Unspun is **not** "the data plane." It spans both planes. *(blocking)*
+
+The analysis says "Fête = control plane, Unspun = data plane." That is too clean and it is
+wrong. Unspun **already has a control plane** — `Playbook`, `AICapability`, `ServiceTier`,
+`ExperienceStandard`, `Process` *definitions*, `StateTransition` are all master/policy
+(control‑plane) entities; only the roots/members/signals are data‑plane instances.
+
+So the true interface is **two control‑plane vocabularies meeting first**, and the runtime
+instances sitting *below both*:
+
+```
+Fête atom  ⇄  Unspun control-plane master (Playbook / AICapability / Process-definition)
+                         │  instantiates
+                         ▼
+            Unspun data-plane instance (Process-instance / Task / records)
+```
+
+**Amendment:** restate the seam as *Fête atom ↔ Unspun control‑plane master*, which **then**
+instantiates to runtime. This matters because §2's picture implies atoms reference *instances*
+directly; they should reference (and largely **be reconciled with**) Unspun's **definition**
+objects. Several atoms won't create new masters at all — they *are* existing Unspun
+`AICapability`/`Playbook` masters under another name. The first reconciliation pass is
+therefore a **de‑duplication of two control‑plane vocabularies**, not an import of one into
+the other.
+
+## B2 — Under-modeled schema: a single `atom_code` column is lossy. Use a realization table. *(blocking)*
+
+§5 hangs `atom_code` on "the primary runtime row" and waves at adjacency for the rest. That
+loses the truth that one atom realizes across a **cluster** of entities (T35 "author ROS" →
+`Program` + `Beat` + `Task` + `Dependency`). A nullable column on one `Task` cannot answer
+"was T35 delivered, and where does it live?"
+
+**Amendment:** replace the scattered `atom_code` columns with a first‑class link:
+
+```sql
+CREATE TABLE atom_realizations (        -- which runtime objects realize which atom, per event
+  id text PRIMARY KEY, atom_code text NOT NULL REFERENCES atoms(code),
+  atom_version int NOT NULL,
+  event_id text NOT NULL, entity_id text NOT NULL, entity_type text NOT NULL,
+  role text,                            -- primary | supporting
+  status text NOT NULL DEFAULT 'planned',  -- planned | realized | skipped | failed
+  created_at timestamptz NOT NULL DEFAULT now());
+```
+
+Keep a convenience `atom_code` on `tasks`/`ai_capabilities` for the *primary* binding, but
+the realization table is the system of record for coverage and traceability. This is also
+what makes B3 possible.
+
+## B3 — The atom catalog must **generate**, not just **label**. *(blocking — this is the value)*
+
+The analysis treats `atom_code` as a tag you attach to runtime rows *after* they exist. That
+inverts the leverage. The point of a versioned atom catalog is that it **instantiates the
+runtime scaffold for each event** — the `Process`/`Task`/required‑`AICapability` graph is
+*generated from* the atoms applicable to that event's service tier and type (this is Fête's
+own T25 "project instantiation," and Unspun's `Playbook`→`Task` instantiation). Runtime then
+reports **conformance** back through `atom_realizations`.
+
+**Amendment:** the interface is **bidirectional**: *catalog → instantiates → runtime → reports
+coverage → catalog*. Add a **coverage guarantee**: for every `Event`, the required atom set
+(by `ServiceTier` × event type) must be realized, and the **15 HUMAN brand‑critical atoms are
+mandatory** — an event that cannot show realization of them is non‑conformant and blocks the
+`Event→confirmed`/`reviewed` gates. Without this, the bridge is decorative.
+
+## B4 — Stop deferring the check-selection rule. Decide it. *(blocking — this is the risk)*
+
+§8(c) lists "generate `CheckDefinition`s now or later" as an open question. It is not
+optional — runtime quality enforcement is the entire reason to carry benchmarks. But the
+naïve reading (78 atoms → 78 checks × every instance) is also wrong; it would drown the team.
+
+**Amendment — the selection rule (not the timing):** an atom's benchmark becomes a runtime
+`CheckDefinition` **iff** it is brand‑destroying/irreversible (lens **G3**) **or** in the
+**HUMAN / AUG‑HITL** quadrant. Everything else is logged, not gated. This focuses checks on
+the ~20 atoms that actually carry brand risk, aligns with Ethos T2 (depth scales with
+consequence), and makes the ExceptionalityScore roll‑up tractable.
+
+## B5 — The quadrant→AI mapping is asserted, not specified — and it conflates two quadrants. *(pre-scale)*
+
+§3 maps quadrant onto the AI layer in one breath, but **HUMAN‑AI ≠ AUG‑HITL** and they bind to
+different Unspun constructs. Specify it, with the invariant:
+
+| Fête quadrant | Unspun binding | Invariant |
+|---|---|---|
+| **AUTO** | `AICapability` autonomous; may emit `GuardedAction` within envelope | bounded envelope only; never client‑facing un‑gated |
+| **AUG-HITL** | `AICapability` → `Suggestion` → **`HumanReview`** (async draft/approve) | no outward artifact without accepted review (`GATE_ai_outward`) |
+| **HUMAN-AI** | `Agent` as *scaffold/tool* to a human acting **live**; no `Suggestion` gate needed | agent output is private to the operator, never the customer |
+| **HUMAN** | **no** `AICapability` in the customer‑perceived loop | AI may prep BoH only; `stage_boh='stage'` ⇒ AI prohibited |
+
+**Amendment:** add this table to §3 and enforce the HUMAN‑row invariant in `PolicyGuardrail`.
+
+## B6 — "Governance for free" is false precisely where it matters most. *(pre-scale — compliance)*
+
+§7.4 claims the new atoms inherit consent/minor‑protection "for free." For most atoms, fine.
+But the highest‑risk atoms — **T03 enrich, T04 aesthetic inference, T05 discretion detection**
+(and any scraping) — are exactly the ones touching a **minor's** and a private client's PII.
+Inheritance is not automatic; it requires the realization edge to **bind** to `Consent`,
+`LawfulBasis`, `SourcePolicy`, and `MinorProtection`.
+
+**Amendment:** mark T03–T05 (and any `capture_method ∈ {inferred, enriched, scraped}` atom)
+as **governance‑bound**: their `atom_realizations` row must carry a valid `consent_id` +
+`lawful_basis` or the realization is refused. This is a hard gate, not an inheritance.
+
+## B7 — Version-pinning policy is missing. *(pre-scale — operational hazard)*
+
+Atoms are versioned; events are long‑lived. State the binding rule or you'll get silent
+retro‑changes mid‑build.
+
+**Amendment:** an event **pins** the atom catalog version at instantiation
+(`atom_realizations.atom_version`). Later catalog bumps do **not** retro‑apply; adopting a new
+atom version into a live event is a `ChangeOrder`. The unified graph is a **regenerated
+projection** (Ethos), not a third source of truth — say so to prevent a new drift source.
+
+## B8 — A and B are a path, not a choice; and add the validation you forgot. *(sequencing)*
+
+§4 frames A (crosswalk‑only) vs B (bridge) as either/or. They aren't. **A already exists**
+(`crosswalk.yaml`), is reversible, and is the analysis layer; **B is the runtime target**.
+Run A now, commit to B, and **stage the bridge by G3 risk** (governance‑bound + brand‑critical
+atoms first). And the memo ships no way to know the interface works — add the validation, per
+Ethos T2:
+- **Conformance:** % of required atoms realized per event (target 100% of the 15 HUMAN).
+- **Drift detector:** atom catalog (Git) vs realized runtime — flags atoms never realized
+  (dead templates) and runtime work with no atom (un‑templated drift).
+- **Reversibility:** the bridge is additive (new tables/columns/edges); it can be dropped
+  without touching the existing keystone or Fête sources.
+
+## B9 — The strategic "so what" (the line to value the memo omits)
+
+A data‑architecture memo with no line to the business is half a memo. Here it is:
+
+**The atom catalog is the codified taste‑and‑judgment IP — it is the moat, and this interface
+is the mechanism that lets that IP scale.** Keeping atoms in the versioned control plane,
+*generating* every event from them (B3), *governing* the risky ones (B6), and *measuring*
+conformance (B8) is precisely what turns "one brilliant CD's taste" into a repeatable,
+auditable, compounding system — the 3× throughput thesis from the Atlas, expressed in
+schema. The 15 HUMAN atoms stay human **by policy** (B5); everything around them is templated
+and governed. That is the whole business model, encoded at the interface. The merge analysis
+should be read as an **operating‑model decision**, not a plumbing decision.
+
+## B10 — Amended minimal build
+
+`automation_quadrant` enum · `atoms` + `outcomes` masters **reconciled against existing
+`Playbook`/`AICapability` first (B1)** · **`atom_realizations` link table (B2)** · catalog→
+runtime **instantiator + coverage gate on the 15 HUMAN atoms (B3)** · **benchmark→
+`CheckDefinition` for G3/HUMAN/AUG‑HITL atoms only (B4)** · quadrant→AI binding table + HUMAN
+invariant (B5) · **governance‑bound flag + hard consent gate on T03–T05 (B6)** ·
+version‑pinning via `ChangeOrder` (B7) · conformance + drift validators (B8). Convenience
+`atom_code` columns are secondary to the realization table.
+
+**Net:** proceed with B — but build B1, B2, B3, B4 first; they are the difference between an
+interface that *governs and scales the business* and one that merely *annotates rows*.
