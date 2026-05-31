@@ -1,0 +1,154 @@
+# Contexts 4 (Commercial & Finance), 3 (Supply / Vendors)
+
+# ============================ Context 4 — Commercial & Finance ================
+Engagement:    # one contracted project; aggregate root; the commercial spine
+  {pk: eng_, arch: root, st: engagement_state, mix: [+audit,+soft],
+   f: {household_id: txt, service_tier_id: "txt?", pod_id: "txt?", contract_id: "txt?",
+       base_currency: "txt(3)", cadence_id: "txt?"},
+   rel: [{to: Household, k: ref, c: "n..1"}, {to: Event, k: ref, c: "1..n"},
+         {to: Budget, k: comp, c: "1..1"}]}    # references Events (not owns) — clarity U-1/A-10
+
+Package:       # groups multiple events under one engagement (clarity C-3; twins/series)
+  {pk: pkg_, arch: member, mix: [+audit], nat: [engagement_id, label],
+   f: {engagement_id: txt, label: txt, kind: txt},
+   rel: [{to: Engagement, k: fk, c: "n..1"}, {to: Event, k: ref, c: "1..n"}]}
+
+Proposal:      # offered scope before contract (clarity C-2)
+  {pk: prop_, arch: member, mix: [+audit,+soft,+versioned], nat: [engagement_id, version],
+   f: {engagement_id: txt, narrative: "txt?", pricing_plan_id: "txt?", status: txt,
+       sent_at: "ts?", accepted_at: "ts?"}}
+
+Contract:      # CLIENT-side agreement (distinct from VendorContract)
+  {pk: ctr_, arch: member, st: doc_state, mix: [+audit,+versioned], nat: [engagement_id, version],
+   f: {engagement_id: txt, document_id: "txt?", effective: datewindow,
+       terms: "jsonb?", signed_by: "txt?", signed_at: "ts?"},
+   rel: [{to: Engagement, k: fk, c: "n..1"}]}
+
+PricingPlan:   # billing model made explicit (clarity C-1)
+  {pk: pln_, arch: master, mix: [+audit,+versioned], nat: [code, version],
+   f: {code: txt, model: txt, fee: "money?", margin_target_pct: "num?",
+       markup_pct: "num?", notes: "txt?"}}   # model: cost_plus|fixed_fee|commission
+
+Budget:        # financial envelope; one per engagement
+  {pk: bdg_, arch: member, mix: [+audit], nat: [engagement_id],
+   f: {engagement_id: txt, total: money, committed: money, actual: money,
+       margin_target_pct: "num?", base_currency: "txt(3)"},
+   rel: [{to: Engagement, k: fk, c: "1..1"}, {to: BudgetLine, k: comp, c: "1..n"}]}
+
+BudgetLine:
+  {pk: bdl_, arch: member, mix: [+audit], nat: [budget_id, category, target_id],
+   f: {budget_id: txt, category: txt, target_id: "txt?", target_type: "txt?",
+       planned: money, committed: money, actual: money},
+   rel: [{to: Budget, k: fk, c: "n..1"}]}
+
+Invoice:       # billed amount to client (ivc_)
+  {pk: ivc_, arch: member, mix: [+audit,+soft], nat: [engagement_id, number],
+   f: {engagement_id: txt, number: txt, amount: money, issued_at: ts, due_at: "ts?",
+       status: txt},
+   rel: [{to: Engagement, k: fk, c: "n..1"}]}
+
+Payment:       # directional settlement (AR inbound / AP outbound) — clarity C-3
+  {pk: pay_, arch: member, st: payment_state, mix: [+audit],
+   f: {direction: payment_direction, amount: money, invoice_id: "txt?", booking_id: "txt?",
+       method: "txt?", settled_at: "ts?"}}
+
+Deposit:       # vendor deposit milestone (clarity C-3)
+  {pk: dep_, arch: member, st: payment_state, mix: [+audit], nat: [booking_id, sequence],
+   f: {booking_id: txt, sequence: int, amount: money, due_at: "ts?", confirmed_at: "ts?",
+       unlocks_work: bool},                       # stipulation: work unlocks on clear (Chesky)
+   rel: [{to: Booking, k: fk, c: "n..1"}]}
+
+Refund:
+  {pk: rfd_, arch: member, st: payment_state, mix: [+audit],
+   f: {payment_id: txt, amount: money, reason: "txt?", issued_at: "ts?"}}
+
+Ledger:
+  {pk: ldg_, arch: member, mix: [+audit], nat: [engagement_id],
+   f: {engagement_id: txt, base_currency: "txt(3)"}}
+
+LedgerEntry:
+  {pk: lge_, arch: signal,
+   f: {ledger_id: txt, at: ts, direction: payment_direction, amount: money,
+       account: txt, ref_id: "txt?", ref_type: "txt?"}}
+
+Margin:        # derived projection over budget/ledger
+  {pk: mgn_, arch: projection,
+   f: {engagement_id: txt, revenue: money, cost: money, margin_pct: num, computed_at: ts}}
+
+# ============================ Context 3 — Supply / Vendors ====================
+Vendor:        # supplier organization
+  {pk: ven_, arch: party, mix: [+audit,+soft], nat: [legal_name, region_id],
+   f: {legal_name: txt, display_name: txt, region_id: "txt?", insurance_status: "txt?",
+       reliability_grade: "txt?", discretion: discretion_level, preferred: bool},
+   rel: [{to: VendorUser, k: comp, c: "1..n"}, {to: Offering, k: comp, c: "1..n"}]}
+
+VendorUser:    # vendor self-service team member with vendor-customized access (Chesky)
+  {pk: vu_, arch: party, mix: [+audit,+soft], nat: [vendor_id, person_id],
+   f: {vendor_id: txt, person_id: txt, access_role_id: "txt?", invited_by: "txt?",
+       last_login_at: "ts?"},
+   rel: [{to: Vendor, k: fk, c: "n..1"}, {to: Person, k: fk, c: "n..1"}]}
+
+VendorAccessRole:  # access level DEFINED BY THE VENDOR (e.g. lead vs second shooter)
+  {pk: var_, arch: master, mix: [+audit], nat: [vendor_id, name],
+   f: {vendor_id: txt, name: txt, permissions: jsonb}}
+
+Category:      # shared taxonomy (clarity U-5/C-7) — referenced by capability/offering/motif/deliverable
+  {pk: cat_, arch: master, mix: [+audit,+versioned], nat: [code, version],
+   f: {code: txt, label: txt, parent_id: "txt?"}}
+
+VendorCapability:  # this vendor performs this category (the per-vendor link)
+  {pk: vcap_, arch: member, mix: [+audit], nat: [vendor_id, category_id],
+   f: {vendor_id: txt, category_id: txt, notes: "txt?"},
+   rel: [{to: Vendor, k: fk, c: "n..1"}, {to: Category, k: ref, c: "n..1"}]}
+
+Offering:      # bookable product/service line (the vendor SKU)
+  {pk: ofr_, arch: master, mix: [+audit,+soft], nat: [vendor_id, sku],
+   f: {vendor_id: txt, sku: txt, name: txt, category_id: "txt?", unit: txt,
+       price_basis: "money?", lead_requirements: "txt?", options: "jsonb?", is_standard: bool},
+   rel: [{to: Vendor, k: fk, c: "n..1"}]}
+
+Quote:         # priced vendor proposal
+  {pk: qot_, arch: member, st: quote_state, mix: [+audit], nat: [vendor_id, event_id, revision],
+   f: {vendor_id: txt, event_id: txt, revision: int, line_items: jsonb, total: money,
+       valid_until: "ts?", terms: "txt?"},
+   rel: [{to: Vendor, k: ref, c: "n..1"}, {to: Event, k: ref, c: "n..1"}]}
+
+Booking:       # confirmed supply line
+  {pk: bok_, arch: member, st: booking_state, mix: [+audit,+soft],
+   f: {event_id: txt, vendor_id: txt, quote_id: "txt?", agreed: money, slot: "datewindow?",
+       cancellation_terms: "txt?", containment_policy_id: "txt?"},
+   rel: [{to: Event, k: fk, c: "n..1"}, {to: Vendor, k: ref, c: "n..1"},
+         {to: Deliverable, k: ref, c: "0..n"}]}     # many-to-many fulfilment (clarity U-2)
+
+BookingDeliverable:  # m:n link booking<->deliverable (clarity U-2)
+  {pk: bkd_, arch: member, nat: [booking_id, deliverable_id],
+   f: {booking_id: txt, deliverable_id: txt}}
+
+VendorContract:    # vcn_ (legal agreement; disambiguated from VendorContact)
+  {pk: vcn_, arch: member, st: doc_state, mix: [+audit,+versioned], nat: [vendor_id, effective_from],
+   f: {vendor_id: txt, booking_id: "txt?", document_id: "txt?", effective: datewindow,
+       liability: "jsonb?", nda: bool}}
+
+ContainmentPolicy: # rules that contain a vendor
+  {pk: cpy_, arch: policy, mix: [+audit,+versioned], nat: [scope_id, version],
+   f: {scope_id: txt, scope_type: txt, allowed_scope: jsonb, no_client_contact: bool,
+       branding_rules: "jsonb?", fallback_vendor_id: "txt?", escalation_path: "jsonb?"}}
+
+VendorPerformance: # rolling multi-factor record (projection)
+  {pk: vpf_, arch: projection, nat: [vendor_id],
+   f: {vendor_id: txt, on_time_rate: "num?", defect_rate: "num?", confirm_discipline: "num?",
+       edit_delivery_ratio: "num?", sentiment: "num?", discretion_breaches: int,
+       composite_score: "num?", computed_at: ts}}
+
+VendorRating:      # multi-factor rating inputs (signal)
+  {pk: vrt_, arch: signal,
+   f: {vendor_id: txt, factor: txt, value: score, source_id: "txt?", at: ts}}
+
+Roster:            # ranked preferred vendors per category+region
+  {pk: ros_, arch: master, mix: [+audit,+versioned], nat: [category_id, region_id, version],
+   f: {category_id: txt, region_id: txt, ranked_vendor_ids: "[txt]"}}
+
+VendorRecommendation:  # internal-facing algorithmic suggestion (projection; via AI Suggestion)
+  {pk: vrec_, arch: projection,
+   f: {brief_id: "txt?", category_id: txt, ranked: jsonb, rationale: "txt?",
+       invocation_id: "txt?", computed_at: ts}}

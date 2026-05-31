@@ -1,0 +1,122 @@
+# Contexts 2 (Taste & Creative), 5 (Event Design)
+
+# ============================ Context 2 — Taste & Creative ====================
+Tastemaker:    # role persona on a team member; the differentiating judgment
+  {pk: tm_, arch: party, mix: [+audit], nat: [team_member_id],
+   f: {team_member_id: txt, domains: "[txt]?", signature_motifs: "[txt]?", decision_rights: "jsonb?"},
+   rel: [{to: TeamMember, k: fk, c: "n..1"}]}
+
+TasteDimension:    # the fixed decomposition schema (clarity V-2) — how taste is broken down
+  {pk: tdim_, arch: master, mix: [+audit,+versioned], nat: [code, version],
+   f: {code: txt, label: txt, kind: txt, scale: "txt?"}}  # e.g. palette, materiality, whimsy, restraint
+
+TasteProfile:      # structured aesthetic POV (tastemaker OR household)
+  {pk: tpf_, arch: master, mix: [+audit,+versioned], nat: [owner_id, version],
+   f: {owner_id: txt, owner_type: txt, dimensions: jsonb, weights: jsonb,
+       exemplars: "[txt]?", aesthetic_vector: "jsonb?"}}   # vector = opaque derived atom
+
+TasteSignal:       # one act of taste (append-only)
+  {pk: tsg_, arch: signal, nat: [actor_id, target_id, at],
+   f: {actor_id: txt, target_id: txt, target_type: txt, verdict: txt,
+       annotation: "txt?", weight: "num?", at: ts}}   # verdict: love|like|neutral|dislike|veto
+
+InspirationSource:
+  {pk: isr_, arch: master, mix: [+audit,+sourced], nat: [content_hash],
+   f: {content_hash: txt, media_document_id: "txt?", origin: "txt?", tags: "[txt]?",
+       rights_status: "txt?"}}
+
+Motif:             # reusable aesthetic/experiential building block
+  {pk: mtf_, arch: master, mix: [+audit,+versioned], nat: [slug],
+   f: {slug: txt, name: txt, category_id: "txt?", description: "txt?", exemplars: "[txt]?",
+       pairing_rules: "jsonb?", cost_band: "txt?", reuse_count: int, last_used_at: "ts?"}}
+
+MotifLibrary:
+  {pk: mlb_, arch: master, mix: [+audit], nat: [brand_id],
+   f: {brand_id: txt, name: txt}}
+
+Concept:           # candidate creative direction (library)
+  {pk: cpt_, arch: master, st: concept_state, mix: [+audit,+versioned], nat: [title, author_id, version],
+   f: {title: txt, author_id: txt, narrative: "txt?", motif_ids: "[txt]?", palette: "jsonb?",
+       mood_refs: "[txt]?", est_cost_band: "txt?", novelty_rationale: "txt?",
+       from_suggestion_id: "txt?"}}
+
+ConceptVariant:    # deliberate small deviation -> "slightly unique" (clarity V-4)
+  {pk: cvr_, arch: master, mix: [+audit], nat: [concept_id, label],
+   f: {concept_id: txt, label: txt, differs: "txt?", novelty_delta: "num?",
+       collision_window: "datewindow?", collision_similarity: "num?", collision_passed: "bool?"},
+   rel: [{to: Concept, k: fk, c: "n..1"}]}
+
+PreferenceModel:   # aggregated/decomposed preferences (projection); aggregation rule = jsonb
+  {pk: pmd_, arch: projection, nat: [scope_id, version],
+   f: {scope_id: txt, scope_type: txt, dimensions: jsonb, weights: jsonb,
+       derived_from: jsonb, aggregation_rule: "txt?", confidence: confidence, staleness_days: "int?"}}
+
+Trend:
+  {pk: trd_, arch: master, mix: [+audit,+sourced], nat: [name, window_start],
+   f: {name: txt, description: "txt?", direction: txt, confidence: confidence, window: datewindow}}
+
+# ============================ Context 5 — Event Design ========================
+Event:         # the celebration; aggregate root
+  {pk: evt_, arch: root, st: event_state, mix: [+audit,+soft],
+   f: {engagement_id: txt, celebrant_id: txt, title: "txt?", date: datewindow,
+       headcount_target: "int?", exceptionality_target_pct: "num?", discretion: discretion_level},
+   rel: [{to: Engagement, k: ref, c: "n..1"}, {to: Celebrant, k: ref, c: "n..1"},
+         {to: EventBrief, k: comp, c: "1..1"}, {to: EventConcept, k: comp, c: "1..1"},
+         {to: Program, k: comp, c: "1..1"}, {to: Deliverable, k: comp, c: "0..n"}]}
+
+EventBrief:    # agreed bounded parameters
+  {pk: ebr_, arch: member, mix: [+audit], nat: [event_id],
+   f: {event_id: txt, celebrant_focus: "txt?", date_pref: "datewindow?", location_pref: "txt?",
+       headcount: "int?", budget_band: "money?", must_haves: "[txt]?", no_gos: "[txt]?",
+       constraints: "jsonb?", tone: "txt?", discretion: discretion_level},
+   rel: [{to: Event, k: fk, c: "1..1"}]}
+
+EventConcept:  # selected concept+variant bound to the event
+  {pk: ecn_, arch: member, mix: [+audit], nat: [event_id],
+   f: {event_id: txt, concept_id: txt, concept_variant_id: "txt?", adaptations: "jsonb?"},
+   rel: [{to: Event, k: fk, c: "1..1"}, {to: Concept, k: ref, c: "n..1"}]}
+
+Program:       # ordered run-of-show
+  {pk: prg_, arch: member, mix: [+audit], nat: [event_id],
+   f: {event_id: txt, call_times: "jsonb?"},
+   rel: [{to: Event, k: fk, c: "1..1"}, {to: Beat, k: comp, c: "1..n"}]}
+
+Beat:          # discrete moment in the program
+  {pk: bet_, arch: member, mix: [+audit], nat: [program_id, sequence],
+   f: {program_id: txt, sequence: int, name: txt, window: datewindow, location: "txt?",
+       owner_id: "txt?", intended_feeling: "txt?"},
+   rel: [{to: Program, k: fk, c: "n..1"}]}
+
+SignatureTouch:  # bespoke IN-SHOW experiential element (clarity ME-1: vs DelightMoment)
+  {pk: sig_, arch: member, mix: [+audit], nat: [event_id, name],
+   f: {event_id: txt, name: txt, description: "txt?", surprises: txt, beat_id: "txt?",
+       wow_rationale: "txt?"},
+   rel: [{to: Event, k: fk, c: "n..1"},
+         {to: ProfileSignal, k: ref, c: "0..n"}, {to: TasteSignal, k: ref, c: "0..n"}]}  # traceable basis (U-11)
+
+Deliverable:   # concrete thing to produce/procure
+  {pk: dlv_, arch: member, st: deliverable_state, mix: [+audit],
+   nat: [event_id, name],
+   f: {event_id: txt, name: txt, category_id: "txt?", spec: "jsonb?", quantity: "int?",
+       owner_id: "txt?", source: txt, acceptance_criteria: "txt?"},
+   rel: [{to: Event, k: fk, c: "n..1"}]}
+
+ExperienceStandard:  # rubric for "top-10%" (policy/standard)
+  {pk: xst_, arch: policy, mix: [+audit,+versioned], nat: [version],
+   f: {version: int, dimensions: jsonb, weights: jsonb, guidance: "txt?"}}
+
+Benchmark:     # reference population the percentile is computed against (clarity V-1)
+  {pk: bmk_, arch: master, mix: [+audit], nat: [segment_id, age_band, region_id, window_start],
+   f: {segment_id: "txt?", age_band: "txt?", region_id: "txt?", window: datewindow,
+       sample: jsonb, distribution: jsonb}}
+
+ExceptionalityScore:  # event standing vs standard, predicted & realized (projection)
+  {pk: xsc_, arch: projection, nat: [event_id, phase],
+   f: {event_id: txt, phase: txt, dimension_scores: jsonb, composite: num,
+       percentile: "num?", benchmark_id: "txt?", computed_at: ts}}
+
+Moment:        # journey/storyboard frame (Chesky A.4) — per protagonist, peak/end flagged
+  {pk: mom_, arch: member, mix: [+audit], nat: [event_id, protagonist, sequence],
+   f: {event_id: txt, protagonist: txt, sequence: int, frame: txt, expected_feeling: "txt?",
+       is_peak: bool, is_end: bool, owner_id: "txt?", protecting_data: "jsonb?"},
+   rel: [{to: Event, k: fk, c: "n..1"}]}

@@ -1,0 +1,5272 @@
+{
+  "edges": [
+    {
+      "from": "P01",
+      "rel": "in_arc",
+      "to": "Arc:A"
+    },
+    {
+      "from": "P02",
+      "rel": "in_arc",
+      "to": "Arc:A"
+    },
+    {
+      "from": "P03",
+      "rel": "in_arc",
+      "to": "Arc:A"
+    },
+    {
+      "from": "P04",
+      "rel": "in_arc",
+      "to": "Arc:B"
+    },
+    {
+      "from": "P05",
+      "rel": "in_arc",
+      "to": "Arc:B"
+    },
+    {
+      "from": "P06",
+      "rel": "in_arc",
+      "to": "Arc:B"
+    },
+    {
+      "from": "P07",
+      "rel": "in_arc",
+      "to": "Arc:B"
+    },
+    {
+      "from": "P08",
+      "rel": "in_arc",
+      "to": "Arc:B"
+    },
+    {
+      "from": "P09",
+      "rel": "in_arc",
+      "to": "Arc:C"
+    },
+    {
+      "from": "P10",
+      "rel": "in_arc",
+      "to": "Arc:C"
+    },
+    {
+      "from": "P11",
+      "rel": "in_arc",
+      "to": "Arc:C"
+    },
+    {
+      "from": "P12",
+      "rel": "in_arc",
+      "to": "Arc:D"
+    },
+    {
+      "from": "P13",
+      "rel": "in_arc",
+      "to": "Arc:D"
+    },
+    {
+      "from": "P14",
+      "rel": "in_arc",
+      "to": "Arc:E"
+    },
+    {
+      "from": "P15",
+      "rel": "in_arc",
+      "to": "Arc:E"
+    },
+    {
+      "from": "T01",
+      "rel": "adjacent",
+      "to": "T02"
+    },
+    {
+      "from": "T01",
+      "rel": "adjacent",
+      "to": "T03"
+    },
+    {
+      "from": "T01",
+      "rel": "adjacent",
+      "to": "T75"
+    },
+    {
+      "from": "T01",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T01",
+      "rel": "in_phase",
+      "to": "P01"
+    },
+    {
+      "from": "T01",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T01",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T01",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T02",
+      "rel": "adjacent",
+      "to": "T01"
+    },
+    {
+      "from": "T02",
+      "rel": "adjacent",
+      "to": "T03"
+    },
+    {
+      "from": "T02",
+      "rel": "adjacent",
+      "to": "T05"
+    },
+    {
+      "from": "T02",
+      "rel": "has_skill",
+      "to": "SKILL:ANL"
+    },
+    {
+      "from": "T02",
+      "rel": "in_phase",
+      "to": "P01"
+    },
+    {
+      "from": "T02",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T02",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T02",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T03",
+      "rel": "adjacent",
+      "to": "T04"
+    },
+    {
+      "from": "T03",
+      "rel": "adjacent",
+      "to": "T05"
+    },
+    {
+      "from": "T03",
+      "rel": "adjacent",
+      "to": "T11"
+    },
+    {
+      "from": "T03",
+      "rel": "adjacent",
+      "to": "T73"
+    },
+    {
+      "from": "T03",
+      "rel": "has_skill",
+      "to": "SKILL:ANL"
+    },
+    {
+      "from": "T03",
+      "rel": "in_phase",
+      "to": "P02"
+    },
+    {
+      "from": "T03",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T03",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T03",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T04",
+      "rel": "adjacent",
+      "to": "T11"
+    },
+    {
+      "from": "T04",
+      "rel": "adjacent",
+      "to": "T13"
+    },
+    {
+      "from": "T04",
+      "rel": "adjacent",
+      "to": "T14"
+    },
+    {
+      "from": "T04",
+      "rel": "has_skill",
+      "to": "SKILL:ANL"
+    },
+    {
+      "from": "T04",
+      "rel": "in_phase",
+      "to": "P02"
+    },
+    {
+      "from": "T04",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T04",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T04",
+      "rel": "serves",
+      "to": "R3"
+    },
+    {
+      "from": "T04",
+      "rel": "serves",
+      "to": "R4"
+    },
+    {
+      "from": "T05",
+      "rel": "adjacent",
+      "to": "T06"
+    },
+    {
+      "from": "T05",
+      "rel": "adjacent",
+      "to": "T20"
+    },
+    {
+      "from": "T05",
+      "rel": "adjacent",
+      "to": "T31"
+    },
+    {
+      "from": "T05",
+      "rel": "has_skill",
+      "to": "SKILL:ANL"
+    },
+    {
+      "from": "T05",
+      "rel": "in_phase",
+      "to": "P02"
+    },
+    {
+      "from": "T05",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T05",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T05",
+      "rel": "serves",
+      "to": "R6"
+    },
+    {
+      "from": "T06",
+      "rel": "adjacent",
+      "to": "T07"
+    },
+    {
+      "from": "T06",
+      "rel": "adjacent",
+      "to": "T08"
+    },
+    {
+      "from": "T06",
+      "rel": "adjacent",
+      "to": "T09"
+    },
+    {
+      "from": "T06",
+      "rel": "adjacent",
+      "to": "T10"
+    },
+    {
+      "from": "T06",
+      "rel": "has_skill",
+      "to": "SKILL:CAR"
+    },
+    {
+      "from": "T06",
+      "rel": "in_phase",
+      "to": "P03"
+    },
+    {
+      "from": "T06",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T06",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T06",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T07",
+      "rel": "adjacent",
+      "to": "T08"
+    },
+    {
+      "from": "T07",
+      "rel": "adjacent",
+      "to": "T11"
+    },
+    {
+      "from": "T07",
+      "rel": "adjacent",
+      "to": "T44"
+    },
+    {
+      "from": "T07",
+      "rel": "has_skill",
+      "to": "SKILL:COM"
+    },
+    {
+      "from": "T07",
+      "rel": "in_phase",
+      "to": "P03"
+    },
+    {
+      "from": "T07",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T07",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T07",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T07",
+      "rel": "serves",
+      "to": "R4"
+    },
+    {
+      "from": "T08",
+      "rel": "adjacent",
+      "to": "T11"
+    },
+    {
+      "from": "T08",
+      "rel": "adjacent",
+      "to": "T13"
+    },
+    {
+      "from": "T08",
+      "rel": "adjacent",
+      "to": "T14"
+    },
+    {
+      "from": "T08",
+      "rel": "adjacent",
+      "to": "T19"
+    },
+    {
+      "from": "T08",
+      "rel": "has_skill",
+      "to": "SKILL:TST"
+    },
+    {
+      "from": "T08",
+      "rel": "in_phase",
+      "to": "P03"
+    },
+    {
+      "from": "T08",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T08",
+      "rel": "in_ws",
+      "to": "WS7"
+    },
+    {
+      "from": "T08",
+      "rel": "serves",
+      "to": "R4"
+    },
+    {
+      "from": "T09",
+      "rel": "adjacent",
+      "to": "T10"
+    },
+    {
+      "from": "T09",
+      "rel": "adjacent",
+      "to": "T22"
+    },
+    {
+      "from": "T09",
+      "rel": "adjacent",
+      "to": "T23"
+    },
+    {
+      "from": "T09",
+      "rel": "has_skill",
+      "to": "SKILL:COM"
+    },
+    {
+      "from": "T09",
+      "rel": "in_phase",
+      "to": "P03"
+    },
+    {
+      "from": "T09",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T09",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T09",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T10",
+      "rel": "adjacent",
+      "to": "T26"
+    },
+    {
+      "from": "T10",
+      "rel": "adjacent",
+      "to": "T44"
+    },
+    {
+      "from": "T10",
+      "rel": "adjacent",
+      "to": "T45"
+    },
+    {
+      "from": "T10",
+      "rel": "adjacent",
+      "to": "T62"
+    },
+    {
+      "from": "T10",
+      "rel": "adjacent",
+      "to": "T68"
+    },
+    {
+      "from": "T10",
+      "rel": "adjacent",
+      "to": "T74"
+    },
+    {
+      "from": "T10",
+      "rel": "has_skill",
+      "to": "SKILL:CAR"
+    },
+    {
+      "from": "T10",
+      "rel": "in_phase",
+      "to": "P03"
+    },
+    {
+      "from": "T10",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T10",
+      "rel": "in_ws",
+      "to": "WS9"
+    },
+    {
+      "from": "T11",
+      "rel": "adjacent",
+      "to": "T12"
+    },
+    {
+      "from": "T11",
+      "rel": "adjacent",
+      "to": "T13"
+    },
+    {
+      "from": "T11",
+      "rel": "adjacent",
+      "to": "T16"
+    },
+    {
+      "from": "T11",
+      "rel": "adjacent",
+      "to": "T27"
+    },
+    {
+      "from": "T11",
+      "rel": "has_skill",
+      "to": "SKILL:ANL"
+    },
+    {
+      "from": "T11",
+      "rel": "in_phase",
+      "to": "P04"
+    },
+    {
+      "from": "T11",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T11",
+      "rel": "in_ws",
+      "to": "WS2"
+    },
+    {
+      "from": "T11",
+      "rel": "serves",
+      "to": "R3"
+    },
+    {
+      "from": "T11",
+      "rel": "serves",
+      "to": "R4"
+    },
+    {
+      "from": "T12",
+      "rel": "adjacent",
+      "to": "T13"
+    },
+    {
+      "from": "T12",
+      "rel": "adjacent",
+      "to": "T14"
+    },
+    {
+      "from": "T12",
+      "rel": "has_skill",
+      "to": "SKILL:ANL"
+    },
+    {
+      "from": "T12",
+      "rel": "in_phase",
+      "to": "P04"
+    },
+    {
+      "from": "T12",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T12",
+      "rel": "in_ws",
+      "to": "WS2"
+    },
+    {
+      "from": "T12",
+      "rel": "serves",
+      "to": "R4"
+    },
+    {
+      "from": "T13",
+      "rel": "adjacent",
+      "to": "T14"
+    },
+    {
+      "from": "T13",
+      "rel": "adjacent",
+      "to": "T15"
+    },
+    {
+      "from": "T13",
+      "rel": "adjacent",
+      "to": "T27"
+    },
+    {
+      "from": "T13",
+      "rel": "has_skill",
+      "to": "SKILL:CRF"
+    },
+    {
+      "from": "T13",
+      "rel": "in_phase",
+      "to": "P05"
+    },
+    {
+      "from": "T13",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T13",
+      "rel": "in_ws",
+      "to": "WS2"
+    },
+    {
+      "from": "T13",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T13",
+      "rel": "serves",
+      "to": "R3"
+    },
+    {
+      "from": "T14",
+      "rel": "adjacent",
+      "to": "T15"
+    },
+    {
+      "from": "T14",
+      "rel": "adjacent",
+      "to": "T27"
+    },
+    {
+      "from": "T14",
+      "rel": "has_skill",
+      "to": "SKILL:TST"
+    },
+    {
+      "from": "T14",
+      "rel": "in_phase",
+      "to": "P05"
+    },
+    {
+      "from": "T14",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T14",
+      "rel": "in_ws",
+      "to": "WS7"
+    },
+    {
+      "from": "T14",
+      "rel": "serves",
+      "to": "R3"
+    },
+    {
+      "from": "T14",
+      "rel": "serves",
+      "to": "R5"
+    },
+    {
+      "from": "T15",
+      "rel": "adjacent",
+      "to": "T22"
+    },
+    {
+      "from": "T15",
+      "rel": "adjacent",
+      "to": "T23"
+    },
+    {
+      "from": "T15",
+      "rel": "has_skill",
+      "to": "SKILL:COM"
+    },
+    {
+      "from": "T15",
+      "rel": "in_phase",
+      "to": "P05"
+    },
+    {
+      "from": "T15",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T15",
+      "rel": "in_ws",
+      "to": "WS2"
+    },
+    {
+      "from": "T15",
+      "rel": "serves",
+      "to": "R3"
+    },
+    {
+      "from": "T16",
+      "rel": "adjacent",
+      "to": "T17"
+    },
+    {
+      "from": "T16",
+      "rel": "adjacent",
+      "to": "T18"
+    },
+    {
+      "from": "T16",
+      "rel": "adjacent",
+      "to": "T19"
+    },
+    {
+      "from": "T16",
+      "rel": "adjacent",
+      "to": "T29"
+    },
+    {
+      "from": "T16",
+      "rel": "adjacent",
+      "to": "T71"
+    },
+    {
+      "from": "T16",
+      "rel": "has_skill",
+      "to": "SKILL:ANL"
+    },
+    {
+      "from": "T16",
+      "rel": "in_phase",
+      "to": "P06"
+    },
+    {
+      "from": "T16",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T16",
+      "rel": "in_ws",
+      "to": "WS3"
+    },
+    {
+      "from": "T16",
+      "rel": "serves",
+      "to": "R5"
+    },
+    {
+      "from": "T17",
+      "rel": "adjacent",
+      "to": "T18"
+    },
+    {
+      "from": "T17",
+      "rel": "adjacent",
+      "to": "T19"
+    },
+    {
+      "from": "T17",
+      "rel": "has_skill",
+      "to": "SKILL:ANL"
+    },
+    {
+      "from": "T17",
+      "rel": "in_phase",
+      "to": "P06"
+    },
+    {
+      "from": "T17",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T17",
+      "rel": "in_ws",
+      "to": "WS3"
+    },
+    {
+      "from": "T17",
+      "rel": "serves",
+      "to": "R5"
+    },
+    {
+      "from": "T18",
+      "rel": "adjacent",
+      "to": "T19"
+    },
+    {
+      "from": "T18",
+      "rel": "adjacent",
+      "to": "T21"
+    },
+    {
+      "from": "T18",
+      "rel": "adjacent",
+      "to": "T22"
+    },
+    {
+      "from": "T18",
+      "rel": "has_skill",
+      "to": "SKILL:ANL"
+    },
+    {
+      "from": "T18",
+      "rel": "in_phase",
+      "to": "P06"
+    },
+    {
+      "from": "T18",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T18",
+      "rel": "in_ws",
+      "to": "WS3"
+    },
+    {
+      "from": "T18",
+      "rel": "serves",
+      "to": "R5"
+    },
+    {
+      "from": "T19",
+      "rel": "adjacent",
+      "to": "T21"
+    },
+    {
+      "from": "T19",
+      "rel": "adjacent",
+      "to": "T29"
+    },
+    {
+      "from": "T19",
+      "rel": "adjacent",
+      "to": "T58"
+    },
+    {
+      "from": "T19",
+      "rel": "adjacent",
+      "to": "T59"
+    },
+    {
+      "from": "T19",
+      "rel": "has_skill",
+      "to": "SKILL:TST"
+    },
+    {
+      "from": "T19",
+      "rel": "in_phase",
+      "to": "P06"
+    },
+    {
+      "from": "T19",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T19",
+      "rel": "in_ws",
+      "to": "WS7"
+    },
+    {
+      "from": "T19",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T19",
+      "rel": "serves",
+      "to": "R5"
+    },
+    {
+      "from": "T20",
+      "rel": "adjacent",
+      "to": "T21"
+    },
+    {
+      "from": "T20",
+      "rel": "adjacent",
+      "to": "T22"
+    },
+    {
+      "from": "T20",
+      "rel": "adjacent",
+      "to": "T31"
+    },
+    {
+      "from": "T20",
+      "rel": "has_skill",
+      "to": "SKILL:CAR"
+    },
+    {
+      "from": "T20",
+      "rel": "in_phase",
+      "to": "P07"
+    },
+    {
+      "from": "T20",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T20",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T20",
+      "rel": "serves",
+      "to": "R6"
+    },
+    {
+      "from": "T21",
+      "rel": "adjacent",
+      "to": "T22"
+    },
+    {
+      "from": "T21",
+      "rel": "adjacent",
+      "to": "T29"
+    },
+    {
+      "from": "T21",
+      "rel": "adjacent",
+      "to": "T30"
+    },
+    {
+      "from": "T21",
+      "rel": "has_skill",
+      "to": "SKILL:NEG"
+    },
+    {
+      "from": "T21",
+      "rel": "in_phase",
+      "to": "P07"
+    },
+    {
+      "from": "T21",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T21",
+      "rel": "in_ws",
+      "to": "WS4"
+    },
+    {
+      "from": "T21",
+      "rel": "serves",
+      "to": "R6"
+    },
+    {
+      "from": "T22",
+      "rel": "adjacent",
+      "to": "T23"
+    },
+    {
+      "from": "T22",
+      "rel": "adjacent",
+      "to": "T24"
+    },
+    {
+      "from": "T22",
+      "rel": "has_skill",
+      "to": "SKILL:COM"
+    },
+    {
+      "from": "T22",
+      "rel": "in_phase",
+      "to": "P07"
+    },
+    {
+      "from": "T22",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T22",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T23",
+      "rel": "adjacent",
+      "to": "T24"
+    },
+    {
+      "from": "T23",
+      "rel": "adjacent",
+      "to": "T31"
+    },
+    {
+      "from": "T23",
+      "rel": "has_skill",
+      "to": "SKILL:COM"
+    },
+    {
+      "from": "T23",
+      "rel": "in_phase",
+      "to": "P08"
+    },
+    {
+      "from": "T23",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T23",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T23",
+      "rel": "serves",
+      "to": "R2"
+    },
+    {
+      "from": "T24",
+      "rel": "adjacent",
+      "to": "T25"
+    },
+    {
+      "from": "T24",
+      "rel": "adjacent",
+      "to": "T26"
+    },
+    {
+      "from": "T24",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T24",
+      "rel": "in_phase",
+      "to": "P08"
+    },
+    {
+      "from": "T24",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T24",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T25",
+      "rel": "adjacent",
+      "to": "T26"
+    },
+    {
+      "from": "T25",
+      "rel": "adjacent",
+      "to": "T34"
+    },
+    {
+      "from": "T25",
+      "rel": "adjacent",
+      "to": "T35"
+    },
+    {
+      "from": "T25",
+      "rel": "adjacent",
+      "to": "T46"
+    },
+    {
+      "from": "T25",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T25",
+      "rel": "in_phase",
+      "to": "P08"
+    },
+    {
+      "from": "T25",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T25",
+      "rel": "in_ws",
+      "to": "WS6"
+    },
+    {
+      "from": "T26",
+      "rel": "adjacent",
+      "to": "T44"
+    },
+    {
+      "from": "T26",
+      "rel": "adjacent",
+      "to": "T45"
+    },
+    {
+      "from": "T26",
+      "rel": "adjacent",
+      "to": "T62"
+    },
+    {
+      "from": "T26",
+      "rel": "has_skill",
+      "to": "SKILL:CAR"
+    },
+    {
+      "from": "T26",
+      "rel": "in_phase",
+      "to": "P08"
+    },
+    {
+      "from": "T26",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T26",
+      "rel": "in_ws",
+      "to": "WS9"
+    },
+    {
+      "from": "T26",
+      "rel": "serves",
+      "to": "R10"
+    },
+    {
+      "from": "T26",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T27",
+      "rel": "adjacent",
+      "to": "T23"
+    },
+    {
+      "from": "T27",
+      "rel": "adjacent",
+      "to": "T28"
+    },
+    {
+      "from": "T27",
+      "rel": "has_skill",
+      "to": "SKILL:CRF"
+    },
+    {
+      "from": "T27",
+      "rel": "in_phase",
+      "to": "P05"
+    },
+    {
+      "from": "T27",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T27",
+      "rel": "in_ws",
+      "to": "WS2"
+    },
+    {
+      "from": "T27",
+      "rel": "serves",
+      "to": "R3"
+    },
+    {
+      "from": "T28",
+      "rel": "adjacent",
+      "to": "T34"
+    },
+    {
+      "from": "T28",
+      "rel": "adjacent",
+      "to": "T46"
+    },
+    {
+      "from": "T28",
+      "rel": "has_skill",
+      "to": "SKILL:COM"
+    },
+    {
+      "from": "T28",
+      "rel": "has_skill",
+      "to": "SKILL:CRF"
+    },
+    {
+      "from": "T28",
+      "rel": "in_phase",
+      "to": "P05"
+    },
+    {
+      "from": "T28",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T28",
+      "rel": "in_ws",
+      "to": "WS2"
+    },
+    {
+      "from": "T29",
+      "rel": "adjacent",
+      "to": "T30"
+    },
+    {
+      "from": "T29",
+      "rel": "adjacent",
+      "to": "T31"
+    },
+    {
+      "from": "T29",
+      "rel": "adjacent",
+      "to": "T34"
+    },
+    {
+      "from": "T29",
+      "rel": "has_skill",
+      "to": "SKILL:NEG"
+    },
+    {
+      "from": "T29",
+      "rel": "in_phase",
+      "to": "P09"
+    },
+    {
+      "from": "T29",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T29",
+      "rel": "in_ws",
+      "to": "WS4"
+    },
+    {
+      "from": "T30",
+      "rel": "adjacent",
+      "to": "T31"
+    },
+    {
+      "from": "T30",
+      "rel": "adjacent",
+      "to": "T32"
+    },
+    {
+      "from": "T30",
+      "rel": "has_skill",
+      "to": "SKILL:NEG"
+    },
+    {
+      "from": "T30",
+      "rel": "in_phase",
+      "to": "P09"
+    },
+    {
+      "from": "T30",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T30",
+      "rel": "in_ws",
+      "to": "WS4"
+    },
+    {
+      "from": "T30",
+      "rel": "serves",
+      "to": "R6"
+    },
+    {
+      "from": "T31",
+      "rel": "adjacent",
+      "to": "T32"
+    },
+    {
+      "from": "T31",
+      "rel": "adjacent",
+      "to": "T33"
+    },
+    {
+      "from": "T31",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T31",
+      "rel": "in_phase",
+      "to": "P09"
+    },
+    {
+      "from": "T31",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T31",
+      "rel": "in_ws",
+      "to": "WS4"
+    },
+    {
+      "from": "T32",
+      "rel": "adjacent",
+      "to": "T71"
+    },
+    {
+      "from": "T32",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T32",
+      "rel": "in_phase",
+      "to": "P09"
+    },
+    {
+      "from": "T32",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T32",
+      "rel": "in_ws",
+      "to": "WS4"
+    },
+    {
+      "from": "T33",
+      "rel": "adjacent",
+      "to": "T42"
+    },
+    {
+      "from": "T33",
+      "rel": "adjacent",
+      "to": "T48"
+    },
+    {
+      "from": "T33",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T33",
+      "rel": "in_phase",
+      "to": "P09"
+    },
+    {
+      "from": "T33",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T33",
+      "rel": "in_ws",
+      "to": "WS4"
+    },
+    {
+      "from": "T34",
+      "rel": "adjacent",
+      "to": "T35"
+    },
+    {
+      "from": "T34",
+      "rel": "adjacent",
+      "to": "T49"
+    },
+    {
+      "from": "T34",
+      "rel": "adjacent",
+      "to": "T50"
+    },
+    {
+      "from": "T34",
+      "rel": "adjacent",
+      "to": "T53"
+    },
+    {
+      "from": "T34",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T34",
+      "rel": "in_phase",
+      "to": "P09"
+    },
+    {
+      "from": "T34",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T34",
+      "rel": "in_ws",
+      "to": "WS3"
+    },
+    {
+      "from": "T34",
+      "rel": "serves",
+      "to": "R10"
+    },
+    {
+      "from": "T34",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T35",
+      "rel": "adjacent",
+      "to": "T36"
+    },
+    {
+      "from": "T35",
+      "rel": "adjacent",
+      "to": "T37"
+    },
+    {
+      "from": "T35",
+      "rel": "adjacent",
+      "to": "T38"
+    },
+    {
+      "from": "T35",
+      "rel": "adjacent",
+      "to": "T40"
+    },
+    {
+      "from": "T35",
+      "rel": "adjacent",
+      "to": "T41"
+    },
+    {
+      "from": "T35",
+      "rel": "adjacent",
+      "to": "T48"
+    },
+    {
+      "from": "T35",
+      "rel": "has_skill",
+      "to": "SKILL:LOG"
+    },
+    {
+      "from": "T35",
+      "rel": "in_phase",
+      "to": "P10"
+    },
+    {
+      "from": "T35",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T35",
+      "rel": "in_ws",
+      "to": "WS5"
+    },
+    {
+      "from": "T35",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T35",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T36",
+      "rel": "adjacent",
+      "to": "T37"
+    },
+    {
+      "from": "T36",
+      "rel": "adjacent",
+      "to": "T54"
+    },
+    {
+      "from": "T36",
+      "rel": "has_skill",
+      "to": "SKILL:LOG"
+    },
+    {
+      "from": "T36",
+      "rel": "in_phase",
+      "to": "P10"
+    },
+    {
+      "from": "T36",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T36",
+      "rel": "in_ws",
+      "to": "WS5"
+    },
+    {
+      "from": "T36",
+      "rel": "serves",
+      "to": "R9"
+    },
+    {
+      "from": "T37",
+      "rel": "adjacent",
+      "to": "T54"
+    },
+    {
+      "from": "T37",
+      "rel": "adjacent",
+      "to": "T55"
+    },
+    {
+      "from": "T37",
+      "rel": "has_skill",
+      "to": "SKILL:LOG"
+    },
+    {
+      "from": "T37",
+      "rel": "in_phase",
+      "to": "P10"
+    },
+    {
+      "from": "T37",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T37",
+      "rel": "in_ws",
+      "to": "WS5"
+    },
+    {
+      "from": "T37",
+      "rel": "serves",
+      "to": "R10"
+    },
+    {
+      "from": "T38",
+      "rel": "adjacent",
+      "to": "T50"
+    },
+    {
+      "from": "T38",
+      "rel": "adjacent",
+      "to": "T53"
+    },
+    {
+      "from": "T38",
+      "rel": "has_skill",
+      "to": "SKILL:LOG"
+    },
+    {
+      "from": "T38",
+      "rel": "in_phase",
+      "to": "P10"
+    },
+    {
+      "from": "T38",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T38",
+      "rel": "in_ws",
+      "to": "WS5"
+    },
+    {
+      "from": "T38",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T39",
+      "rel": "adjacent",
+      "to": "T50"
+    },
+    {
+      "from": "T39",
+      "rel": "adjacent",
+      "to": "T55"
+    },
+    {
+      "from": "T39",
+      "rel": "has_skill",
+      "to": "SKILL:LOG"
+    },
+    {
+      "from": "T39",
+      "rel": "in_phase",
+      "to": "P10"
+    },
+    {
+      "from": "T39",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T39",
+      "rel": "in_ws",
+      "to": "WS5"
+    },
+    {
+      "from": "T39",
+      "rel": "serves",
+      "to": "GOAL:brand"
+    },
+    {
+      "from": "T39",
+      "rel": "serves",
+      "to": "GOAL:safety"
+    },
+    {
+      "from": "T40",
+      "rel": "adjacent",
+      "to": "T41"
+    },
+    {
+      "from": "T40",
+      "rel": "adjacent",
+      "to": "T48"
+    },
+    {
+      "from": "T40",
+      "rel": "adjacent",
+      "to": "T57"
+    },
+    {
+      "from": "T40",
+      "rel": "has_skill",
+      "to": "SKILL:LOG"
+    },
+    {
+      "from": "T40",
+      "rel": "in_phase",
+      "to": "P10"
+    },
+    {
+      "from": "T40",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T40",
+      "rel": "in_ws",
+      "to": "WS5"
+    },
+    {
+      "from": "T40",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T40",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T41",
+      "rel": "adjacent",
+      "to": "T43"
+    },
+    {
+      "from": "T41",
+      "rel": "adjacent",
+      "to": "T57"
+    },
+    {
+      "from": "T41",
+      "rel": "has_skill",
+      "to": "SKILL:LOG"
+    },
+    {
+      "from": "T41",
+      "rel": "in_phase",
+      "to": "P10"
+    },
+    {
+      "from": "T41",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T41",
+      "rel": "in_ws",
+      "to": "WS5"
+    },
+    {
+      "from": "T41",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T41",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T42",
+      "rel": "adjacent",
+      "to": "T43"
+    },
+    {
+      "from": "T42",
+      "rel": "adjacent",
+      "to": "T49"
+    },
+    {
+      "from": "T42",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T42",
+      "rel": "in_phase",
+      "to": "P11"
+    },
+    {
+      "from": "T42",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T42",
+      "rel": "in_ws",
+      "to": "WS8"
+    },
+    {
+      "from": "T42",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T43",
+      "rel": "adjacent",
+      "to": "T49"
+    },
+    {
+      "from": "T43",
+      "rel": "adjacent",
+      "to": "T50"
+    },
+    {
+      "from": "T43",
+      "rel": "adjacent",
+      "to": "T53"
+    },
+    {
+      "from": "T43",
+      "rel": "adjacent",
+      "to": "T58"
+    },
+    {
+      "from": "T43",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T43",
+      "rel": "in_phase",
+      "to": "P11"
+    },
+    {
+      "from": "T43",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T43",
+      "rel": "in_ws",
+      "to": "WS8"
+    },
+    {
+      "from": "T43",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T44",
+      "rel": "adjacent",
+      "to": "T45"
+    },
+    {
+      "from": "T44",
+      "rel": "adjacent",
+      "to": "T56"
+    },
+    {
+      "from": "T44",
+      "rel": "has_skill",
+      "to": "SKILL:COM"
+    },
+    {
+      "from": "T44",
+      "rel": "in_phase",
+      "to": "P11"
+    },
+    {
+      "from": "T44",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T44",
+      "rel": "in_ws",
+      "to": "WS5"
+    },
+    {
+      "from": "T44",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T44",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T45",
+      "rel": "adjacent",
+      "to": "T62"
+    },
+    {
+      "from": "T45",
+      "rel": "adjacent",
+      "to": "T68"
+    },
+    {
+      "from": "T45",
+      "rel": "has_skill",
+      "to": "SKILL:CAR"
+    },
+    {
+      "from": "T45",
+      "rel": "in_phase",
+      "to": "P11"
+    },
+    {
+      "from": "T45",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T45",
+      "rel": "in_ws",
+      "to": "WS9"
+    },
+    {
+      "from": "T45",
+      "rel": "serves",
+      "to": "GOAL:brand"
+    },
+    {
+      "from": "T45",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T46",
+      "rel": "adjacent",
+      "to": "T58"
+    },
+    {
+      "from": "T46",
+      "rel": "adjacent",
+      "to": "T59"
+    },
+    {
+      "from": "T46",
+      "rel": "adjacent",
+      "to": "T64"
+    },
+    {
+      "from": "T46",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T46",
+      "rel": "in_phase",
+      "to": "P10"
+    },
+    {
+      "from": "T46",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T46",
+      "rel": "in_ws",
+      "to": "WS6"
+    },
+    {
+      "from": "T46",
+      "rel": "serves",
+      "to": "R11"
+    },
+    {
+      "from": "T46",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T47",
+      "rel": "adjacent",
+      "to": "T63"
+    },
+    {
+      "from": "T47",
+      "rel": "adjacent",
+      "to": "T64"
+    },
+    {
+      "from": "T47",
+      "rel": "adjacent",
+      "to": "T65"
+    },
+    {
+      "from": "T47",
+      "rel": "adjacent",
+      "to": "T66"
+    },
+    {
+      "from": "T47",
+      "rel": "adjacent",
+      "to": "T67"
+    },
+    {
+      "from": "T47",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T47",
+      "rel": "in_phase",
+      "to": "P10"
+    },
+    {
+      "from": "T47",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T47",
+      "rel": "in_ws",
+      "to": "WS6"
+    },
+    {
+      "from": "T47",
+      "rel": "serves",
+      "to": "R12"
+    },
+    {
+      "from": "T48",
+      "rel": "adjacent",
+      "to": "T41"
+    },
+    {
+      "from": "T48",
+      "rel": "adjacent",
+      "to": "T49"
+    },
+    {
+      "from": "T48",
+      "rel": "adjacent",
+      "to": "T57"
+    },
+    {
+      "from": "T48",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T48",
+      "rel": "in_phase",
+      "to": "P11"
+    },
+    {
+      "from": "T48",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T48",
+      "rel": "in_ws",
+      "to": "WS5"
+    },
+    {
+      "from": "T48",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T48",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T49",
+      "rel": "adjacent",
+      "to": "T50"
+    },
+    {
+      "from": "T49",
+      "rel": "adjacent",
+      "to": "T52"
+    },
+    {
+      "from": "T49",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T49",
+      "rel": "in_phase",
+      "to": "P12"
+    },
+    {
+      "from": "T49",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T49",
+      "rel": "in_ws",
+      "to": "WS8"
+    },
+    {
+      "from": "T49",
+      "rel": "serves",
+      "to": "GOAL:membrane"
+    },
+    {
+      "from": "T49",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T50",
+      "rel": "adjacent",
+      "to": "T53"
+    },
+    {
+      "from": "T50",
+      "rel": "adjacent",
+      "to": "T54"
+    },
+    {
+      "from": "T50",
+      "rel": "adjacent",
+      "to": "T57"
+    },
+    {
+      "from": "T50",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T50",
+      "rel": "in_phase",
+      "to": "P12"
+    },
+    {
+      "from": "T50",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T50",
+      "rel": "in_ws",
+      "to": "WS8"
+    },
+    {
+      "from": "T50",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T50",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T51",
+      "rel": "adjacent",
+      "to": "T58"
+    },
+    {
+      "from": "T51",
+      "rel": "adjacent",
+      "to": "T60"
+    },
+    {
+      "from": "T51",
+      "rel": "has_skill",
+      "to": "SKILL:TST"
+    },
+    {
+      "from": "T51",
+      "rel": "in_phase",
+      "to": "P12"
+    },
+    {
+      "from": "T51",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T51",
+      "rel": "in_ws",
+      "to": "WS7"
+    },
+    {
+      "from": "T51",
+      "rel": "serves",
+      "to": "GOAL:brand"
+    },
+    {
+      "from": "T51",
+      "rel": "serves",
+      "to": "R11"
+    },
+    {
+      "from": "T51",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T52",
+      "rel": "adjacent",
+      "to": "T56"
+    },
+    {
+      "from": "T52",
+      "rel": "adjacent",
+      "to": "T58"
+    },
+    {
+      "from": "T52",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T52",
+      "rel": "in_phase",
+      "to": "P12"
+    },
+    {
+      "from": "T52",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T52",
+      "rel": "in_ws",
+      "to": "WS8"
+    },
+    {
+      "from": "T52",
+      "rel": "serves",
+      "to": "R11"
+    },
+    {
+      "from": "T53",
+      "rel": "adjacent",
+      "to": "T54"
+    },
+    {
+      "from": "T53",
+      "rel": "adjacent",
+      "to": "T55"
+    },
+    {
+      "from": "T53",
+      "rel": "adjacent",
+      "to": "T57"
+    },
+    {
+      "from": "T53",
+      "rel": "has_skill",
+      "to": "SKILL:LOG"
+    },
+    {
+      "from": "T53",
+      "rel": "in_phase",
+      "to": "P12"
+    },
+    {
+      "from": "T53",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T53",
+      "rel": "in_ws",
+      "to": "WS5"
+    },
+    {
+      "from": "T53",
+      "rel": "serves",
+      "to": "R8"
+    },
+    {
+      "from": "T54",
+      "rel": "adjacent",
+      "to": "T36"
+    },
+    {
+      "from": "T54",
+      "rel": "adjacent",
+      "to": "T39"
+    },
+    {
+      "from": "T54",
+      "rel": "adjacent",
+      "to": "T55"
+    },
+    {
+      "from": "T54",
+      "rel": "has_skill",
+      "to": "SKILL:LOG"
+    },
+    {
+      "from": "T54",
+      "rel": "in_phase",
+      "to": "P12"
+    },
+    {
+      "from": "T54",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T54",
+      "rel": "in_ws",
+      "to": "WS5"
+    },
+    {
+      "from": "T54",
+      "rel": "serves",
+      "to": "R9"
+    },
+    {
+      "from": "T55",
+      "rel": "adjacent",
+      "to": "T54"
+    },
+    {
+      "from": "T55",
+      "rel": "adjacent",
+      "to": "T58"
+    },
+    {
+      "from": "T55",
+      "rel": "has_skill",
+      "to": "SKILL:LOG"
+    },
+    {
+      "from": "T55",
+      "rel": "in_phase",
+      "to": "P12"
+    },
+    {
+      "from": "T55",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T55",
+      "rel": "in_ws",
+      "to": "WS5"
+    },
+    {
+      "from": "T55",
+      "rel": "serves",
+      "to": "R10"
+    },
+    {
+      "from": "T56",
+      "rel": "adjacent",
+      "to": "T57"
+    },
+    {
+      "from": "T56",
+      "rel": "adjacent",
+      "to": "T62"
+    },
+    {
+      "from": "T56",
+      "rel": "has_skill",
+      "to": "SKILL:CAR"
+    },
+    {
+      "from": "T56",
+      "rel": "in_phase",
+      "to": "P12"
+    },
+    {
+      "from": "T56",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T56",
+      "rel": "in_ws",
+      "to": "WS9"
+    },
+    {
+      "from": "T56",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T56",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T57",
+      "rel": "adjacent",
+      "to": "T41"
+    },
+    {
+      "from": "T57",
+      "rel": "adjacent",
+      "to": "T48"
+    },
+    {
+      "from": "T57",
+      "rel": "adjacent",
+      "to": "T76"
+    },
+    {
+      "from": "T57",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T57",
+      "rel": "in_phase",
+      "to": "P12"
+    },
+    {
+      "from": "T57",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T57",
+      "rel": "in_ws",
+      "to": "WS8"
+    },
+    {
+      "from": "T57",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T57",
+      "rel": "serves",
+      "to": "R7"
+    },
+    {
+      "from": "T58",
+      "rel": "adjacent",
+      "to": "T59"
+    },
+    {
+      "from": "T58",
+      "rel": "adjacent",
+      "to": "T64"
+    },
+    {
+      "from": "T58",
+      "rel": "has_skill",
+      "to": "SKILL:CRF"
+    },
+    {
+      "from": "T58",
+      "rel": "in_phase",
+      "to": "P13"
+    },
+    {
+      "from": "T58",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T58",
+      "rel": "in_ws",
+      "to": "WS6"
+    },
+    {
+      "from": "T58",
+      "rel": "serves",
+      "to": "R11"
+    },
+    {
+      "from": "T58",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T59",
+      "rel": "adjacent",
+      "to": "T64"
+    },
+    {
+      "from": "T59",
+      "rel": "adjacent",
+      "to": "T65"
+    },
+    {
+      "from": "T59",
+      "rel": "adjacent",
+      "to": "T70"
+    },
+    {
+      "from": "T59",
+      "rel": "has_skill",
+      "to": "SKILL:CRF"
+    },
+    {
+      "from": "T59",
+      "rel": "in_phase",
+      "to": "P13"
+    },
+    {
+      "from": "T59",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T59",
+      "rel": "in_ws",
+      "to": "WS6"
+    },
+    {
+      "from": "T59",
+      "rel": "serves",
+      "to": "ASSET:referral"
+    },
+    {
+      "from": "T59",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T60",
+      "rel": "adjacent",
+      "to": "T51"
+    },
+    {
+      "from": "T60",
+      "rel": "adjacent",
+      "to": "T58"
+    },
+    {
+      "from": "T60",
+      "rel": "has_skill",
+      "to": "SKILL:TST"
+    },
+    {
+      "from": "T60",
+      "rel": "in_phase",
+      "to": "P12"
+    },
+    {
+      "from": "T60",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T60",
+      "rel": "in_ws",
+      "to": "WS7"
+    },
+    {
+      "from": "T60",
+      "rel": "serves",
+      "to": "R11"
+    },
+    {
+      "from": "T60",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T61",
+      "rel": "adjacent",
+      "to": "T62"
+    },
+    {
+      "from": "T61",
+      "rel": "adjacent",
+      "to": "T63"
+    },
+    {
+      "from": "T61",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T61",
+      "rel": "in_phase",
+      "to": "P12"
+    },
+    {
+      "from": "T61",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T61",
+      "rel": "in_ws",
+      "to": "WS8"
+    },
+    {
+      "from": "T61",
+      "rel": "serves",
+      "to": "GOAL:membrane"
+    },
+    {
+      "from": "T62",
+      "rel": "adjacent",
+      "to": "T68"
+    },
+    {
+      "from": "T62",
+      "rel": "adjacent",
+      "to": "T74"
+    },
+    {
+      "from": "T62",
+      "rel": "has_skill",
+      "to": "SKILL:CAR"
+    },
+    {
+      "from": "T62",
+      "rel": "in_phase",
+      "to": "P12"
+    },
+    {
+      "from": "T62",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T62",
+      "rel": "in_ws",
+      "to": "WS9"
+    },
+    {
+      "from": "T62",
+      "rel": "serves",
+      "to": "R1"
+    },
+    {
+      "from": "T62",
+      "rel": "serves",
+      "to": "R14"
+    },
+    {
+      "from": "T63",
+      "rel": "adjacent",
+      "to": "T64"
+    },
+    {
+      "from": "T63",
+      "rel": "has_skill",
+      "to": "SKILL:CRF"
+    },
+    {
+      "from": "T63",
+      "rel": "in_phase",
+      "to": "P14"
+    },
+    {
+      "from": "T63",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T63",
+      "rel": "in_ws",
+      "to": "WS6"
+    },
+    {
+      "from": "T63",
+      "rel": "serves",
+      "to": "R12"
+    },
+    {
+      "from": "T64",
+      "rel": "adjacent",
+      "to": "T65"
+    },
+    {
+      "from": "T64",
+      "rel": "adjacent",
+      "to": "T66"
+    },
+    {
+      "from": "T64",
+      "rel": "adjacent",
+      "to": "T70"
+    },
+    {
+      "from": "T64",
+      "rel": "has_skill",
+      "to": "SKILL:CRF"
+    },
+    {
+      "from": "T64",
+      "rel": "in_phase",
+      "to": "P14"
+    },
+    {
+      "from": "T64",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T64",
+      "rel": "in_ws",
+      "to": "WS6"
+    },
+    {
+      "from": "T64",
+      "rel": "serves",
+      "to": "R12"
+    },
+    {
+      "from": "T64",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T65",
+      "rel": "adjacent",
+      "to": "T66"
+    },
+    {
+      "from": "T65",
+      "rel": "adjacent",
+      "to": "T70"
+    },
+    {
+      "from": "T65",
+      "rel": "has_skill",
+      "to": "SKILL:CRF"
+    },
+    {
+      "from": "T65",
+      "rel": "in_phase",
+      "to": "P14"
+    },
+    {
+      "from": "T65",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T65",
+      "rel": "in_ws",
+      "to": "WS6"
+    },
+    {
+      "from": "T65",
+      "rel": "serves",
+      "to": "R13"
+    },
+    {
+      "from": "T66",
+      "rel": "adjacent",
+      "to": "T67"
+    },
+    {
+      "from": "T66",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T66",
+      "rel": "in_phase",
+      "to": "P14"
+    },
+    {
+      "from": "T66",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T66",
+      "rel": "in_ws",
+      "to": "WS6"
+    },
+    {
+      "from": "T66",
+      "rel": "serves",
+      "to": "R12"
+    },
+    {
+      "from": "T67",
+      "rel": "adjacent",
+      "to": "T68"
+    },
+    {
+      "from": "T67",
+      "rel": "adjacent",
+      "to": "T69"
+    },
+    {
+      "from": "T67",
+      "rel": "has_skill",
+      "to": "SKILL:COM"
+    },
+    {
+      "from": "T67",
+      "rel": "in_phase",
+      "to": "P14"
+    },
+    {
+      "from": "T67",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T67",
+      "rel": "in_ws",
+      "to": "WS6"
+    },
+    {
+      "from": "T67",
+      "rel": "serves",
+      "to": "R12"
+    },
+    {
+      "from": "T67",
+      "rel": "serves",
+      "to": "R14"
+    },
+    {
+      "from": "T68",
+      "rel": "adjacent",
+      "to": "T69"
+    },
+    {
+      "from": "T68",
+      "rel": "adjacent",
+      "to": "T74"
+    },
+    {
+      "from": "T68",
+      "rel": "has_skill",
+      "to": "SKILL:CAR"
+    },
+    {
+      "from": "T68",
+      "rel": "in_phase",
+      "to": "P15"
+    },
+    {
+      "from": "T68",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T68",
+      "rel": "in_ws",
+      "to": "WS9"
+    },
+    {
+      "from": "T68",
+      "rel": "serves",
+      "to": "R14"
+    },
+    {
+      "from": "T69",
+      "rel": "adjacent",
+      "to": "T75"
+    },
+    {
+      "from": "T69",
+      "rel": "has_skill",
+      "to": "SKILL:COM"
+    },
+    {
+      "from": "T69",
+      "rel": "in_phase",
+      "to": "P15"
+    },
+    {
+      "from": "T69",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T69",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T69",
+      "rel": "serves",
+      "to": "R14"
+    },
+    {
+      "from": "T70",
+      "rel": "adjacent",
+      "to": "T76"
+    },
+    {
+      "from": "T70",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T70",
+      "rel": "in_phase",
+      "to": "P15"
+    },
+    {
+      "from": "T70",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T70",
+      "rel": "in_ws",
+      "to": "WS6"
+    },
+    {
+      "from": "T70",
+      "rel": "serves",
+      "to": "GOAL:brand"
+    },
+    {
+      "from": "T71",
+      "rel": "adjacent",
+      "to": "T16"
+    },
+    {
+      "from": "T71",
+      "rel": "adjacent",
+      "to": "T72"
+    },
+    {
+      "from": "T71",
+      "rel": "has_skill",
+      "to": "SKILL:ANL"
+    },
+    {
+      "from": "T71",
+      "rel": "in_phase",
+      "to": "P15"
+    },
+    {
+      "from": "T71",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T71",
+      "rel": "in_ws",
+      "to": "WS3"
+    },
+    {
+      "from": "T71",
+      "rel": "serves",
+      "to": "ASSET:vendor_network"
+    },
+    {
+      "from": "T72",
+      "rel": "adjacent",
+      "to": "T16"
+    },
+    {
+      "from": "T72",
+      "rel": "adjacent",
+      "to": "T71"
+    },
+    {
+      "from": "T72",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T72",
+      "rel": "in_phase",
+      "to": "P15"
+    },
+    {
+      "from": "T72",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T72",
+      "rel": "in_ws",
+      "to": "WS3"
+    },
+    {
+      "from": "T72",
+      "rel": "serves",
+      "to": "ASSET:vendor_network"
+    },
+    {
+      "from": "T73",
+      "rel": "adjacent",
+      "to": "T74"
+    },
+    {
+      "from": "T73",
+      "rel": "adjacent",
+      "to": "T76"
+    },
+    {
+      "from": "T73",
+      "rel": "has_skill",
+      "to": "SKILL:ANL"
+    },
+    {
+      "from": "T73",
+      "rel": "in_phase",
+      "to": "P15"
+    },
+    {
+      "from": "T73",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T73",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T73",
+      "rel": "serves",
+      "to": "ASSET:customer_dossier"
+    },
+    {
+      "from": "T73",
+      "rel": "serves",
+      "to": "ASSET:referral"
+    },
+    {
+      "from": "T74",
+      "rel": "adjacent",
+      "to": "T68"
+    },
+    {
+      "from": "T74",
+      "rel": "adjacent",
+      "to": "T69"
+    },
+    {
+      "from": "T74",
+      "rel": "has_skill",
+      "to": "SKILL:CAR"
+    },
+    {
+      "from": "T74",
+      "rel": "in_phase",
+      "to": "P15"
+    },
+    {
+      "from": "T74",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN-AI"
+    },
+    {
+      "from": "T74",
+      "rel": "in_ws",
+      "to": "WS9"
+    },
+    {
+      "from": "T74",
+      "rel": "serves",
+      "to": "ASSET:referral"
+    },
+    {
+      "from": "T75",
+      "rel": "adjacent",
+      "to": "T69"
+    },
+    {
+      "from": "T75",
+      "rel": "adjacent",
+      "to": "T73"
+    },
+    {
+      "from": "T75",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T75",
+      "rel": "in_phase",
+      "to": "P15"
+    },
+    {
+      "from": "T75",
+      "rel": "in_quadrant",
+      "to": "Q:AUTO"
+    },
+    {
+      "from": "T75",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T76",
+      "rel": "adjacent",
+      "to": "T71"
+    },
+    {
+      "from": "T76",
+      "rel": "adjacent",
+      "to": "T73"
+    },
+    {
+      "from": "T76",
+      "rel": "has_skill",
+      "to": "SKILL:OPS"
+    },
+    {
+      "from": "T76",
+      "rel": "in_phase",
+      "to": "P15"
+    },
+    {
+      "from": "T76",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T76",
+      "rel": "in_ws",
+      "to": "WS1"
+    },
+    {
+      "from": "T76",
+      "rel": "serves",
+      "to": "ASSET:playbook"
+    },
+    {
+      "from": "T77",
+      "rel": "adjacent",
+      "to": "T78"
+    },
+    {
+      "from": "T77",
+      "rel": "has_skill",
+      "to": "SKILL:COM"
+    },
+    {
+      "from": "T77",
+      "rel": "in_phase",
+      "to": "P15"
+    },
+    {
+      "from": "T77",
+      "rel": "in_quadrant",
+      "to": "Q:AUG-HITL"
+    },
+    {
+      "from": "T77",
+      "rel": "in_ws",
+      "to": "WS6"
+    },
+    {
+      "from": "T77",
+      "rel": "serves",
+      "to": "GOAL:brand"
+    },
+    {
+      "from": "T77",
+      "rel": "serves",
+      "to": "R14"
+    },
+    {
+      "from": "T78",
+      "rel": "adjacent",
+      "to": "T74"
+    },
+    {
+      "from": "T78",
+      "rel": "has_skill",
+      "to": "SKILL:TST"
+    },
+    {
+      "from": "T78",
+      "rel": "in_phase",
+      "to": "P15"
+    },
+    {
+      "from": "T78",
+      "rel": "in_quadrant",
+      "to": "Q:HUMAN"
+    },
+    {
+      "from": "T78",
+      "rel": "in_ws",
+      "to": "WS7"
+    },
+    {
+      "from": "T78",
+      "rel": "serves",
+      "to": "GOAL:brand"
+    }
+  ],
+  "meta": {
+    "atoms": 78,
+    "edge_count": 626,
+    "generated_from": "sources/fete-atom-decomposition.md",
+    "node_count": 141,
+    "quadrant_counts": {
+      "AUG-HITL": 27,
+      "AUTO": 26,
+      "HUMAN": 15,
+      "HUMAN-AI": 10
+    },
+    "version": "2.1"
+  },
+  "nodes": [
+    {
+      "id": "Arc:A",
+      "kind": "arc",
+      "label": "Discovery & Trust"
+    },
+    {
+      "id": "Arc:B",
+      "kind": "arc",
+      "label": "Vision & Commit"
+    },
+    {
+      "id": "Arc:C",
+      "kind": "arc",
+      "label": "Build"
+    },
+    {
+      "id": "Arc:D",
+      "kind": "arc",
+      "label": "Day-Of"
+    },
+    {
+      "id": "Arc:E",
+      "kind": "arc",
+      "label": "Afterglow & Loop"
+    },
+    {
+      "arc": "A",
+      "goals": [],
+      "id": "T01",
+      "kind": "atom",
+      "name": "Capture inbound to single qualified-lead record",
+      "phase": "P01",
+      "quadrant": "AUTO",
+      "serves": [
+        2
+      ],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Multi-source unifier",
+        "Identity dedup",
+        "Source attribution tag",
+        "Freshness signal",
+        "Initial routing flag"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "A",
+      "goals": [],
+      "id": "T02",
+      "kind": "atom",
+      "name": "Qualify against ICP filter",
+      "phase": "P01",
+      "quadrant": "AUTO",
+      "serves": [
+        2
+      ],
+      "skill": "ANL",
+      "structural": false,
+      "subcomponent_names": [
+        "Geo filter",
+        "Budget signal inference",
+        "Event-type filter",
+        "Child-age window",
+        "Referral-source weighting"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "A",
+      "goals": [],
+      "id": "T03",
+      "kind": "atom",
+      "name": "Enrich identity",
+      "phase": "P02",
+      "quadrant": "AUTO",
+      "serves": [
+        2
+      ],
+      "skill": "ANL",
+      "structural": false,
+      "subcomponent_names": [
+        "LinkedIn + press scrape",
+        "Household composition",
+        "Prior-event signal",
+        "Aesthetic sample",
+        "Network adjacency"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "A",
+      "goals": [],
+      "id": "T04",
+      "kind": "atom",
+      "name": "Infer aesthetic posture from public signal",
+      "phase": "P02",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        3,
+        4
+      ],
+      "skill": "ANL",
+      "structural": false,
+      "subcomponent_names": [
+        "Palette extraction",
+        "Motif library",
+        "Reference graph",
+        "Negative space",
+        "Confidence band"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "A",
+      "goals": [],
+      "id": "T05",
+      "kind": "atom",
+      "name": "Detect status / discretion sensitivities",
+      "phase": "P02",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        6
+      ],
+      "skill": "ANL",
+      "structural": false,
+      "subcomponent_names": [
+        "Recent-press scan",
+        "SEC / board flag",
+        "Household status",
+        "Vendor-side risk",
+        "Discretion ledger"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "A",
+      "goals": [],
+      "id": "T06",
+      "kind": "atom",
+      "name": "Discovery call \u00b7 conversational, not interview",
+      "phase": "P03",
+      "quadrant": "HUMAN",
+      "serves": [
+        2
+      ],
+      "skill": "CAR",
+      "structural": false,
+      "subcomponent_names": [
+        "Pre-call ritual",
+        "Conversational open",
+        "Listen for the unstated",
+        "Defer the proposal",
+        "Capture the in-room moment"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "A",
+      "goals": [],
+      "id": "T07",
+      "kind": "atom",
+      "name": "Capture stated and unstated brief",
+      "phase": "P03",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        2,
+        4
+      ],
+      "skill": "COM",
+      "structural": false,
+      "subcomponent_names": [
+        "Stated brief",
+        "Unstated brief",
+        "Negative-space list",
+        "Trusted references",
+        "Decision-style read"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "A",
+      "goals": [],
+      "id": "T08",
+      "kind": "atom",
+      "name": "CD taste arbitration of brief",
+      "phase": "P03",
+      "quadrant": "HUMAN",
+      "serves": [
+        4
+      ],
+      "skill": "TST",
+      "structural": false,
+      "subcomponent_names": [
+        "Strip the asked-for",
+        "Name the actual ask",
+        "Identify the brave move",
+        "Set the constraint",
+        "Hand off in writing"
+      ],
+      "subcomponents": 5,
+      "ws": 7
+    },
+    {
+      "arc": "A",
+      "goals": [],
+      "id": "T09",
+      "kind": "atom",
+      "name": "Same-day recap note",
+      "phase": "P03",
+      "quadrant": "AUTO",
+      "serves": [
+        2
+      ],
+      "skill": "COM",
+      "structural": false,
+      "subcomponent_names": [
+        "Specific reference",
+        "One-paragraph mirror",
+        "Next step + owner",
+        "Signed by the named human",
+        "No pricing, no terms"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "A",
+      "goals": [],
+      "id": "T10",
+      "kind": "atom",
+      "name": "Open private channel with named human",
+      "phase": "P03",
+      "quadrant": "HUMAN",
+      "serves": [],
+      "skill": "CAR",
+      "structural": true,
+      "subcomponent_names": [
+        "Channel selection",
+        "Single named owner",
+        "Response SLA",
+        "Backup protocol",
+        "Continuity"
+      ],
+      "subcomponents": 5,
+      "ws": 9
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T11",
+      "kind": "atom",
+      "name": "Synthesize taste vector from intake + enrichment",
+      "phase": "P04",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        3,
+        4
+      ],
+      "skill": "ANL",
+      "structural": false,
+      "subcomponent_names": [
+        "Posture \u00d7 brief reconciliation",
+        "Anchor references",
+        "Style axes",
+        "Exclusion vector",
+        "Confidence band"
+      ],
+      "subcomponents": 5,
+      "ws": 2
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T12",
+      "kind": "atom",
+      "name": "Identify three axes to push and three to suppress",
+      "phase": "P04",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        4
+      ],
+      "skill": "ANL",
+      "structural": false,
+      "subcomponent_names": [
+        "Push #1",
+        "Push #2",
+        "Push #3",
+        "Suppress #1",
+        "Suppress #2",
+        "Suppress #3"
+      ],
+      "subcomponents": 6,
+      "ws": 2
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T13",
+      "kind": "atom",
+      "name": "Compose moodboard at editorial quality",
+      "phase": "P05",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        3,
+        13
+      ],
+      "skill": "CRF",
+      "structural": false,
+      "subcomponent_names": [
+        "Image sourcing",
+        "Composition",
+        "Palette discipline",
+        "Type system",
+        "Sequence"
+      ],
+      "subcomponents": 5,
+      "ws": 2
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T14",
+      "kind": "atom",
+      "name": "CD final pass on moodboard",
+      "phase": "P05",
+      "quadrant": "HUMAN",
+      "serves": [
+        3,
+        5
+      ],
+      "skill": "TST",
+      "structural": false,
+      "subcomponent_names": [
+        "Kill",
+        "Add",
+        "Cover",
+        "Sign",
+        "Approve to send"
+      ],
+      "subcomponents": 5,
+      "ws": 7
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T15",
+      "kind": "atom",
+      "name": "Write moodboard caption deck",
+      "phase": "P05",
+      "quadrant": "AUTO",
+      "serves": [
+        3
+      ],
+      "skill": "COM",
+      "structural": false,
+      "subcomponent_names": [
+        "Cover narrative",
+        "Section captions",
+        "Anchor captions",
+        "Closing line",
+        "Register check"
+      ],
+      "subcomponents": 5,
+      "ws": 2
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T16",
+      "kind": "atom",
+      "name": "Vendor longlist conditioned on taste vector",
+      "phase": "P06",
+      "quadrant": "AUTO",
+      "serves": [
+        5
+      ],
+      "skill": "ANL",
+      "structural": false,
+      "subcomponent_names": [
+        "Per-category retrieval",
+        "Vector conditioning",
+        "Geo + logistics filter",
+        "Long-tail injection",
+        "Tier banding"
+      ],
+      "subcomponents": 5,
+      "ws": 3
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T17",
+      "kind": "atom",
+      "name": "Availability + social-overlap check",
+      "phase": "P06",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        5
+      ],
+      "skill": "ANL",
+      "structural": false,
+      "subcomponent_names": [
+        "Availability",
+        "Prior collab history",
+        "Social overlap",
+        "One-delightful-overlap rule",
+        "Embarrassment screen"
+      ],
+      "subcomponents": 5,
+      "ws": 3
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T18",
+      "kind": "atom",
+      "name": "Shortlist with rationale",
+      "phase": "P06",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        5
+      ],
+      "skill": "ANL",
+      "structural": false,
+      "subcomponent_names": [
+        "Reduce to 2\u20133",
+        "One-line taste rationale",
+        "Compatibility note",
+        "Cost band",
+        "CD-readable"
+      ],
+      "subcomponents": 5,
+      "ws": 3
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T19",
+      "kind": "atom",
+      "name": "Ensemble taste pairing",
+      "phase": "P06",
+      "quadrant": "HUMAN",
+      "serves": [
+        5,
+        13
+      ],
+      "skill": "TST",
+      "structural": false,
+      "subcomponent_names": [
+        "Aesthetic coherence check",
+        "Photographability check",
+        "Anchor commit",
+        "Substitution test",
+        "CD commit"
+      ],
+      "subcomponents": 5,
+      "ws": 7
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T20",
+      "kind": "atom",
+      "name": "Surface the dual-budget question",
+      "phase": "P07",
+      "quadrant": "HUMAN",
+      "serves": [
+        6
+      ],
+      "skill": "CAR",
+      "structural": false,
+      "subcomponent_names": [
+        "Trigger moment",
+        "Channel",
+        "Framing",
+        "Quote-routing rule",
+        "CRM annotation"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T21",
+      "kind": "atom",
+      "name": "Pre-negotiate vendor ranges before quoting hostess",
+      "phase": "P07",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        6
+      ],
+      "skill": "NEG",
+      "structural": false,
+      "subcomponent_names": [
+        "Per-vendor envelope",
+        "Bundled-rate logic",
+        "Margin floor",
+        "Vendor-side rationale",
+        "Closed-band confirmation"
+      ],
+      "subcomponents": 5,
+      "ws": 4
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T22",
+      "kind": "atom",
+      "name": "Tiered scope proposal",
+      "phase": "P07",
+      "quadrant": "AUG-HITL",
+      "serves": [],
+      "skill": "COM",
+      "structural": true,
+      "subcomponent_names": [
+        "Tier definition",
+        "Story framing",
+        "Anchor on middle",
+        "Brave-move surfacing",
+        "Register check"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T23",
+      "kind": "atom",
+      "name": "Draft proposal as a story document",
+      "phase": "P08",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        2
+      ],
+      "skill": "COM",
+      "structural": true,
+      "subcomponent_names": [
+        "Cover",
+        "Story spread",
+        "Tier presentation",
+        "Number presentation",
+        "Signature page"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T24",
+      "kind": "atom",
+      "name": "Capture commit",
+      "phase": "P08",
+      "quadrant": "AUTO",
+      "serves": [],
+      "skill": "OPS",
+      "structural": true,
+      "subcomponent_names": [
+        "E-sign",
+        "Deposit",
+        "Calendar hold",
+        "Household block-out",
+        "Confirmation"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T25",
+      "kind": "atom",
+      "name": "Project instantiation",
+      "phase": "P08",
+      "quadrant": "AUTO",
+      "serves": [],
+      "skill": "OPS",
+      "structural": true,
+      "subcomponent_names": [
+        "Workstream instantiation",
+        "Context propagation",
+        "Sensitivity inheritance",
+        "Owner assignment",
+        "First standup trigger"
+      ],
+      "subcomponents": 5,
+      "ws": 6
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T26",
+      "kind": "atom",
+      "name": "Planner-on-ground introduced by name",
+      "phase": "P08",
+      "quadrant": "HUMAN",
+      "serves": [
+        7,
+        10
+      ],
+      "skill": "CAR",
+      "structural": true,
+      "subcomponent_names": [
+        "CD voice memo",
+        "Planner's first message",
+        "Channel continuity",
+        "Backup announcement",
+        "First context message"
+      ],
+      "subcomponents": 5,
+      "ws": 9
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T27",
+      "kind": "atom",
+      "name": "Render the key image",
+      "phase": "P05",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        3
+      ],
+      "skill": "CRF",
+      "structural": false,
+      "subcomponent_names": [
+        "Generation set",
+        "CD selection",
+        "Composition lock",
+        "Brand-asset prep",
+        "Print check"
+      ],
+      "subcomponents": 5,
+      "ws": 2
+    },
+    {
+      "arc": "B",
+      "goals": [],
+      "id": "T28",
+      "kind": "atom",
+      "name": "Invite copy + visual aligned to moodboard",
+      "phase": "P05",
+      "quadrant": "AUTO",
+      "serves": [],
+      "skill": "COM/CRF",
+      "structural": true,
+      "subcomponent_names": [
+        "Copy",
+        "Visual",
+        "Format",
+        "RSVP path",
+        "Versioning"
+      ],
+      "subcomponents": 5,
+      "ws": 2
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T29",
+      "kind": "atom",
+      "name": "Vendor outreach",
+      "phase": "P09",
+      "quadrant": "AUTO",
+      "serves": [],
+      "skill": "NEG",
+      "structural": true,
+      "subcomponent_names": [
+        "Per-vendor brief",
+        "Terms package",
+        "Cue sheet slice",
+        "Confirmation cycle",
+        "Discretion brief"
+      ],
+      "subcomponents": 5,
+      "ws": 4
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T30",
+      "kind": "atom",
+      "name": "Counter-quote handling",
+      "phase": "P09",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        6
+      ],
+      "skill": "NEG",
+      "structural": false,
+      "subcomponent_names": [
+        "In-envelope auto-handle",
+        "Out-of-envelope escalation",
+        "Trade options",
+        "Substitution path",
+        "Ledger update"
+      ],
+      "subcomponents": 5,
+      "ws": 4
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T31",
+      "kind": "atom",
+      "name": "Generate vendor contracts",
+      "phase": "P09",
+      "quadrant": "AUTO",
+      "serves": [],
+      "skill": "OPS",
+      "structural": true,
+      "subcomponent_names": [
+        "Template fill",
+        "Discretion scrub",
+        "Insurance / indemnity",
+        "Cancellation terms",
+        "E-sign delivery"
+      ],
+      "subcomponents": 5,
+      "ws": 4
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T32",
+      "kind": "atom",
+      "name": "Deposits, payment scheduling, invoicing ledger",
+      "phase": "P09",
+      "quadrant": "AUTO",
+      "serves": [],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Deposit schedule",
+        "Auto-pay execution",
+        "Tracking ledger",
+        "Variance alerts",
+        "Vendor-side acknowledgment"
+      ],
+      "subcomponents": 5,
+      "ws": 4
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T33",
+      "kind": "atom",
+      "name": "Insurance, permits, COIs",
+      "phase": "P09",
+      "quadrant": "AUTO",
+      "serves": [],
+      "skill": "OPS",
+      "structural": true,
+      "subcomponent_names": [
+        "COI collection",
+        "Permit pull",
+        "Document storage",
+        "Expiration tracking",
+        "Pre-day audit"
+      ],
+      "subcomponents": 5,
+      "ws": 4
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T34",
+      "kind": "atom",
+      "name": "Vendor portal with cue sheet slice",
+      "phase": "P09",
+      "quadrant": "AUTO",
+      "serves": [
+        8,
+        10
+      ],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Per-vendor view",
+        "Neighbor visibility",
+        "Cue commitments",
+        "Live updates",
+        "Mobile-first"
+      ],
+      "subcomponents": 5,
+      "ws": 3
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T35",
+      "kind": "atom",
+      "name": "Author run-of-show",
+      "phase": "P10",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        7,
+        8
+      ],
+      "skill": "LOG",
+      "structural": false,
+      "subcomponent_names": [
+        "Time-slice authoring",
+        "Sensory layer",
+        "Decision-rights overlay",
+        "Escalation overlay",
+        "Contingency branches"
+      ],
+      "subcomponents": 5,
+      "ws": 5
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T36",
+      "kind": "atom",
+      "name": "Child-flow choreography",
+      "phase": "P10",
+      "quadrant": "HUMAN-AI",
+      "serves": [
+        9
+      ],
+      "skill": "LOG",
+      "structural": false,
+      "subcomponent_names": [
+        "Station pull design",
+        "Spatial flow",
+        "Child-handling staff",
+        "Transition cues",
+        "Parent off-ramp"
+      ],
+      "subcomponents": 5,
+      "ws": 5
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T37",
+      "kind": "atom",
+      "name": "Parallel-track design",
+      "phase": "P10",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        10
+      ],
+      "skill": "LOG",
+      "structural": false,
+      "subcomponent_names": [
+        "Kid-track timeline",
+        "Adult-track timeline",
+        "Crossover ritual",
+        "Staffing split",
+        "Seam test"
+      ],
+      "subcomponents": 5,
+      "ws": 5
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T38",
+      "kind": "atom",
+      "name": "Sensory cue sheet",
+      "phase": "P10",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        8
+      ],
+      "skill": "LOG",
+      "structural": false,
+      "subcomponent_names": [
+        "Music progression",
+        "Light cues",
+        "Scent moments",
+        "Motion",
+        "Non-verbal staff signals"
+      ],
+      "subcomponents": 5,
+      "ws": 5
+    },
+    {
+      "arc": "C",
+      "goals": [
+        "GOAL:brand",
+        "GOAL:safety"
+      ],
+      "id": "T39",
+      "kind": "atom",
+      "name": "Allergy + child preference matrix",
+      "phase": "P10",
+      "quadrant": "AUTO",
+      "serves": [],
+      "skill": "LOG",
+      "structural": false,
+      "subcomponent_names": [
+        "Guest data collection",
+        "Per-child capture",
+        "Plate-actionable distribution",
+        "F&B staff brief",
+        "Backup options"
+      ],
+      "subcomponents": 5,
+      "ws": 5
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T40",
+      "kind": "atom",
+      "name": "Decision-rights pre-assignment",
+      "phase": "P10",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        1,
+        7
+      ],
+      "skill": "LOG",
+      "structural": false,
+      "subcomponent_names": [
+        "Decision enumeration",
+        "Owner assignment",
+        "Authority bounds",
+        "Escalation path",
+        "Documented in the ROS"
+      ],
+      "subcomponents": 5,
+      "ws": 5
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T41",
+      "kind": "atom",
+      "name": "Escalation protocol with \"don't tell hostess\" tier",
+      "phase": "P10",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        1,
+        7
+      ],
+      "skill": "LOG",
+      "structural": false,
+      "subcomponent_names": [
+        "Tier 1",
+        "Tier 2",
+        "Tier 3",
+        "Tier 4",
+        "Documented + rehearsed"
+      ],
+      "subcomponents": 5,
+      "ws": 5
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T42",
+      "kind": "atom",
+      "name": "Pre-day site walk",
+      "phase": "P11",
+      "quadrant": "HUMAN-AI",
+      "serves": [
+        8
+      ],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Camera angles",
+        "Flow lines",
+        "Vendor staging zones",
+        "Risk inventory",
+        "ROS reconciliation"
+      ],
+      "subcomponents": 5,
+      "ws": 8
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T43",
+      "kind": "atom",
+      "name": "Dry-run cue sheet",
+      "phase": "P11",
+      "quadrant": "HUMAN-AI",
+      "serves": [
+        8
+      ],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Cue execution",
+        "Hand-off rehearsal",
+        "Contingency walk",
+        "Photographer alignment",
+        "Adjustments"
+      ],
+      "subcomponents": 5,
+      "ws": 8
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T44",
+      "kind": "atom",
+      "name": "Hostess one-page day-of brief",
+      "phase": "P11",
+      "quadrant": "AUTO",
+      "serves": [
+        1,
+        7
+      ],
+      "skill": "COM",
+      "structural": false,
+      "subcomponent_names": [
+        "Arrival time",
+        "Wardrobe note",
+        "Unreachable window",
+        "Encouragement line",
+        "Named human's signature"
+      ],
+      "subcomponents": 5,
+      "ws": 5
+    },
+    {
+      "arc": "C",
+      "goals": [
+        "GOAL:brand"
+      ],
+      "id": "T45",
+      "kind": "atom",
+      "name": "CD/CEO evening-before check-in",
+      "phase": "P11",
+      "quadrant": "HUMAN",
+      "serves": [
+        1
+      ],
+      "skill": "CAR",
+      "structural": false,
+      "subcomponent_names": [
+        "Channel",
+        "Register",
+        "Reference one specific thing",
+        "Sign-off",
+        "CD-only"
+      ],
+      "subcomponents": 5,
+      "ws": 9
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T46",
+      "kind": "atom",
+      "name": "Photo brief with relational geometry",
+      "phase": "P10",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        11,
+        13
+      ],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Family group plan",
+        "In-laws inclusion",
+        "No-posed-children note",
+        "CD-tagged hero shots",
+        "Discretion list"
+      ],
+      "subcomponents": 5,
+      "ws": 6
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T47",
+      "kind": "atom",
+      "name": "Album delivery pipeline pre-staging",
+      "phase": "P10",
+      "quadrant": "AUTO",
+      "serves": [
+        12
+      ],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Cull infrastructure",
+        "Selection rubric",
+        "Retouch presets",
+        "Render templates",
+        "Delivery channel"
+      ],
+      "subcomponents": 5,
+      "ws": 6
+    },
+    {
+      "arc": "C",
+      "goals": [],
+      "id": "T48",
+      "kind": "atom",
+      "name": "Contingency triggers",
+      "phase": "P11",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        1,
+        7
+      ],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Weather plan",
+        "Vendor no-show plan",
+        "Meltdown protocol",
+        "Food delay plan",
+        "Final decision rule"
+      ],
+      "subcomponents": 5,
+      "ws": 5
+    },
+    {
+      "arc": "D",
+      "goals": [
+        "GOAL:membrane"
+      ],
+      "id": "T49",
+      "kind": "atom",
+      "name": "Vendor arrival staging",
+      "phase": "P12",
+      "quadrant": "HUMAN-AI",
+      "serves": [
+        7
+      ],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Load-in window",
+        "Alternate route",
+        "Staging zone",
+        "Setup sequence",
+        "Membrane discipline"
+      ],
+      "subcomponents": 5,
+      "ws": 8
+    },
+    {
+      "arc": "D",
+      "goals": [],
+      "id": "T50",
+      "kind": "atom",
+      "name": "Staff brief and assignment confirmation",
+      "phase": "P12",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        7,
+        8
+      ],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Lane",
+        "Tell",
+        "Escalation path",
+        "Discretion brief",
+        "Sign-off"
+      ],
+      "subcomponents": 5,
+      "ws": 8
+    },
+    {
+      "arc": "D",
+      "goals": [
+        "GOAL:brand"
+      ],
+      "id": "T51",
+      "kind": "atom",
+      "name": "Final aesthetic walk-through",
+      "phase": "P12",
+      "quadrant": "HUMAN",
+      "serves": [
+        11,
+        13
+      ],
+      "skill": "TST",
+      "structural": false,
+      "subcomponent_names": [
+        "Walk path",
+        "Remove, not adjust",
+        "Add the missing detail",
+        "Photo check",
+        "Sign-off"
+      ],
+      "subcomponents": 5,
+      "ws": 7
+    },
+    {
+      "arc": "D",
+      "goals": [],
+      "id": "T52",
+      "kind": "atom",
+      "name": "Guest arrival management",
+      "phase": "P12",
+      "quadrant": "AUTO",
+      "serves": [
+        11
+      ],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Manifest",
+        "VIP flag",
+        "Tablet view",
+        "Drink hand-off",
+        "Light direction"
+      ],
+      "subcomponents": 5,
+      "ws": 8
+    },
+    {
+      "arc": "D",
+      "goals": [],
+      "id": "T53",
+      "kind": "atom",
+      "name": "Cue execution against ROS",
+      "phase": "P12",
+      "quadrant": "HUMAN-AI",
+      "serves": [
+        8
+      ],
+      "skill": "LOG",
+      "structural": false,
+      "subcomponent_names": [
+        "Countdown surface",
+        "Hand-off prompts",
+        "Slippage tracker",
+        "Adjustment authority",
+        "Sensory cross-check"
+      ],
+      "subcomponents": 5,
+      "ws": 5
+    },
+    {
+      "arc": "D",
+      "goals": [],
+      "id": "T54",
+      "kind": "atom",
+      "name": "Child-flow live management",
+      "phase": "P12",
+      "quadrant": "HUMAN",
+      "serves": [
+        9
+      ],
+      "skill": "LOG",
+      "structural": false,
+      "subcomponent_names": [
+        "Station-keeper presence",
+        "Energy read",
+        "Gentle rotation",
+        "Intervention protocol",
+        "Hand-off to F&B"
+      ],
+      "subcomponents": 5,
+      "ws": 5
+    },
+    {
+      "arc": "D",
+      "goals": [],
+      "id": "T55",
+      "kind": "atom",
+      "name": "Adult-track pacing",
+      "phase": "P12",
+      "quadrant": "HUMAN-AI",
+      "serves": [
+        10
+      ],
+      "skill": "LOG",
+      "structural": false,
+      "subcomponent_names": [
+        "Drinks pacing",
+        "Dinner rollover",
+        "Conversation arc",
+        "Music shift",
+        "Pergola or equivalent"
+      ],
+      "subcomponents": 5,
+      "ws": 5
+    },
+    {
+      "arc": "D",
+      "goals": [],
+      "id": "T56",
+      "kind": "atom",
+      "name": "Hostess shadow",
+      "phase": "P12",
+      "quadrant": "HUMAN",
+      "serves": [
+        1,
+        7
+      ],
+      "skill": "CAR",
+      "structural": false,
+      "subcomponent_names": [
+        "Pre-day prep",
+        "Proximity discipline",
+        "Anticipation set",
+        "Quiet hand-off",
+        "Closing moment"
+      ],
+      "subcomponents": 5,
+      "ws": 9
+    },
+    {
+      "arc": "D",
+      "goals": [],
+      "id": "T57",
+      "kind": "atom",
+      "name": "In-flight contingency handling",
+      "phase": "P12",
+      "quadrant": "HUMAN-AI",
+      "serves": [
+        1,
+        7
+      ],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Detection",
+        "Branch selection",
+        "Routing",
+        "Hostess shielding",
+        "Post-event log"
+      ],
+      "subcomponents": 5,
+      "ws": 8
+    },
+    {
+      "arc": "D",
+      "goals": [],
+      "id": "T58",
+      "kind": "atom",
+      "name": "Live host / family / in-law coverage",
+      "phase": "P13",
+      "quadrant": "HUMAN-AI",
+      "serves": [
+        11,
+        13
+      ],
+      "skill": "CRF",
+      "structural": false,
+      "subcomponent_names": [
+        "Shot-list adherence",
+        "Mother-in-law frame",
+        "Host-with-child",
+        "Group geometry",
+        "Live editing"
+      ],
+      "subcomponents": 5,
+      "ws": 6
+    },
+    {
+      "arc": "D",
+      "goals": [
+        "ASSET:referral"
+      ],
+      "id": "T59",
+      "kind": "atom",
+      "name": "Editorial coverage",
+      "phase": "P13",
+      "quadrant": "HUMAN-AI",
+      "serves": [
+        13
+      ],
+      "skill": "CRF",
+      "structural": false,
+      "subcomponent_names": [
+        "Still-life set",
+        "Atmosphere frames",
+        "Detail coverage",
+        "Hero candidates",
+        "Clearance plan"
+      ],
+      "subcomponents": 5,
+      "ws": 6
+    },
+    {
+      "arc": "D",
+      "goals": [],
+      "id": "T60",
+      "kind": "atom",
+      "name": "Real-time taste corrections",
+      "phase": "P12",
+      "quadrant": "HUMAN",
+      "serves": [
+        11,
+        13
+      ],
+      "skill": "TST",
+      "structural": false,
+      "subcomponent_names": [
+        "Live taste read",
+        "Intervention authority",
+        "Light correction",
+        "Mood correction",
+        "Photo veto"
+      ],
+      "subcomponents": 5,
+      "ws": 7
+    },
+    {
+      "arc": "D",
+      "goals": [
+        "GOAL:membrane"
+      ],
+      "id": "T61",
+      "kind": "atom",
+      "name": "End-of-event de-stage",
+      "phase": "P12",
+      "quadrant": "AUG-HITL",
+      "serves": [],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Curtain area",
+        "De-stage sequence",
+        "Guest-aware timing",
+        "Vendor exit choreography",
+        "Final sweep"
+      ],
+      "subcomponents": 5,
+      "ws": 8
+    },
+    {
+      "arc": "D",
+      "goals": [],
+      "id": "T62",
+      "kind": "atom",
+      "name": "Hostess send-off",
+      "phase": "P12",
+      "quadrant": "HUMAN",
+      "serves": [
+        1,
+        14
+      ],
+      "skill": "CAR",
+      "structural": true,
+      "subcomponent_names": [
+        "Timing",
+        "Voice",
+        "Specificity",
+        "Sign-off",
+        "Channel handoff"
+      ],
+      "subcomponents": 5,
+      "ws": 9
+    },
+    {
+      "arc": "E",
+      "goals": [],
+      "id": "T63",
+      "kind": "atom",
+      "name": "Same-night photo cull",
+      "phase": "P14",
+      "quadrant": "AUTO",
+      "serves": [
+        12
+      ],
+      "skill": "CRF",
+      "structural": false,
+      "subcomponent_names": [
+        "Technical reject",
+        "Duplicate reduction",
+        "Editorial flag",
+        "Discretion filter",
+        "Output staging"
+      ],
+      "subcomponents": 5,
+      "ws": 6
+    },
+    {
+      "arc": "E",
+      "goals": [],
+      "id": "T64",
+      "kind": "atom",
+      "name": "Editorial selection",
+      "phase": "P14",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        12,
+        13
+      ],
+      "skill": "CRF",
+      "structural": false,
+      "subcomponent_names": [
+        "Algorithmic shortlist",
+        "CD hero pick",
+        "Story arc",
+        "Family inclusion check",
+        "Discretion final pass"
+      ],
+      "subcomponents": 5,
+      "ws": 6
+    },
+    {
+      "arc": "E",
+      "goals": [],
+      "id": "T65",
+      "kind": "atom",
+      "name": "Color, retouch on hero frames",
+      "phase": "P14",
+      "quadrant": "AUTO",
+      "serves": [
+        13
+      ],
+      "skill": "CRF",
+      "structural": false,
+      "subcomponent_names": [
+        "Preset application",
+        "Hero color",
+        "Skin / portrait correction",
+        "Light recovery",
+        "Print-grade export"
+      ],
+      "subcomponents": 5,
+      "ws": 6
+    },
+    {
+      "arc": "E",
+      "goals": [],
+      "id": "T66",
+      "kind": "atom",
+      "name": "Album rendered, shared, mobile + download",
+      "phase": "P14",
+      "quadrant": "AUTO",
+      "serves": [
+        12
+      ],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Layout",
+        "Mobile-first",
+        "Download",
+        "Share",
+        "Analytics"
+      ],
+      "subcomponents": 5,
+      "ws": 6
+    },
+    {
+      "arc": "E",
+      "goals": [],
+      "id": "T67",
+      "kind": "atom",
+      "name": "Album delivery message",
+      "phase": "P14",
+      "quadrant": "AUTO",
+      "serves": [
+        12,
+        14
+      ],
+      "skill": "COM",
+      "structural": false,
+      "subcomponent_names": [
+        "Reference specific detail",
+        "Brevity",
+        "Channel",
+        "Sign",
+        "Follow-on hint"
+      ],
+      "subcomponents": 5,
+      "ws": 6
+    },
+    {
+      "arc": "E",
+      "goals": [],
+      "id": "T68",
+      "kind": "atom",
+      "name": "Personal follow-up",
+      "phase": "P15",
+      "quadrant": "HUMAN",
+      "serves": [
+        14
+      ],
+      "skill": "CAR",
+      "structural": false,
+      "subcomponent_names": [
+        "Specific reference",
+        "Medium",
+        "Brevity",
+        "No ask",
+        "Timing"
+      ],
+      "subcomponents": 5,
+      "ws": 9
+    },
+    {
+      "arc": "E",
+      "goals": [],
+      "id": "T69",
+      "kind": "atom",
+      "name": "Referral activation",
+      "phase": "P15",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        14
+      ],
+      "skill": "COM",
+      "structural": false,
+      "subcomponent_names": [
+        "Timing nudge",
+        "Mechanism",
+        "Human signature",
+        "Attribution wiring",
+        "Restraint"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "E",
+      "goals": [
+        "GOAL:brand"
+      ],
+      "id": "T70",
+      "kind": "atom",
+      "name": "Press / portfolio pipeline",
+      "phase": "P15",
+      "quadrant": "AUTO",
+      "serves": [],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Clearance check",
+        "Tagging",
+        "Captioning",
+        "Storage",
+        "Push to surfaces"
+      ],
+      "subcomponents": 5,
+      "ws": 6
+    },
+    {
+      "arc": "E",
+      "goals": [
+        "ASSET:vendor_network"
+      ],
+      "id": "T71",
+      "kind": "atom",
+      "name": "Vendor scoring",
+      "phase": "P15",
+      "quadrant": "AUTO",
+      "serves": [],
+      "skill": "ANL",
+      "structural": false,
+      "subcomponent_names": [
+        "Reliability score",
+        "Taste-fit score",
+        "Cost-discipline score",
+        "Hand-off behavior",
+        "Re-engagement tier"
+      ],
+      "subcomponents": 5,
+      "ws": 3
+    },
+    {
+      "arc": "E",
+      "goals": [
+        "ASSET:vendor_network"
+      ],
+      "id": "T72",
+      "kind": "atom",
+      "name": "Vendor network growth",
+      "phase": "P15",
+      "quadrant": "AUG-HITL",
+      "serves": [],
+      "skill": "OPS",
+      "structural": false,
+      "subcomponent_names": [
+        "Onboarding pack",
+        "Taste validation",
+        "Operational vetting",
+        "Network introductions",
+        "Data tier"
+      ],
+      "subcomponents": 5,
+      "ws": 3
+    },
+    {
+      "arc": "E",
+      "goals": [
+        "ASSET:referral",
+        "ASSET:customer_dossier"
+      ],
+      "id": "T73",
+      "kind": "atom",
+      "name": "Customer dossier update",
+      "phase": "P15",
+      "quadrant": "AUTO",
+      "serves": [],
+      "skill": "ANL",
+      "structural": false,
+      "subcomponent_names": [
+        "Aesthetic learning",
+        "Vendor preferences",
+        "Household preferences",
+        "Network learning",
+        "Next-event seed"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "E",
+      "goals": [
+        "ASSET:referral"
+      ],
+      "id": "T74",
+      "kind": "atom",
+      "name": "Loop hold",
+      "phase": "P15",
+      "quadrant": "HUMAN-AI",
+      "serves": [],
+      "skill": "CAR",
+      "structural": true,
+      "subcomponent_names": [
+        "Cadence",
+        "Timing nudge",
+        "Content",
+        "Channel",
+        "No-ask discipline"
+      ],
+      "subcomponents": 5,
+      "ws": 9
+    },
+    {
+      "arc": "E",
+      "goals": [],
+      "id": "T75",
+      "kind": "atom",
+      "name": "Referral attribution",
+      "phase": "P15",
+      "quadrant": "AUTO",
+      "serves": [],
+      "skill": "OPS",
+      "structural": true,
+      "subcomponent_names": [
+        "Source tagging",
+        "Accounting",
+        "Reporting",
+        "Threshold flags",
+        "Vendor attribution"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "E",
+      "goals": [
+        "ASSET:playbook"
+      ],
+      "id": "T76",
+      "kind": "atom",
+      "name": "Post-mortem with planner + CD",
+      "phase": "P15",
+      "quadrant": "AUG-HITL",
+      "serves": [],
+      "skill": "OPS",
+      "structural": true,
+      "subcomponent_names": [
+        "What worked",
+        "What didn't",
+        "Playbook diff",
+        "Vendor feedback",
+        "Customer feedback"
+      ],
+      "subcomponents": 5,
+      "ws": 1
+    },
+    {
+      "arc": "E",
+      "goals": [
+        "GOAL:brand"
+      ],
+      "id": "T77",
+      "kind": "atom",
+      "name": "Hostess-grade recap doc",
+      "phase": "P15",
+      "quadrant": "AUG-HITL",
+      "serves": [
+        14
+      ],
+      "skill": "COM",
+      "structural": false,
+      "subcomponent_names": [
+        "Photo selection",
+        "Write-up",
+        "Format",
+        "Delivery",
+        "Sign"
+      ],
+      "subcomponents": 5,
+      "ws": 6
+    },
+    {
+      "arc": "E",
+      "goals": [
+        "GOAL:brand"
+      ],
+      "id": "T78",
+      "kind": "atom",
+      "name": "CD handwritten note on recap doc",
+      "phase": "P15",
+      "quadrant": "HUMAN",
+      "serves": [],
+      "skill": "TST",
+      "structural": false,
+      "subcomponent_names": [
+        "Specific reference",
+        "Length",
+        "Hand",
+        "Placement",
+        "Sign"
+      ],
+      "subcomponents": 5,
+      "ws": 7
+    },
+    {
+      "id": "ASSET:customer_dossier",
+      "kind": "goal"
+    },
+    {
+      "id": "ASSET:playbook",
+      "kind": "goal"
+    },
+    {
+      "id": "ASSET:referral",
+      "kind": "goal"
+    },
+    {
+      "id": "ASSET:vendor_network",
+      "kind": "goal"
+    },
+    {
+      "id": "GOAL:brand",
+      "kind": "goal"
+    },
+    {
+      "id": "GOAL:membrane",
+      "kind": "goal"
+    },
+    {
+      "id": "GOAL:safety",
+      "kind": "goal"
+    },
+    {
+      "id": "R1",
+      "kind": "outcome",
+      "label": "present at my own party"
+    },
+    {
+      "id": "R10",
+      "kind": "outcome",
+      "label": "invisible dual-tier magic"
+    },
+    {
+      "id": "R11",
+      "kind": "outcome",
+      "label": "in-room intergenerational proof"
+    },
+    {
+      "id": "R12",
+      "kind": "outcome",
+      "label": "velocity beat the network"
+    },
+    {
+      "id": "R13",
+      "kind": "outcome",
+      "label": "print-grade photography"
+    },
+    {
+      "id": "R14",
+      "kind": "outcome",
+      "label": "she becomes the distribution channel"
+    },
+    {
+      "id": "R15",
+      "kind": "outcome",
+      "label": "staged for, not managed"
+    },
+    {
+      "id": "R2",
+      "kind": "outcome",
+      "label": "recognized, not interviewed"
+    },
+    {
+      "id": "R3",
+      "kind": "outcome",
+      "label": "disproportionate creative return"
+    },
+    {
+      "id": "R4",
+      "kind": "outcome",
+      "label": "identity reflected, not category"
+    },
+    {
+      "id": "R5",
+      "kind": "outcome",
+      "label": "discovery / status / novelty"
+    },
+    {
+      "id": "R6",
+      "kind": "outcome",
+      "label": "discretion / private budget"
+    },
+    {
+      "id": "R7",
+      "kind": "outcome",
+      "label": "day-of cognitive offload"
+    },
+    {
+      "id": "R8",
+      "kind": "outcome",
+      "label": "rhythm felt, mechanics invisible"
+    },
+    {
+      "id": "R9",
+      "kind": "outcome",
+      "label": "effortless child choreography"
+    },
+    {
+      "arc": "A",
+      "id": "P01",
+      "kind": "phase"
+    },
+    {
+      "arc": "A",
+      "id": "P02",
+      "kind": "phase"
+    },
+    {
+      "arc": "A",
+      "id": "P03",
+      "kind": "phase"
+    },
+    {
+      "arc": "B",
+      "id": "P04",
+      "kind": "phase"
+    },
+    {
+      "arc": "B",
+      "id": "P05",
+      "kind": "phase"
+    },
+    {
+      "arc": "B",
+      "id": "P06",
+      "kind": "phase"
+    },
+    {
+      "arc": "B",
+      "id": "P07",
+      "kind": "phase"
+    },
+    {
+      "arc": "B",
+      "id": "P08",
+      "kind": "phase"
+    },
+    {
+      "arc": "C",
+      "id": "P09",
+      "kind": "phase"
+    },
+    {
+      "arc": "C",
+      "id": "P10",
+      "kind": "phase"
+    },
+    {
+      "arc": "C",
+      "id": "P11",
+      "kind": "phase"
+    },
+    {
+      "arc": "D",
+      "id": "P12",
+      "kind": "phase"
+    },
+    {
+      "arc": "D",
+      "id": "P13",
+      "kind": "phase"
+    },
+    {
+      "arc": "E",
+      "id": "P14",
+      "kind": "phase"
+    },
+    {
+      "arc": "E",
+      "id": "P15",
+      "kind": "phase"
+    },
+    {
+      "id": "Q:AUG-HITL",
+      "kind": "quadrant"
+    },
+    {
+      "id": "Q:AUTO",
+      "kind": "quadrant"
+    },
+    {
+      "id": "Q:HUMAN",
+      "kind": "quadrant"
+    },
+    {
+      "id": "Q:HUMAN-AI",
+      "kind": "quadrant"
+    },
+    {
+      "id": "SKILL:ANL",
+      "kind": "skill",
+      "label": "analysis/inference"
+    },
+    {
+      "id": "SKILL:CAR",
+      "kind": "skill",
+      "label": "care/relationship"
+    },
+    {
+      "id": "SKILL:COM",
+      "kind": "skill",
+      "label": "communication/copy"
+    },
+    {
+      "id": "SKILL:CRF",
+      "kind": "skill",
+      "label": "craft"
+    },
+    {
+      "id": "SKILL:LOG",
+      "kind": "skill",
+      "label": "logistics"
+    },
+    {
+      "id": "SKILL:NEG",
+      "kind": "skill",
+      "label": "negotiation"
+    },
+    {
+      "id": "SKILL:OPS",
+      "kind": "skill",
+      "label": "operations"
+    },
+    {
+      "id": "SKILL:TST",
+      "kind": "skill",
+      "label": "taste"
+    },
+    {
+      "id": "WS1",
+      "kind": "workstream",
+      "label": "Lead intake & qualification",
+      "wstype": "agent"
+    },
+    {
+      "id": "WS2",
+      "kind": "workstream",
+      "label": "Design ideation & moodboarding",
+      "wstype": "agent"
+    },
+    {
+      "id": "WS3",
+      "kind": "workstream",
+      "label": "Vendor matching",
+      "wstype": "agent"
+    },
+    {
+      "id": "WS4",
+      "kind": "workstream",
+      "label": "Vendor negotiation & contracting",
+      "wstype": "agent"
+    },
+    {
+      "id": "WS5",
+      "kind": "workstream",
+      "label": "Logistics & run-of-show",
+      "wstype": "agent"
+    },
+    {
+      "id": "WS6",
+      "kind": "workstream",
+      "label": "Post-event delivery",
+      "wstype": "agent"
+    },
+    {
+      "id": "WS7",
+      "kind": "workstream",
+      "label": "Taste arbitration",
+      "wstype": "human"
+    },
+    {
+      "id": "WS8",
+      "kind": "workstream",
+      "label": "On-site execution",
+      "wstype": "human"
+    },
+    {
+      "id": "WS9",
+      "kind": "workstream",
+      "label": "Relationship custody",
+      "wstype": "human"
+    }
+  ]
+}

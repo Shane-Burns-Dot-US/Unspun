@@ -1,0 +1,143 @@
+# Contexts 1 (Parties & Consent), 11 (Safety & Compliance), 12 (Platform & Governance)
+# Entity shorthand: pk=id prefix, arch=archetype, nat=natural key (UNIQUE),
+#   st=state enum, mix=mixins, f=fields, rel=relations (k: comp|fk|ref, c: cardinality)
+
+# ============================ Context 1 — Parties & Consent ===================
+Person:        # the single identity core (Party pattern, clarity U-7 / MECE ME-5)
+  {pk: per_, arch: party, mix: [+audit,+soft], nat: [],
+   f: {display_name: txt, given_name: "txt?", family_name: "txt?", pronouns: "txt?",
+       languages: "[txt]?", is_minor: bool, date_of_birth: "date?", notes: "txt?"},
+   rel: [{to: ContactChannel, k: comp, c: "1..n"}]}
+
+ContactChannel:
+  {pk: cch_, arch: member, mix: [+audit,+soft], nat: [person_id, channel_type, value],
+   f: {person_id: txt, channel_type: txt, value: txt, verified: bool,
+       preferred: bool, opt_in: bool, do_not_contact: bool},
+   rel: [{to: Person, k: fk, c: "n..1"}]}
+
+Household:     # durable relationship; aggregate root
+  {pk: hh_, arch: root, mix: [+audit,+soft],
+   f: {display_name: txt, discretion: discretion_level, primary_person_id: "txt?",
+       residences: "[txt]?", household_notes: "txt?"},
+   rel: [{to: Person, k: ref, c: "1..n", via: roles}, {to: ClientProfile, k: comp, c: "1..1"}]}
+
+# Role personas: one Person may hold many, across households/events (multi-role)
+ClientRole:    # an adult principal/decision-maker/payer
+  {pk: cli_, arch: party, mix: [+audit,+soft], nat: [person_id, household_id],
+   f: {person_id: txt, household_id: txt, decision_authority: txt, is_payer: bool, vip: bool},
+   rel: [{to: Person, k: fk, c: "n..1"}, {to: Household, k: fk, c: "n..1"}]}
+
+Member:        # other household person (sibling, partner, estate manager)
+  {pk: mem_, arch: party, mix: [+audit,+soft], nat: [person_id, household_id],
+   f: {person_id: txt, household_id: txt, role_in_household: txt},
+   rel: [{to: Person, k: fk, c: "n..1"}, {to: Household, k: fk, c: "n..1"}]}
+
+Celebrant:     # the child (minor-protected)
+  {pk: cel_, arch: party, mix: [+audit,+soft], nat: [person_id, household_id],
+   f: {person_id: txt, household_id: txt, age_turning: "int?",
+       interests: "[txt]?", sensitivities: "jsonb?", do_not_include: "[txt]?",
+       sensitivity: sensitivity_class},
+   rel: [{to: Person, k: fk, c: "n..1"}, {to: Household, k: fk, c: "n..1"}]}
+
+RelationshipEdge:   # directed social-graph link (ProfileGraph is the view over these)
+  {pk: rel_, arch: member, mix: [+audit,+soft,+sourced], nat: [from_id, to_id, edge_type],
+   f: {from_id: txt, to_id: txt, edge_type: txt, strength: edge_strength, since: "date?"}}
+
+ClientProfile:      # composed portrait — derived projection over consented signals
+  {pk: cpf_, arch: projection, mix: [+audit], nat: [household_id],
+   f: {household_id: txt, taste_summary: "txt?", lifestyle_markers: "jsonb?",
+       affinities: "jsonb?", no_go: "[txt]?", curator_notes: "txt?", recomputed_at: ts},
+   rel: [{to: Household, k: fk, c: "1..1"}, {to: TasteProfile, k: ref, c: "n..1"}]}
+
+ProfileSignal:      # one sourced/consented datum (append-only)
+  {pk: psg_, arch: signal, mix: [+sourced], nat: [subject_id, signal_key, "provenance.source_ref"],
+   f: {subject_id: txt, subject_type: txt, signal_key: txt, value: jsonb,
+       capture_method: capture_method, lawful_basis: lawful_basis, superseded_by_id: "txt?"}}
+
+Consent:            # granular, revocable permission
+  {pk: cns_, arch: policy, st: consent_state, mix: [+audit,+versioned],
+   nat: [subject_id, purpose, scope, version],
+   f: {subject_id: txt, purpose: txt, data_categories: "[txt]", lawful_basis: lawful_basis,
+       granted_by: txt, granted_by_relation: txt, granted_at: ts, withdrawn_at: "ts?",
+       evidence_document_id: "txt?"}}
+
+ConsentVocabulary:  # enumerated purposes/categories so consent is checkable (clarity C-5)
+  {pk: cvoc_, arch: master, mix: [+audit,+versioned], nat: [kind, code, version],
+   f: {kind: txt, code: txt, label: txt, sensitivity: sensitivity_class, minor_allowed: bool}}
+
+SourcePolicy:       # scraping/enrichment allow-list (clarity C-6)
+  {pk: srcp_, arch: policy, mix: [+audit,+versioned], nat: [source, version],
+   f: {source: txt, allowed_methods: "[capture_method]", allowed_for_minors: bool,
+       lawful_basis: lawful_basis, max_sensitivity: sensitivity_class, notes: "txt?"}}
+
+# ============================ Context 11 — Safety & Compliance ================
+SafeguardingPolicy:
+  {pk: safe_, arch: policy, mix: [+audit,+versioned], nat: [code, version],
+   f: {code: txt, rules: jsonb, applies_to: txt}}
+
+BackgroundCheck:    # staff/vendors in contact with minors
+  {pk: bgc_, arch: member, mix: [+audit,+soft], nat: [subject_person_id, check_type, issued_at],
+   f: {subject_person_id: txt, check_type: txt, status: txt, issued_at: "ts?",
+       expires_at: "ts?", evidence_document_id: "txt?", verified_by: "txt?"},
+   rel: [{to: Person, k: fk, c: "n..1"}]}
+
+SupervisionPlan:    # adult:child ratios and coverage
+  {pk: supv_, arch: member, mix: [+audit], nat: [event_id],
+   f: {event_id: txt, required_ratio: txt, planned_ratio: txt, coverage: jsonb},
+   rel: [{to: Event, k: fk, c: "1..1"}]}
+
+EmergencyPlan:      # medical/allergy/evac
+  {pk: emrg_, arch: member, mix: [+audit], nat: [event_id],
+   f: {event_id: txt, medical: jsonb, allergies: jsonb, evac_routes: jsonb,
+       nearest_facilities: jsonb, on_site_first_aid: bool},
+   rel: [{to: Event, k: fk, c: "1..1"}]}
+
+SecurityPlan:       # physical security / privacy detail (affluent clients, clarity C-4)
+  {pk: secp_, arch: member, mix: [+audit], nat: [event_id],
+   f: {event_id: txt, detail_level: txt, access_control: jsonb, media_blackout: bool,
+       location_secrecy: discretion_level},
+   rel: [{to: Event, k: fk, c: "1..1"}]}
+
+MediaPolicy:        # minors' image rights / posting rules
+  {pk: medp_, arch: policy, mix: [+audit,+versioned], nat: [scope_id, version],
+   f: {scope_id: txt, scope_type: txt, may_capture: bool, may_share_internal: bool,
+       may_showcase: bool, consent_id: "txt?", discretion: discretion_level}}
+
+DiscretionPolicy:   # gates ALL outward use of client/guest data (clarity V-3)
+  {pk: disp_, arch: policy, mix: [+audit,+versioned], nat: [household_id, version],
+   f: {household_id: txt, level: discretion_level, allow_showcase: bool,
+       allow_referral: bool, allow_testimonial: bool, anonymization_required: bool}}
+
+# ============================ Context 12 — Platform & Governance ==============
+AuditEvent:         # immutable record of significant actions (append-only)
+  {pk: aud_, arch: signal,
+   f: {actor_id: "txt?", actor_role: "txt?", action: txt, target_id: "txt?",
+       target_type: "txt?", at: ts, reason: "txt?", payload: "jsonb?"}}
+
+Document:           # versioned wrapper over stored files (clarity C-7)
+  {pk: doc_, arch: master, st: doc_state, mix: [+audit,+soft,+versioned],
+   nat: [doc_type, subject_id, version],
+   f: {doc_type: txt, subject_id: "txt?", uri: txt, mime: txt, hash: txt,
+       rights_status: "txt?", signer_id: "txt?", signed_at: "ts?", expires_at: "ts?"}}
+
+Approval:           # generalized approval gate (clarity C-11; HumanReview specializes it)
+  {pk: apr_, arch: signal, st: approval_state,
+   f: {target_id: txt, target_type: txt, gate: txt, decided_by: "txt?", role: "txt?",
+       decision: "txt?", rationale: "txt?", decided_at: "ts?"}}
+
+Region:             # market/region (clarity C-9)
+  {pk: rgn_, arch: master, mix: [+audit], nat: [code],
+   f: {code: txt, name: txt, timezone: txt, regulatory_notes: "jsonb?"}}
+
+Brand:
+  {pk: brnd_, arch: master, mix: [+audit], nat: [slug],
+   f: {slug: txt, name: txt, voice_document_id: "txt?"}}
+
+RetentionPolicy:    # how long a data category lives (tighter for minors)
+  {pk: rtp_, arch: policy, mix: [+audit,+versioned], nat: [data_category, subject_class, version],
+   f: {data_category: txt, subject_class: txt, retain_days: int, hard_delete: bool}}
+
+Alert:              # INTERNAL staff notification (clarity D-5; distinct from client Message)
+  {pk: alrt_, arch: signal,
+   f: {to_actor_id: txt, subject: txt, body: "txt?", priority: priority,
+       source_event_id: "txt?", read_at: "ts?", resolved_at: "ts?"}}
