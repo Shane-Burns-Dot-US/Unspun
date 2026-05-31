@@ -123,6 +123,8 @@ Unspun
 │   └─ Unified graph ........ unified-graph.json (KG nouns + atoms via 'realizes')
 │
 └─ 6. Corpus  (the document map)
+    ├─ design/ ....... system-design (HLD), architecture-c4, components, runtime-flows,
+    │                   api-and-events, nfr, security-privacy, deployment-and-ops
     ├─ spec/ ......... domain-keystone, glossary, building-ethos, mece-review,
     │                   gaps-and-clarity-review (+ Chesky addendum)
     ├─ data-model/ ... README, catalog/*.yaml (00-07), sql/*.sql (00-03, incl. merge bridge)

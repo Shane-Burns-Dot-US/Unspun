@@ -47,6 +47,10 @@ flowchart TB
 
 ## Map of the corpus
 
+### `design/` — the system design (the *how it's built & run*)
+The standard SDD set — see its [`README.md`](./design/README.md): system design (HLD),
+C4 views, components, runtime flows, API & events, NFRs, security & privacy, deployment & ops.
+
 ### `spec/` — the domain (the *what*)
 | File | Purpose |
 |---|---|
